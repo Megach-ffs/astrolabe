@@ -2,7 +2,7 @@
 
 import pytest
 import pandas as pd
-import numpy as np
+# import numpy as np  # will be used in future phases
 
 
 @pytest.fixture(autouse=True)
@@ -12,7 +12,7 @@ def clean_session_state():
     Patches sl.session_state with a plain dict before each test.
     """
     import utils.transform_log as tl_module
-    import importlib
+    # import importlib  # will be used in future phases
 
     # Create a mock for streamlit
     class MockSessionState(dict):

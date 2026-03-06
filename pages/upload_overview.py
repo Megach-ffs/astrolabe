@@ -9,7 +9,7 @@ and summary statistics.
 import streamlit as sl
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
+# import numpy as np  # will be used in future phases
 
 from utils.data_loader import load_uploaded_file, load_google_sheet
 from utils.profiler import profile_dataframe
@@ -249,11 +249,11 @@ else:
         sl.markdown(
             """
             Two sample datasets are included in the `sample_data/` directory:
-            
-            1. **ecommerce_orders.csv** — ~1,500 rows, 10 columns  
+
+            1. **ecommerce_orders.csv** — ~1,500 rows, 10 columns
                *E-commerce orders with dirty prices, mixed categories, missing values*
-            
-            2. **weather_stations.xlsx** — ~1,200 rows, 9 columns  
+
+            2. **weather_stations.xlsx** — ~1,200 rows, 9 columns
                *Weather data with sentinel outliers, missing values, rare categories*
             """
         )

@@ -3,7 +3,7 @@
 import pytest
 import pandas as pd
 import json
-import os
+# import os  # will be used in future phases
 
 
 # ──────────────────────────────────────────────
@@ -115,6 +115,7 @@ class TestLoadUploadedFile:
 
         class FakeFile:
             name = "data.xml"
+
             def getvalue(self):
                 return b"<data></data>"
 
@@ -126,6 +127,7 @@ class TestLoadUploadedFile:
 
         class FakeFile:
             name = "data.csv"
+
             def getvalue(self):
                 return sample_csv_bytes
 

@@ -10,8 +10,8 @@ import streamlit as sl
 sl.title("🔬 AI-Assisted Data Wrangler & Visualizer")
 sl.markdown(
     """
-    Welcome to the **Data Wrangler & Visualizer** — your interactive data 
-    preparation studio. Upload a dataset and take it through a complete 
+    Welcome to the **Data Wrangler & Visualizer** — your interactive data
+    preparation studio. Upload a dataset and take it through a complete
     cleaning, transformation, and visualization pipeline.
     """
 )
@@ -61,8 +61,8 @@ with sl.expander("🚀 Quick Start Guide", expanded=True):
         4. **Go to** **Cleaning Studio** to apply transformations
         5. **Build** visualizations in the **Visualization Builder**
         6. **Export** your cleaned data and reports from **Export & Report**
-        
-        💡 **Tip:** Enable the **AI Assistant** in the sidebar for 
+
+        💡 **Tip:** Enable the **AI Assistant** in the sidebar for
         intelligent suggestions and natural language commands.
         """
     )
