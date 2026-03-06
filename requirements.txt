@@ -1,0 +1,15 @@
+streamlit>=1.32
+pandas>=2.2
+openpyxl
+matplotlib
+plotly
+seaborn
+scikit-learn
+scipy
+numpy
+google-generativeai
+anthropic
+gspread
+google-auth
+pytest
+pytest-cov
