@@ -69,3 +69,58 @@ def load_uploaded_file(uploaded_file) -> pd.DataFrame:
             f"Unsupported file format: {filename}. "
             "Please upload a CSV, Excel (.xlsx), or JSON file."
         )
+
+
+def load_google_sheet(sheet_url: str) -> pd.DataFrame:
+    """
+    Load data from a Google Sheets URL via gspread.
+
+    Requires GCP service account credentials in sl.secrets["gcp_service_account"].
+
+    Args:
+        sheet_url: Full URL of the Google Sheet.
+
+    Returns:
+        pd.DataFrame
+
+    Raises:
+        ValueError: If the sheet cannot be accessed or parsed.
+    """
+    try:
+        import gspread
+        from google.oauth2.service_account import Credentials
+    except ImportError:
+        raise ValueError(
+            "Google Sheets integration requires 'gspread' and 'google-auth'. "
+            "Install them with: pip install gspread google-auth"
+        )
+
+    try:
+        creds_dict = dict(sl.secrets["gcp_service_account"])
+    except (KeyError, FileNotFoundError):
+        raise ValueError(
+            "Google Sheets credentials not configured. "
+            "Add a [gcp_service_account] section to .streamlit/secrets.toml"
+        )
+
+    scopes = [
+        "https://www.googleapis.com/auth/spreadsheets.readonly",
+        "https://www.googleapis.com/auth/drive.readonly",
+    ]
+    creds = Credentials.from_service_account_info(creds_dict, scopes=scopes)
+    client = gspread.authorize(creds)
+
+    try:
+        sheet = client.open_by_url(sheet_url)
+        worksheet = sheet.get_worksheet(0)
+        records = worksheet.get_all_records()
+    except Exception as e:
+        raise ValueError(
+            f"Could not access the Google Sheet. "
+            f"Make sure the sheet is shared with the service account. Error: {e}"
+        )
+
+    if not records:
+        raise ValueError("The Google Sheet appears to be empty.")
+
+    return pd.DataFrame(records)
