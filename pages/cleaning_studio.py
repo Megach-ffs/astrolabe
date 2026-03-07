@@ -11,6 +11,7 @@ import pandas as pd
 from utils.transform_log import TransformLog
 from utils import cleaning
 from utils.validation import ValidationRule, validate_rules, export_violations
+from utils import ai_assistant
 
 
 sl.title("🧹 Cleaning & Preparation Studio")
@@ -28,6 +29,160 @@ categorical_cols = df.select_dtypes(include=["object", "category"]).columns.toli
 all_cols = df.columns.tolist()
 
 sl.markdown(f"Working with **{len(df):,}** rows × **{len(df.columns)}** columns")
+
+
+def _apply_ai_suggestion(dataframe, suggestion):
+    """Map an AI suggestion dict to our existing cleaning functions."""
+    op = suggestion["operation"]
+    params = suggestion["params"]
+    cols = suggestion.get("affected_columns", [])
+
+    if op == "fill_missing":
+        strategy = params.get("strategy", "mean")
+        target_cols = params.get("columns", cols)
+        return cleaning.fill_missing(
+            dataframe, target_cols, strategy,
+            constant=params.get("constant")
+        )
+    elif op == "remove_duplicates":
+        return cleaning.remove_duplicates(
+            dataframe,
+            subset=params.get("subset"),
+            keep=params.get("keep", "first"),
+        )
+    elif op == "convert_type":
+        target = params.get("target", "numeric")
+        target_cols = params.get("columns", cols)
+        result = dataframe.copy()
+        for col in target_cols:
+            if target == "numeric":
+                result = cleaning.convert_to_numeric(result, col)
+            elif target == "numeric (dirty)":
+                result = cleaning.clean_dirty_numeric(result, col)
+            elif target == "datetime":
+                result = cleaning.convert_to_datetime(result, col)
+            elif target == "categorical":
+                result = cleaning.convert_to_categorical(result, col)
+        return result
+    elif op == "standardize_categorical":
+        target_cols = params.get("columns", cols)
+        ops = params.get("operations", ["trim", "lower"])
+        result = dataframe.copy()
+        if "trim" in ops:
+            result = cleaning.trim_whitespace(result, target_cols)
+        for case_op in ["lower", "upper", "title"]:
+            if case_op in ops:
+                result = cleaning.standardize_case(result, target_cols, case_op)
+                break
+        return result
+    elif op == "outlier_treatment":
+        target_cols = params.get("columns", cols)
+        method = params.get("method", "IQR")
+        action = params.get("action", "Cap")
+        result = dataframe.copy()
+        for col in target_cols:
+            if method == "IQR":
+                stats = cleaning.detect_outliers_iqr(result, col)
+            else:
+                stats = cleaning.detect_outliers_zscore(result, col)
+            if "Cap" in action:
+                result = cleaning.cap_outliers(
+                    result, col, stats["lower"], stats["upper"]
+                )
+            else:
+                result = cleaning.remove_outlier_rows(
+                    result, col, stats["mask"]
+                )
+        return result
+    elif op == "scale_columns":
+        target_cols = params.get("columns", cols)
+        method = params.get("method", "min_max")
+        if method == "min_max":
+            return cleaning.min_max_scale(dataframe, target_cols)
+        else:
+            return cleaning.z_score_scale(dataframe, target_cols)
+    elif op == "drop_columns":
+        target_cols = params.get("columns", cols)
+        return cleaning.drop_columns(dataframe, target_cols)
+    elif op == "rename_column":
+        old = params.get("old", "")
+        new = params.get("new", "")
+        return cleaning.rename_columns(dataframe, {old: new})
+    elif op == "one_hot_encode":
+        target_cols = params.get("columns", cols)
+        drop_first = params.get("drop_first", False)
+        return cleaning.one_hot_encode(dataframe, target_cols, drop_first)
+    elif op == "group_rare":
+        col = params.get("column", cols[0] if cols else "")
+        thresh = params.get("threshold", 5)
+        return cleaning.group_rare_categories(dataframe, col, thresh)
+    elif op == "map_values":
+        col = params.get("column", cols[0] if cols else "")
+        mapping = params.get("mapping", {})
+        return cleaning.map_values(dataframe, col, mapping)
+    else:
+        raise ValueError(f"Unknown operation: {op}")
+
+
+# ═══════════════════════════════════════════════
+# 🤖 AI Cleaning Assistant (Bonus +12)
+# ═══════════════════════════════════════════════
+if sl.session_state.get("ai_enabled") and ai_assistant.is_available():
+    with sl.expander("🤖 AI Cleaning Assistant", expanded=True):
+        sl.caption("⚠️ AI suggestions may be imperfect. Always review before applying.")
+
+        user_prompt = sl.text_input(
+            "What would you like to clean?",
+            placeholder='e.g. "Fill missing prices with median and lowercase all category names"',
+            key="ai_clean_prompt",
+        )
+
+        if user_prompt and sl.button("🤖 Get Suggestions", key="ai_clean_btn"):
+            with sl.status("🤖 Analyzing your data...", expanded=True) as status:
+                sl.write("Sending data profile to Gemini...")
+                suggestions = ai_assistant.get_cleaning_suggestions(df, user_prompt)
+                status.update(label="✅ Suggestions ready!", state="complete")
+
+            if isinstance(suggestions, dict) and "error" in suggestions:
+                sl.error(f"❌ AI Error: {suggestions['error']}")
+            elif suggestions:
+                sl.session_state["ai_suggestions"] = suggestions
+            else:
+                sl.warning("AI assistant is not available.")
+
+        # Display suggestions as cards
+        if "ai_suggestions" in sl.session_state and sl.session_state.ai_suggestions:
+            for i, sug in enumerate(sl.session_state.ai_suggestions):
+                with sl.container(border=True):
+                    sl.markdown(
+                        f"**📌 {sug['operation']}** on "
+                        f"`{', '.join(sug['affected_columns'])}`"
+                    )
+                    sl.markdown(f"_{sug['description']}_")
+                    sl.code(str(sug["params"]), language="json")
+
+                    c1, c2, _ = sl.columns([1, 1, 3])
+                    if c1.button("✅ Apply", key=f"ai_apply_{i}"):
+                        try:
+                            new_df = _apply_ai_suggestion(df, sug)
+                            if new_df is not None:
+                                TransformLog.add_step(
+                                    sug["operation"],
+                                    sug["params"],
+                                    sug["affected_columns"],
+                                    df,
+                                )
+                                sl.session_state.df_working = new_df
+                                sl.success(f"✅ Applied: {sug['description']}")
+                                # Remove applied suggestion
+                                sl.session_state.ai_suggestions.pop(i)
+                                sl.rerun()
+                        except Exception as e:
+                            sl.error(f"❌ Failed: {e}")
+                    if c2.button("❌ Skip", key=f"ai_skip_{i}"):
+                        sl.session_state.ai_suggestions.pop(i)
+                        sl.rerun()
+
 sl.markdown("---")
 
 

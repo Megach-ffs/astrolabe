@@ -14,6 +14,7 @@ from utils.chart_builder import (
     build_line_chart_plotly, build_bar_chart_plotly, build_heatmap_plotly,
     filter_dataframe, fig_to_png_bytes,
 )
+from utils import ai_assistant
 
 
 sl.title("📊 Visualization Builder")
@@ -27,6 +28,46 @@ df = sl.session_state.df_working
 numeric_cols = df.select_dtypes(include="number").columns.tolist()
 categorical_cols = df.select_dtypes(include=["object", "category"]).columns.tolist()
 all_cols = df.columns.tolist()
+
+
+# ═══════════════════════════════════════════════
+# 🤖 AI Chart Suggestions (Bonus)
+# ═══════════════════════════════════════════════
+if sl.session_state.get("ai_enabled") and ai_assistant.is_available():
+    with sl.expander("🤖 AI-Recommended Charts", expanded=False):
+        sl.caption("⚠️ AI suggestions may be imperfect. Review before using.")
+        if sl.button("🤖 Get Chart Suggestions", key="ai_chart_btn"):
+            with sl.status("🤖 Analyzing your data...", expanded=True) as status:
+                sl.write("Finding interesting patterns...")
+                suggestions = ai_assistant.get_chart_suggestions(df)
+                status.update(
+                    label="✅ Suggestions ready!", state="complete"
+                )
+
+            if isinstance(suggestions, dict) and "error" in suggestions:
+                sl.error(f"❌ AI Error: {suggestions['error']}")
+            elif suggestions:
+                sl.session_state["ai_chart_suggestions"] = suggestions
+
+        if "ai_chart_suggestions" in sl.session_state:
+            for i, sug in enumerate(
+                sl.session_state.ai_chart_suggestions
+            ):
+                with sl.container(border=True):
+                    emoji = {
+                        "Histogram": "📊", "Box Plot": "📦",
+                        "Scatter Plot": "🔵", "Line Chart": "📈",
+                        "Bar Chart": "📊", "Heatmap": "🌡️",
+                    }.get(sug["chart_type"], "📊")
+
+                    cols_text = sug["x_column"]
+                    if sug.get("y_column"):
+                        cols_text += f" vs {sug['y_column']}"
+
+                    sl.markdown(
+                        f"{emoji} **{sug['chart_type']}**: {cols_text}"
+                    )
+                    sl.markdown(f"_{sug['reason']}_")
 
 CHART_TYPES = [
     "Histogram",

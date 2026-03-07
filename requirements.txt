@@ -7,8 +7,8 @@ seaborn
 scikit-learn
 scipy
 numpy
-google-generativeai
-anthropic
+google-genai
+pydantic
 gspread
 google-auth
 pytest
