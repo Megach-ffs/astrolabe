@@ -1,7 +1,7 @@
 import streamlit as sl
 
 sl.set_page_config(
-        page_title = "astrolabe",
+        page_title = "Astrolabe",
         page_icon = "💫",
         #layout = "wide",
         )
