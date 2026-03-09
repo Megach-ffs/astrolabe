@@ -20,6 +20,7 @@ def get_basic_stats(df_bytes: bytes) -> dict:
     return _compute_stats(df)
 
 
+@sl.cache_data
 def profile_dataframe(df: pd.DataFrame) -> dict:
     """
     Generate a comprehensive profile of the DataFrame.
