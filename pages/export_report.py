@@ -36,26 +36,32 @@ sl.markdown(f"**Current dataset:** {len(df):,} rows × {len(df.columns)} columns
 dl_col1, dl_col2, _ = sl.columns([1, 1, 2])
 
 with dl_col1:
-    csv_bytes = to_csv_bytes(df)
-    sl.download_button(
-        "📥 Download CSV",
-        data=csv_bytes,
-        file_name="cleaned_dataset.csv",
-        mime="text/csv",
-        key="export_csv",
-        use_container_width=True,
-    )
+    try:
+        csv_bytes = to_csv_bytes(df)
+        sl.download_button(
+            "📥 Download CSV",
+            data=csv_bytes,
+            file_name="cleaned_dataset.csv",
+            mime="text/csv",
+            key="export_csv",
+            use_container_width=True,
+        )
+    except Exception as e:
+        sl.error(f"Failed to generate CSV: {e}")
 
 with dl_col2:
-    excel_bytes = to_excel_bytes(df)
-    sl.download_button(
-        "📥 Download Excel",
-        data=excel_bytes,
-        file_name="cleaned_dataset.xlsx",
-        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        key="export_excel",
-        use_container_width=True,
-    )
+    try:
+        excel_bytes = to_excel_bytes(df)
+        sl.download_button(
+            "📥 Download Excel",
+            data=excel_bytes,
+            file_name="cleaned_dataset.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            key="export_excel",
+            use_container_width=True,
+        )
+    except Exception as e:
+        sl.error(f"Failed to generate Excel: {e}")
 
 # Preview
 with sl.expander("👁️ Dataset Preview", expanded=False):
@@ -83,7 +89,7 @@ with sl.expander("📄 Report Preview", expanded=True):
     sl.markdown(md_report)
 
 # Download report
-rpt_col1, rpt_col2, _ = sl.columns([1, 1, 2])
+rpt_col1, rpt_col2, rpt_col3 = sl.columns(3)
 with rpt_col1:
     json_report = report_to_json_bytes(report)
     sl.download_button(
@@ -94,6 +100,31 @@ with rpt_col1:
         key="export_report",
         use_container_width=True,
     )
+
+with rpt_col2:
+    sl.download_button(
+        "📥 Download Report (Markdown)",
+        data=md_report.encode("utf-8"),
+        file_name="transformation_report.md",
+        mime="text/markdown",
+        key="export_report_md",
+        use_container_width=True,
+    )
+
+with rpt_col3:
+    from utils.export import report_to_docx_bytes
+    try:
+        docx_bytes = report_to_docx_bytes(report)
+        sl.download_button(
+            "📥 Download Report (Word)",
+            data=docx_bytes,
+            file_name="transformation_report.docx",
+            mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            key="export_report_docx",
+            use_container_width=True,
+        )
+    except Exception as e:
+        sl.error(f"Failed to generate Word document: {e}")
 
 sl.markdown("---")
 
@@ -108,27 +139,33 @@ if log:
 
     # JSON recipe
     with recipe_col1:
-        recipe_bytes = generate_json_recipe(log)
-        sl.download_button(
-            "📥 Download Recipe (JSON)",
-            data=recipe_bytes,
-            file_name="recipe.json",
-            mime="application/json",
-            key="export_recipe",
-            use_container_width=True,
-        )
+        try:
+            recipe_bytes = generate_json_recipe(log)
+            sl.download_button(
+                "📥 Download Recipe (JSON)",
+                data=recipe_bytes,
+                file_name="recipe.json",
+                mime="application/json",
+                key="export_recipe",
+                use_container_width=True,
+            )
+        except Exception as e:
+            sl.error(f"Failed to generate Recipe: {e}")
 
     # Python script (bonus +3)
     with recipe_col2:
-        script = generate_python_script(log, file_name)
-        sl.download_button(
-            "📥 Download Python Script",
-            data=script.encode("utf-8"),
-            file_name="pipeline.py",
-            mime="text/x-python",
-            key="export_script",
-            use_container_width=True,
-        )
+        try:
+            script = generate_python_script(log, file_name)
+            sl.download_button(
+                "📥 Download Python Script",
+                data=script.encode("utf-8"),
+                file_name="pipeline.py",
+                mime="text/x-python",
+                key="export_script",
+                use_container_width=True,
+            )
+        except Exception as e:
+            sl.error(f"Failed to generate Script: {e}")
 
     # Script preview
     with sl.expander("🐍 Python Script Preview", expanded=False):

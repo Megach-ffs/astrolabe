@@ -307,3 +307,57 @@ def generate_python_script(log, file_name="data.csv"):
     ])
 
     return "\n".join(lines)
+
+
+def report_to_docx_bytes(report):
+    """
+    Convert a report dict to a DOCX bytes buffer.
+    
+    Args:
+        report: Dict from generate_report().
+        
+    Returns:
+        bytes: DOCX file bytes.
+    """
+    from docx import Document
+    
+    doc = Document()
+    doc.add_heading('Transformation Report', 0)
+    
+    doc.add_paragraph(f"Generated: {report['generated_at']}")
+    doc.add_paragraph(f"Total Steps: {report['total_steps']}")
+    
+    doc.add_heading('Dataset Summary', level=1)
+    
+    table = doc.add_table(rows=3, cols=3)
+    table.style = 'Table Grid'
+    
+    hdr_cells = table.rows[0].cells
+    hdr_cells[0].text = 'Metric'
+    hdr_cells[1].text = 'Before'
+    hdr_cells[2].text = 'After'
+    
+    row1 = table.rows[1].cells
+    row1[0].text = 'Rows'
+    row1[1].text = f"{report['before']['rows']:,}"
+    row1[2].text = f"{report['after']['rows']:,}"
+    
+    row2 = table.rows[2].cells
+    row2[0].text = 'Columns'
+    row2[1].text = str(report['before']['columns'])
+    row2[2].text = str(report['after']['columns'])
+    
+    if report["steps"]:
+        doc.add_heading('Transformation Steps', level=1)
+        
+        for step in report["steps"]:
+            doc.add_heading(f"Step {step['step_number']}: {step['operation']}", level=2)
+            cols = ", ".join(step["columns_affected"]) if step["columns_affected"] else "all"
+            doc.add_paragraph(f"Columns: {cols}", style='List Bullet')
+            doc.add_paragraph(f"Parameters: {json.dumps(step['parameters'])}", style='List Bullet')
+            doc.add_paragraph(f"Timestamp: {step['timestamp']}", style='List Bullet')
+            
+    buf = io.BytesIO()
+    doc.save(buf)
+    buf.seek(0)
+    return buf.getvalue()
