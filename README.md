@@ -61,7 +61,8 @@ Astrolabe/
 │   ├── 1_Upload_Overview.py        # Page A — Upload & data profiling
 │   ├── 2_Cleaning_Studio.py        # Page B — Data cleaning & prep
 │   ├── 3_Visualization.py          # Page C — Chart builder
-│   └── 4_Export_Report.py          # Page D — Export & reports
+│   ├── 4_AI_Chat.py                # Page E — AI Chat & Snippets
+│   └── 5_Export_Report.py          # Page D — Export & reports
 ├── utils/
 │   ├── __init__.py
 │   ├── data_loader.py             # File upload & parsing

@@ -48,9 +48,10 @@ home_page = sl.Page("pages/home.py", title="Home", icon="🏠", default=True)
 upload_page = sl.Page("pages/upload_overview.py", title="Upload & Overview", icon="📤")
 cleaning_page = sl.Page("pages/cleaning_studio.py", title="Cleaning Studio", icon="🧹")
 viz_page = sl.Page("pages/visualization.py", title="Visualization", icon="📊")
+chat_page = sl.Page("pages/ai_chat.py", title="AI Chat", icon="💬")
 export_page = sl.Page("pages/export_report.py", title="Export & Report", icon="📥")
 
-pg = sl.navigation([home_page, upload_page, cleaning_page, viz_page, export_page])
+pg = sl.navigation([home_page, upload_page, cleaning_page, viz_page, chat_page, export_page])
 
 
 # ──────────────────────────────────────────────
