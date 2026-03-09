@@ -155,10 +155,13 @@ Available chart types: Histogram, Box Plot, Scatter Plot, Line Chart, Bar Chart,
 
 Rules:
 - Only reference actual column names from the dataset
-- x_column and y_column must be real column names
-- For Histogram: only x_column needed, y_column should be null
-- For Heatmap: x_column can be any numeric column, y_column should be null
-- color_column must be a categorical column or null
+- x_column and y_column must be real column names or null
+- For Histogram: x_column is the numeric value. y_column is null. color_column is an optional categorical group.
+- For Box Plot: x_column is the NUMERIC value to distribute. y_column is null. color_column is the optional CATEGORICAL group.
+- For Scatter Plot: x_column is numeric, y_column is numeric, color_column is optional categorical.
+- For Line Chart: x_column is time/order, y_column is numeric, color_column is optional categorical.
+- For Bar Chart: x_column is categorical, y_column is numeric, color_column is optional categorical.
+- For Heatmap: x_column and y_column are numeric. color_column must be null.
 - Each suggestion should reveal different insights
 - Keep reasons concise (1 sentence)"""
 
