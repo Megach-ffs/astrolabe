@@ -16,6 +16,26 @@ from utils import ai_assistant
 
 sl.title("🧹 Cleaning & Preparation Studio")
 
+# ── State Persistence (Restore) ────────────────
+if "app_state_cache" not in sl.session_state:
+    sl.session_state["app_state_cache"] = {}
+    
+_SAVE_PREFIXES = (
+    "mv_", "dup_", "dt_", "std_", "map_", "rare_", "ohe_", "out_", 
+    "scale_", "ren_", "drop_", "formula_", "bin_", "val_", "ai_", "create_"
+)
+
+for k, v in sl.session_state["app_state_cache"].items():
+    if k.startswith(_SAVE_PREFIXES) and k not in sl.session_state:
+        # Exclude unassignable Streamlit widgets (Buttons, Downloaders, DataEditors)
+        is_btn = k.endswith(("_apply", "_btn", "_add", "_clear", "_run"))
+        is_dynamic_btn = "ai_apply_" in k or "ai_skip_" in k
+        is_special = "editor" in k or "download" in k
+        
+        if not (is_btn or is_dynamic_btn or is_special):
+            sl.session_state[k] = v
+# ─────────────────────────────────────────────
+
 # ── Guard: need data loaded ──────────────────
 if sl.session_state.get("df_working") is None:
     sl.warning("⚠️ No dataset loaded. Go to **Upload & Overview** to upload a file first.")
@@ -127,61 +147,78 @@ def _apply_ai_suggestion(dataframe, suggestion):
 # ═══════════════════════════════════════════════
 # 🤖 AI Cleaning Assistant (Bonus +12)
 # ═══════════════════════════════════════════════
-if sl.session_state.get("ai_enabled") and ai_assistant.is_available():
-    with sl.expander("🤖 AI Cleaning Assistant", expanded=True):
-        sl.caption("⚠️ AI suggestions may be imperfect. Always review before applying.")
+if sl.session_state.get("ai_enabled"):
+    if ai_assistant.is_available():
+        with sl.expander("🤖 AI Cleaning Assistant", expanded=True):
+            sl.caption("⚠️ AI suggestions may be imperfect. Always review before applying.")
 
-        user_prompt = sl.text_input(
-            "What would you like to clean?",
-            placeholder='e.g. "Fill missing prices with median and lowercase all category names"',
-            key="ai_clean_prompt",
-        )
+            if "ai_clean_initial_prompt" in sl.session_state:
+                sl.session_state["ai_clean_prompt"] = sl.session_state.pop("ai_clean_initial_prompt")
 
-        if user_prompt and sl.button("🤖 Get Suggestions", key="ai_clean_btn"):
-            with sl.status("🤖 Analyzing your data...", expanded=True) as status:
-                sl.write("Sending data profile to Gemini...")
-                suggestions = ai_assistant.get_cleaning_suggestions(df, user_prompt)
-                status.update(label="✅ Suggestions ready!", state="complete")
+            user_prompt = sl.text_input(
+                "What would you like to clean?",
+                placeholder='e.g. "Fill missing prices with median and lowercase all category names"',
+                key="ai_clean_prompt",
+            )
 
-            if isinstance(suggestions, dict) and "error" in suggestions:
-                sl.error(f"❌ AI Error: {suggestions['error']}")
-            elif suggestions:
-                sl.session_state["ai_suggestions"] = suggestions
-            else:
-                sl.warning("AI assistant is not available.")
+            c1, c2, _ = sl.columns([1, 1, 3])
+            with c1:
+                if user_prompt and sl.button("🤖 Get Suggestions", key="ai_clean_btn", use_container_width=True):
+                    with sl.status("🤖 Analyzing your data...", expanded=True) as status:
+                        sl.write("Sending data profile to Gemini...")
+                        suggestions = ai_assistant.get_cleaning_suggestions(df, user_prompt)
+                        
+                        if isinstance(suggestions, dict) and "error" in suggestions:
+                            status.update(label="❌ Failed", state="error")
+                            sl.error(f"❌ AI Error: {suggestions['error']}")
+                        elif suggestions:
+                            sl.session_state["ai_suggestions"] = suggestions
+                            status.update(label="✅ Suggestions ready!", state="complete")
+                        else:
+                            status.update(label="❌ Failed", state="error")
+                            sl.warning("AI assistant is not available or returned no suggestions.")
 
-        # Display suggestions as cards
-        if "ai_suggestions" in sl.session_state and sl.session_state.ai_suggestions:
-            for i, sug in enumerate(sl.session_state.ai_suggestions):
-                with sl.container(border=True):
-                    sl.markdown(
-                        f"**📌 {sug['operation']}** on "
-                        f"`{', '.join(sug['affected_columns'])}`"
-                    )
-                    sl.markdown(f"_{sug['description']}_")
-                    sl.code(str(sug["params"]), language="json")
-
-                    c1, c2, _ = sl.columns([1, 1, 3])
-                    if c1.button("✅ Apply", key=f"ai_apply_{i}"):
-                        try:
-                            new_df = _apply_ai_suggestion(df, sug)
-                            if new_df is not None:
-                                TransformLog.add_step(
-                                    sug["operation"],
-                                    sug["params"],
-                                    sug["affected_columns"],
-                                    df,
-                                )
-                                sl.session_state.df_working = new_df
-                                sl.success(f"✅ Applied: {sug['description']}")
-                                # Remove applied suggestion
-                                sl.session_state.ai_suggestions.pop(i)
-                                sl.rerun()
-                        except Exception as e:
-                            sl.error(f"❌ Failed: {e}")
-                    if c2.button("❌ Skip", key=f"ai_skip_{i}"):
-                        sl.session_state.ai_suggestions.pop(i)
+            with c2:
+                if sl.session_state.get("ai_suggestions"):
+                    if sl.button("🗑️ Clear", key="clear_ai_sug", use_container_width=True):
+                        del sl.session_state["ai_suggestions"]
                         sl.rerun()
+
+            # Display suggestions as cards
+            if sl.session_state.get("ai_suggestions"):
+                for i, sug in enumerate(sl.session_state.ai_suggestions):
+                    with sl.container(border=True):
+                        sl.markdown(
+                            f"**📌 {sug['operation']}** on "
+                            f"`{', '.join(sug['affected_columns'])}`"
+                        )
+                        sl.markdown(f"_{sug['description']}_")
+                        sl.code(str(sug["params"]), language="json")
+
+                        act1, act2, _ = sl.columns([1, 1, 3])
+                        if act1.button("✅ Apply", key=f"ai_apply_{i}"):
+                            try:
+                                new_df = _apply_ai_suggestion(df, sug)
+                                if new_df is not None:
+                                    TransformLog.add_step(
+                                        sug["operation"],
+                                        sug["params"],
+                                        sug["affected_columns"],
+                                        df,
+                                    )
+                                    sl.session_state.df_working = new_df
+                                    sl.success(f"✅ Applied: {sug['description']}")
+                                    sl.session_state.ai_suggestions.pop(i)
+                                    sl.rerun()
+                            except Exception as e:
+                                sl.error(f"❌ Failed: {e}")
+                        if act2.button("❌ Skip", key=f"ai_skip_{i}"):
+                            sl.session_state.ai_suggestions.pop(i)
+                            sl.rerun()
+    else:
+        sl.markdown("---")
+        sl.warning("⚠️ **AI Assistant Unavailable**")
+        sl.info("The Gemini API is not configured or is currently unresponsive. Please check your API key in `.streamlit/secrets.toml` or verify your quota.")
 
 sl.markdown("---")
 
@@ -868,3 +905,14 @@ if log:
                 sl.rerun()
 else:
     sl.info("No transformations applied yet.")
+
+# ── State Persistence (Save) ───────────────────
+for k in sl.session_state.keys():
+    if k.startswith(_SAVE_PREFIXES):
+        is_btn = k.endswith(("_apply", "_btn", "_add", "_clear", "_run"))
+        is_dynamic_btn = "ai_apply_" in k or "ai_skip_" in k
+        is_special = "editor" in k or "download" in k
+        
+        if not (is_btn or is_dynamic_btn or is_special):
+            sl.session_state["app_state_cache"][k] = sl.session_state[k]
+# ─────────────────────────────────────────────

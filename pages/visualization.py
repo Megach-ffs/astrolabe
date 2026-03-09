@@ -19,6 +19,15 @@ from utils import ai_assistant
 
 sl.title("📊 Visualization Builder")
 
+# ── State Persistence (Restore) ────────────────
+if "app_state_cache" not in sl.session_state:
+    sl.session_state["app_state_cache"] = {}
+for k, v in sl.session_state["app_state_cache"].items():
+    if k.startswith(("viz_", "filt_")) and k not in sl.session_state:
+        if k != "viz_download":  # Download buttons cannot be assigned via session_state
+            sl.session_state[k] = v
+# ─────────────────────────────────────────────
+
 # ── Guard ─────────────────────────────────────
 if sl.session_state.get("df_working") is None:
     sl.warning("⚠️ No dataset loaded. Go to **Upload & Overview** first.")
@@ -33,41 +42,105 @@ all_cols = df.columns.tolist()
 # ═══════════════════════════════════════════════
 # 🤖 AI Chart Suggestions (Bonus)
 # ═══════════════════════════════════════════════
-if sl.session_state.get("ai_enabled") and ai_assistant.is_available():
-    with sl.expander("🤖 AI-Recommended Charts", expanded=False):
-        sl.caption("⚠️ AI suggestions may be imperfect. Review before using.")
-        if sl.button("🤖 Get Chart Suggestions", key="ai_chart_btn"):
-            with sl.status("🤖 Analyzing your data...", expanded=True) as status:
-                sl.write("Finding interesting patterns...")
-                suggestions = ai_assistant.get_chart_suggestions(df)
-                status.update(
-                    label="✅ Suggestions ready!", state="complete"
-                )
+if sl.session_state.get("ai_enabled"):
+    if ai_assistant.is_available():
+        with sl.expander("🤖 AI-Recommended Charts", expanded=False):
+            sl.caption("⚠️ AI suggestions may be imperfect. Review before using.")
+            c1, c2, _ = sl.columns([1, 1, 3])
+            with c1:
+                if sl.button("🤖 Get Chart Suggestions", key="ai_chart_btn", use_container_width=True):
+                    with sl.status("🤖 Analyzing your data...", expanded=True) as status:
+                        sl.write("Finding interesting patterns...")
+                        suggestions = ai_assistant.get_chart_suggestions(df)
+                        
+                        if isinstance(suggestions, dict) and "error" in suggestions:
+                            status.update(label="❌ Failed", state="error")
+                            sl.error(f"❌ AI Error: {suggestions['error']}")
+                        elif suggestions:
+                            sl.session_state["ai_chart_suggestions"] = suggestions
+                            status.update(label="✅ Suggestions ready!", state="complete")
+                        else:
+                            status.update(label="❌ Failed", state="error")
+                            sl.warning("AI assistant is not available or returned no suggestions.")
 
-            if isinstance(suggestions, dict) and "error" in suggestions:
-                sl.error(f"❌ AI Error: {suggestions['error']}")
-            elif suggestions:
-                sl.session_state["ai_chart_suggestions"] = suggestions
+            with c2:
+                if sl.session_state.get("ai_chart_suggestions"):
+                    if sl.button("🗑️ Clear", key="clear_ai_charts", use_container_width=True):
+                        del sl.session_state["ai_chart_suggestions"]
+                        sl.rerun()
 
-        if "ai_chart_suggestions" in sl.session_state:
-            for i, sug in enumerate(
-                sl.session_state.ai_chart_suggestions
-            ):
-                with sl.container(border=True):
-                    emoji = {
-                        "Histogram": "📊", "Box Plot": "📦",
-                        "Scatter Plot": "🔵", "Line Chart": "📈",
-                        "Bar Chart": "📊", "Heatmap": "🌡️",
-                    }.get(sug["chart_type"], "📊")
+            if "ai_chart_suggestions" in sl.session_state:
+                # Helper for dropdown matching
+                CHART_TYPES_LIST = [
+                    "Histogram", "Box Plot", "Scatter Plot", 
+                    "Line Chart", "Bar Chart (Grouped)", "Heatmap / Correlation"
+                ]
+                
+                for i, sug in enumerate(sl.session_state.ai_chart_suggestions):
+                    with sl.container(border=True):
+                        col1, col2 = sl.columns([3, 1])
+                        with col1:
+                            emoji = {
+                                "Histogram": "📊", "Box Plot": "📦",
+                                "Scatter Plot": "🔵", "Line Chart": "📈",
+                                "Bar Chart": "📊", "Heatmap": "🌡️",
+                            }.get(sug["chart_type"], "📊")
 
-                    cols_text = sug["x_column"]
-                    if sug.get("y_column"):
-                        cols_text += f" vs {sug['y_column']}"
+                            cols_text = sug["x_column"]
+                            if sug.get("y_column"):
+                                cols_text += f" vs {sug['y_column']}"
 
-                    sl.markdown(
-                        f"{emoji} **{sug['chart_type']}**: {cols_text}"
-                    )
-                    sl.markdown(f"_{sug['reason']}_")
+                            sl.markdown(f"{emoji} **{sug['chart_type']}**: {cols_text}")
+                            sl.markdown(f"_{sug['reason']}_")
+                            
+                        with col2:
+                            if sl.button("Use This Chart →", key=f"use_chart_{i}", use_container_width=True):
+                                # Determine matching dropdown type
+                                match_type = next((t for t in CHART_TYPES_LIST if t.startswith(sug["chart_type"].split()[0])), CHART_TYPES_LIST[0])
+                                
+                                # Set state to bind to widgets
+                                sl.session_state["viz_type"] = match_type
+                                
+                                # Safe extraction logic picking numeric/categorical independently
+                                x_c = sug.get("x_column")
+                                y_c = sug.get("y_column")
+                                color_c = sug.get("color_column")
+
+                                sug_cols = [c for c in [x_c, y_c, color_c] if c]
+                                sug_num_cols = [c for c in sug_cols if c in numeric_cols]
+                                sug_cat_cols = [c for c in sug_cols if c in categorical_cols]
+
+                                # Validation Logic dependent on chart type keys
+                                if match_type == "Histogram":
+                                    if sug_num_cols: sl.session_state["viz_x"] = sug_num_cols[0]
+                                    elif x_c in all_cols: sl.session_state["viz_x"] = x_c
+                                    if sug_cat_cols: sl.session_state["viz_color_hist"] = sug_cat_cols[0]
+                                elif match_type == "Box Plot":
+                                    if sug_num_cols: sl.session_state["viz_x_box"] = sug_num_cols[0]
+                                    if sug_cat_cols: sl.session_state["viz_color_box"] = sug_cat_cols[0]
+                                elif match_type == "Scatter Plot":
+                                    if x_c in all_cols: sl.session_state["viz_x_scat"] = x_c
+                                    if y_c in numeric_cols: sl.session_state["viz_y_scat"] = y_c
+                                    elif len(sug_num_cols) > 1: sl.session_state["viz_y_scat"] = sug_num_cols[1]
+                                    if color_c in categorical_cols: sl.session_state["viz_color_scat"] = color_c
+                                elif match_type == "Line Chart":
+                                    if x_c in all_cols: sl.session_state["viz_x_line"] = x_c
+                                    if y_c in numeric_cols: sl.session_state["viz_y_line"] = y_c
+                                    if color_c in categorical_cols: sl.session_state["viz_color_line"] = color_c
+                                elif match_type == "Bar Chart (Grouped)":
+                                    if x_c in all_cols: sl.session_state["viz_x_bar"] = x_c
+                                    if y_c in numeric_cols: sl.session_state["viz_y_bar"] = y_c
+                                    elif sug_num_cols: sl.session_state["viz_y_bar"] = sug_num_cols[-1]
+                                    if color_c in categorical_cols: sl.session_state["viz_color_bar"] = color_c
+                                elif match_type == "Heatmap / Correlation":
+                                    if sug_num_cols:
+                                        sl.session_state["viz_cols_heat"] = list(set(sug_num_cols))
+                                        
+                                sl.rerun()
+    else:
+        sl.markdown("---")
+        sl.warning("⚠️ **AI Assistant Unavailable**")
+        sl.info("The Gemini API is not configured or is currently unresponsive. Please check your API key in `.streamlit/secrets.toml` or verify your quota.")
 
 CHART_TYPES = [
     "Histogram",
@@ -275,3 +348,9 @@ with chart_col:
 
     except Exception as e:
         sl.error(f"❌ Could not render chart: {e}")
+
+# ── State Persistence (Save) ───────────────────
+for k in sl.session_state.keys():
+    if k.startswith(("viz_", "filt_")):
+        sl.session_state["app_state_cache"][k] = sl.session_state[k]
+# ─────────────────────────────────────────────
