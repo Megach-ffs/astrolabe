@@ -1,0 +1,58 @@
+{
+    "timestamp": "2026-03-08T03:00:00Z",
+    "total_steps": 3,
+    "before": {
+        "rows": 1500,
+        "columns": 10
+    },
+    "after": {
+        "rows": 1495,
+        "columns": 10
+    },
+    "steps": [
+        {
+            "step_number": 1,
+            "timestamp": "2026-03-08T02:50:00Z",
+            "operation": "fill_missing",
+            "parameters": {
+                "strategy": "median"
+            },
+            "columns": [
+                "price"
+            ]
+        },
+        {
+            "step_number": 2,
+            "timestamp": "2026-03-08T02:51:30Z",
+            "operation": "standardize_categorical",
+            "parameters": {
+                "operations": [
+                    "trim",
+                    "lower"
+                ]
+            },
+            "columns": [
+                "category",
+                "department"
+            ]
+        },
+        {
+            "step_number": 3,
+            "timestamp": "2026-03-08T02:55:00Z",
+            "operation": "remove_duplicates",
+            "parameters": {
+                "subset": [
+                    "order_id"
+                ],
+                "keep": "first"
+            },
+            "columns": [
+                "order_id"
+            ]
+        }
+    ],
+    "dependencies": {
+        "pandas": "2.2.3",
+        "streamlit": "1.32.2"
+    }
+}

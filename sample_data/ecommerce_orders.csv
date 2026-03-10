@@ -1,0 +1,1546 @@
+order_id,customer_id,product_name,category,price,quantity,order_date,shipping_city,discount_pct,rating
+1,CUST-0202,Mouse,networking  ,1173.04,6,2024-12-01,Aberdeen,,4.6
+2,CUST-0448,Switch,Peripherals,$1450.04,3,06-30-2025,,24.1,1.7
+3,CUST-0370,Laptop,storage  ,217.93,4,31/05/2025,Nottingham,13.0,5.0
+4,CUST-0206,Camera,ELECTRONICS,112.3,3,06/06/2025,Manchester,23.6,1.5
+5,CUST-0171,Wrist Rest,peripherals  ,1668.83,1,26/04/2024,Edinburgh,13.9,1.1
+6,CUST-0288,Fan,Peripherals,2059.16,5,25/04/2024,Brighton,28.2,4.6
+7,CUST-0120,Router,Electronics,1956.13,1,08-01-2025,Plymouth,14.6,2.0
+8,CUST-0202,Tablet,Office,1361.8,1,2025-08-09,York,13.9,3.9
+9,CUST-0221,Adapter,Office,254.17,2,06/03/2024,Dundee,23.6,4.2
+10,CUST-0314,Tablet,Peripherals,1721.67,4,2025-03-22,Leicester,24.6,4.4
+11,CUST-0430,Camera,peripherals  ,$608.51,6,2025-04-08,Exeter,,5.0
+12,CUST-0187,Shredder,networking  ,2278.12,8,01-30-2025,Newcastle,5.4,2.2
+13,CUST-0472,External HDD,Storage,2096.47,3,2025-07-04,London,14.0,3.8
+14,CUST-0199,Adapter,Gaming,1774.91,1,07-10-2025,Plymouth,29.0,1.5
+15,CUST-0459,Drone,Networking,2372.37,3,2024-11-21,,22.6,2.6
+16,CUST-0251,VR Headset, Office,83.4,3,31/03/2024,Bath,24.3,4.4
+17,CUST-0230,KVM Switch,ACCESSORIES,1841.82,5,10/03/2024,Bristol,1.0,2.5
+18,CUST-0249,Desk Lamp,Office,828.96,4,03/10/2025,Belfast,14.0,3.4
+19,CUST-0408,Ethernet Cable,Peripherals,$2265.63,4,08-23-2025,Glasgow,19.4,3.0
+20,CUST-0357,Headphones,Peripherals,$670.35,9,2025-01-03,Cardiff,24.9,3.6
+21,CUST-0443,Projector,Gaming,1813.52,7,2025-08-06,Dundee,1.5,4.9
+22,CUST-0393,Camera,networking  ,2194.73,4,2024-02-18,Dundee,25.6,1.2
+23,CUST-0485,KVM Switch,Gaming,108.93,3,09-17-2025,London,16.5,3.3
+24,CUST-0291,Power Bank,Accessories,997.13,6,05-12-2024,Manchester,5.9,4.5
+25,CUST-0376,Docking Station,networking  ,1906.96,3,14/06/2024,York,,2.9
+26,CUST-0260,Drone,Accessories,1140.02,6,2025-01-07,Southampton,8.5,
+27,CUST-0413,Switch,Storage,671.8,9,04-22-2025,Bath,15.9,3.2
+28,CUST-0121,Screen Protector, Audio,$553.41,6,23/04/2025,Belfast,1.6,2.3
+29,CUST-0352,Server Rack,storage  ,333.14,4,13/08/2025,Cardiff,4.8,1.6
+30,CUST-0335,Switch,storage  ,2143.54,5,26/09/2025,Belfast,24.4,4.4
+31,CUST-0444,VR Headset,Storage,1440.51,6,2024-03-27,Stoke,4.0,3.1
+32,CUST-0148,RAM Module,Electronics,195.58,3,16/01/2024,Liverpool,7.0,4.7
+33,CUST-0158,Wrist Rest, Audio,959.54,8,12-23-2024,Oxford,13.6,4.2
+34,CUST-0269,Mouse,networking  ,$922.5,4,01/09/2025,Derby,15.5,3.8
+35,CUST-0287,RAM Module,Storage,458.44,8,2024-12-15,Dundee,22.9,
+36,CUST-0370,RAM Module,Audio,1091.59,3,11-11-2025,Liverpool,13.4,2.7
+37,CUST-0289,Adapter,,833.59,7,2025-01-09,Leeds,,1.8
+38,CUST-0274,Screen Protector,peripherals  ,857.8,9,2024-10-27,Reading,18.6,4.6
+39,CUST-0150,Laptop,storage  ,1848.87,4,2024-11-09,,3.4,1.7
+40,CUST-0463,Chair Mat,networking  ,562.04,8,05-07-2024,,,2.1
+41,CUST-0154,Switch,ACCESSORIES,1606.44,3,03-01-2025,Norwich,13.1,3.1
+42,CUST-0343,Adapter,Audio,1428.77,7,07-18-2025,York,11.9,2.1
+43,CUST-0419,Hub,Networking,$1422.39,3,2025-07-03,Cambridge,,1.8
+44,CUST-0230,Chair Mat, Audio,$1659.2,7,15/04/2025,Swansea,17.4,
+45,CUST-0406,External HDD,Peripherals,1373.21,6,07-18-2025,,11.6,1.4
+46,CUST-0234,Drone, Office,2198.74,2,11/08/2024,Leeds,5.1,1.2
+47,CUST-0120,Keyboard,Storage,1690.57,3,07-13-2025,Bristol,6.8,2.5
+48,CUST-0428,Tripod, Office,1369.67,6,2024-05-26,Oxford,17.3,3.9
+49,CUST-0266,NAS,,2075.26,4,2025-07-29,Glasgow,12.7,3.2
+50,CUST-0373,NAS,Peripherals,1517.34,6,2024-06-30,Nottingham,15.4,2.7
+51,CUST-0487,Surge Protector,networking  ,731.4,1,06-27-2024,Dundee,5.1,3.3
+52,CUST-0188,Memory Card,Office,521.7,1,2024-01-03,London,19.9,2.5
+53,CUST-0415,VR Headset,,385.06,3,01-06-2025,Coventry,25.6,4.7
+54,CUST-0113,Smartwatch,Office,2249.14,8,06/04/2024,Nottingham,7.7,
+55,CUST-0341,Docking Station,Electronics,1776.79,8,03-17-2025,Leeds,14.7,3.7
+56,CUST-0364,Tripod,Accessories,2343.76,4,2025-02-14,Exeter,29.3,4.6
+57,CUST-0445,NAS, Audio,"1,510.21",6,01-21-2024,Swansea,10.0,4.2
+58,CUST-0152,Shredder,Peripherals,1186.14,8,11/04/2024,Aberdeen,,1.7
+59,CUST-0485,Screen Protector,Electronics,153.99,7,03-06-2024,Southampton,2.7,2.2
+60,CUST-0439,Graphics Card,STORAGE,1680.75,7,06-12-2024,Birmingham,18.2,3.9
+61,CUST-0191,Shredder,storage  ,1457.61,4,20/04/2024,Glasgow,2.7,1.3
+62,CUST-0466,KVM Switch,STORAGE,2475.57,9,2024-05-02,Edinburgh,28.8,4.2
+63,CUST-0363,Smartwatch, Audio,601.7,6,03-22-2025,London,21.5,3.9
+64,CUST-0134,Phone Case,STORAGE,$1329.19,3,10-17-2024,Norwich,23.6,3.9
+65,CUST-0305,Desk Lamp,,"1,629.14",5,02-15-2025,Stoke,21.1,1.4
+66,CUST-0180,Docking Station,storage  ,1613.25,5,10-07-2024,Sheffield,17.7,3.9
+67,CUST-0149,SSD Drive,Audio,1405.43,5,04-30-2025,Newcastle,13.5,3.7
+68,CUST-0459,Printer,peripherals  ,1943.44,8,12-03-2025,Aberdeen,25.8,4.3
+69,CUST-0487,Router,Electronics,516.43,9,28/07/2024,Bristol,28.7,1.2
+70,CUST-0101,Screen Protector,Electronics,1815.44,9,2025-05-06,Dundee,15.0,1.1
+71,CUST-0489,Microphone,Audio,1551.24,6,2025-08-03,Liverpool,27.9,2.5
+72,CUST-0153,Tripod,Peripherals,2240.71,6,14/09/2024,Derby,17.5,1.6
+73,CUST-0205,Phone Case,,2118.75,9,06/07/2024,Exeter,16.2,3.2
+74,CUST-0359,Webcam,,791.29,4,07-07-2024,Manchester,13.6,4.7
+75,CUST-0409,SSD Drive, Audio,694.21,6,10/01/2024,York,6.3,2.6
+76,CUST-0290,Chair Mat,STORAGE,"2,454.23",4,16/03/2024,Bath,0.1,
+77,CUST-0317,Stylus, Audio,1320.53,1,2024-03-25,Bath,7.2,1.0
+78,CUST-0143,Chair Mat,Audio,2266.52,7,09/05/2025,Aberdeen,15.3,1.7
+79,CUST-0261,Smartwatch, Audio,413.88,6,11-19-2025,Southampton,11.4,1.1
+80,CUST-0301,Cable Pack,networking  ,"1,608.83",9,23/01/2025,London,13.5,2.3
+81,CUST-0369,Wrist Rest,storage  ,2025.6,7,2024-08-05,Belfast,29.4,4.6
+82,CUST-0450,Splitter,STORAGE,2368.75,7,11/12/2024,Brighton,10.5,1.4
+83,CUST-0403,Server Rack,Office,846.66,2,11/09/2024,Reading,13.6,3.4
+84,CUST-0370,Wrist Rest,ELECTRONICS,1813.83,9,2025-08-06,Leeds,4.0,
+85,CUST-0314,KVM Switch,ACCESSORIES,1349.34,9,09-27-2024,,1.4,4.8
+86,CUST-0351,Scanner, Office,156.27,6,2025-10-17,Derby,23.3,1.5
+87,CUST-0289,Graphics Card,Networking,1726.55,3,2025-10-17,Stoke,17.1,1.8
+88,CUST-0395,Phone Case,ELECTRONICS,1726.79,1,09-15-2024,Newcastle,22.8,1.1
+89,CUST-0312,USB Hub,Peripherals,2326.86,4,06-08-2025,Brighton,4.5,2.7
+90,CUST-0307,Screen Protector,peripherals  ,1245.79,3,28/05/2024,,17.2,2.1
+91,CUST-0336,Microphone,ACCESSORIES,579.48,1,03-13-2025,Bath,7.6,4.5
+92,CUST-0437,Wrist Rest,Accessories,116.19,3,08/11/2025,,6.8,
+93,CUST-0466,Router,Storage,1042.03,4,28/11/2025,Brighton,0.3,
+94,CUST-0152,Ethernet Cable,peripherals  ,$758.28,8,23/12/2024,York,,
+95,CUST-0379,USB Hub,STORAGE,1903.92,9,08-04-2024,Plymouth,9.3,1.4
+96,CUST-0316,Charger,Electronics,888.9,3,2025-03-31,Exeter,3.5,2.8
+97,CUST-0351,Cable Pack,networking  ,2372.93,6,09-20-2025,Cardiff,29.6,5.0
+98,CUST-0287,USB Hub,networking  ,2405.96,5,2025-04-30,Cardiff,9.3,4.3
+99,CUST-0479,RAM Module,Audio,1554.17,6,07-18-2024,Cardiff,3.9,4.6
+100,CUST-0140,Label Maker,peripherals  ,2322.01,4,23/03/2025,,6.0,4.3
+101,CUST-0256,SSD Drive,Audio,"1,903.33",6,10-28-2024,,17.6,1.4
+102,CUST-0114,Microphone,Electronics,$1369.41,7,2025-05-12,Sheffield,1.9,1.9
+103,CUST-0400,Fan,STORAGE,454.87,9,2025-08-27,Dundee,25.9,1.0
+104,CUST-0164,Stylus,peripherals  ,$1149.2,7,27/09/2024,Nottingham,28.8,2.2
+105,CUST-0444,Printer,Storage,1404.38,6,27/10/2025,,7.4,1.4
+106,CUST-0426,Surge Protector,Networking,2160.58,1,2025-05-16,Brighton,13.5,2.9
+107,CUST-0108,External HDD,Storage,1205.93,2,02/07/2025,Cambridge,0.7,3.7
+108,CUST-0443,Drone,ACCESSORIES,2244.7,1,2025-02-10,Stoke,19.2,4.5
+109,CUST-0228,Stylus,Storage,1687.5,9,02/04/2024,Coventry,12.4,4.0
+110,CUST-0235,Hub,networking  ,346.81,9,15/02/2025,London,8.1,4.8
+111,CUST-0162,External HDD,ACCESSORIES,2487.48,7,07/06/2024,London,,1.2
+112,CUST-0238,Screen Protector,Storage,1320.45,2,2025-01-07,Sheffield,19.6,1.0
+113,CUST-0180,Charger,Networking,982.69,6,2025-05-19,Liverpool,12.5,3.6
+114,CUST-0491,Printer,peripherals  ,1649.49,4,09-05-2024,Cardiff,5.4,2.2
+115,CUST-0262,Desk Lamp, Office,276.69,1,2025-08-25,Norwich,20.7,2.0
+116,CUST-0388,Drone,Networking,1593.16,1,2025-08-24,Glasgow,17.0,2.3
+117,CUST-0478,NAS,Peripherals,1248.1,5,08-07-2024,Coventry,25.8,2.1
+118,CUST-0360,Server Rack,Electronics,1019.65,2,2024-08-08,Brighton,3.5,3.0
+119,CUST-0330,VR Headset,Networking,2382.78,4,07-07-2025,Cambridge,23.6,
+120,CUST-0140,Keyboard,ACCESSORIES,1308.74,1,2024-02-11,Oxford,20.2,3.0
+121,CUST-0127,Tripod, Office,551.7,4,09/10/2024,Cambridge,3.5,3.7
+122,CUST-0234,Switch,Networking,1150.11,6,2025-06-20,London,20.8,2.5
+123,CUST-0300,Adapter,Peripherals,2298.87,4,05-08-2024,,13.2,2.0
+124,CUST-0427,Wrist Rest,Audio,$444.36,1,2025-03-01,Exeter,28.3,1.7
+125,CUST-0367,Microphone,ACCESSORIES,538.82,7,2025-11-24,Stoke,4.2,2.4
+126,CUST-0132,NAS,Peripherals,$37.51,2,07/03/2024,Bristol,,4.0
+127,CUST-0147,External HDD,networking  ,40.4,9,28/09/2025,Birmingham,11.5,4.0
+128,CUST-0161,Cable Pack,Office,2074.33,3,2024-11-21,Swansea,28.7,3.7
+129,CUST-0315,Shredder,Office,1831.65,8,31/07/2025,Dundee,9.9,1.9
+130,CUST-0392,Monitor,Accessories,890.83,8,20/05/2025,Swansea,28.9,3.4
+131,CUST-0198,Fan,Storage,1747.29,3,21/08/2025,Glasgow,27.0,
+132,CUST-0271,Ethernet Cable,Electronics,991.04,4,22/07/2024,Norwich,,2.9
+133,CUST-0459,Chair Mat,Gaming,2382.48,2,02-07-2025,Bristol,24.1,3.2
+134,CUST-0313,Speaker,ELECTRONICS,2417.8,4,2025-06-19,York,29.9,3.0
+135,CUST-0134,Stylus,,985.02,9,07-27-2024,Cambridge,7.6,3.3
+136,CUST-0326,Projector,Audio,2136.28,2,2024-04-26,Cambridge,13.1,3.9
+137,CUST-0200,Phone Case,,1933.86,3,2025-04-22,Plymouth,15.6,1.4
+138,CUST-0230,Server Rack,Audio,778.45,4,05-09-2025,London,8.8,4.0
+139,CUST-0356,Hub,networking  ,583.94,5,02-15-2024,Leicester,,1.5
+140,CUST-0104,NAS,storage  ,1148.3,1,26/11/2024,Cambridge,6.6,1.3
+141,CUST-0317,Mouse,,1954.47,7,2025-05-06,Stoke,8.5,4.9
+142,CUST-0354,Drone,storage  ,2400.62,7,03-24-2025,Dundee,13.3,
+143,CUST-0497,Hub,ELECTRONICS,"1,910.13",9,04-02-2025,Edinburgh,5.1,1.2
+144,CUST-0458,VR Headset, Audio,$2138.74,4,06-19-2025,Brighton,,2.8
+145,CUST-0382,Surge Protector,,1509.65,6,30/08/2024,Brighton,21.1,1.7
+146,CUST-0492,Speaker,,"2,089.34",2,07-25-2024,Leicester,2.6,2.9
+147,CUST-0306,Speaker,ELECTRONICS,$1962.13,4,12-05-2025,Liverpool,19.5,
+148,CUST-0114,Stylus,Peripherals,945.58,2,12-30-2025,,19.6,4.8
+149,CUST-0445,Scanner,Networking,1382.22,5,08-02-2025,Edinburgh,,3.5
+150,CUST-0141,Scanner,networking  ,2012.86,7,2025-04-27,Southampton,0.1,2.4
+151,CUST-0479,Drone,Gaming,119.91,1,01-28-2025,Newcastle,7.4,3.4
+152,CUST-0278,External HDD,storage  ,2021.16,7,04-26-2025,Plymouth,27.8,2.2
+153,CUST-0162,UPS,ACCESSORIES,448.83,6,23/10/2024,Brighton,28.0,4.6
+154,CUST-0451,Fan,networking  ,1289.14,6,06-26-2024,,21.6,4.5
+155,CUST-0330,Shredder,Audio,2021.65,8,11-10-2024,Liverpool,23.0,3.2
+156,CUST-0340,Fan,storage  ,638.28,8,09-15-2024,Exeter,2.7,
+157,CUST-0151,NAS,,618.29,6,18/02/2024,Coventry,15.4,2.2
+158,CUST-0195,Phone Case,Storage,1009.9,3,2024-06-09,Brighton,6.9,1.1
+159,CUST-0487,NAS,Office,2237.13,5,06-24-2024,,5.4,4.3
+160,CUST-0321,KVM Switch,storage  ,6.1,2,2024-01-02,Stoke,,2.8
+161,CUST-0330,Graphics Card,networking  ,2253.95,5,30/03/2025,Brighton,,2.3
+162,CUST-0336,Surge Protector,Gaming,388.75,9,2025-09-20,Sheffield,14.1,2.9
+163,CUST-0242,Chair Mat,ACCESSORIES,"2,475.27",1,01-01-2024,Oxford,28.2,4.3
+164,CUST-0270,External HDD, Office,2387.34,5,21/04/2024,Glasgow,5.6,1.5
+165,CUST-0128,Power Bank, Office,1239.21,6,2024-11-05,Coventry,29.3,4.4
+166,CUST-0135,Headphones,Audio,1284.24,7,2025-03-14,Dundee,29.8,4.6
+167,CUST-0112,Laptop, Audio,1206.47,9,14/08/2025,Nottingham,16.7,4.8
+168,CUST-0259,Surge Protector,,1590.43,6,2025-08-17,Bristol,5.1,2.6
+169,CUST-0426,Shredder,ELECTRONICS,231.35,5,11-20-2024,Aberdeen,,
+170,CUST-0286,Keyboard,peripherals  ,86.38,7,06-17-2025,Glasgow,12.7,2.5
+171,CUST-0342,Server Rack,Audio,148.97,1,2024-04-18,,9.3,2.3
+172,CUST-0185,Charger,storage  ,1113.69,5,2024-06-29,,8.4,1.7
+173,CUST-0383,Surge Protector,ELECTRONICS,692.49,2,10/04/2025,Birmingham,29.2,3.4
+174,CUST-0165,Monitor,peripherals  ,"1,556.99",4,2025-04-08,Birmingham,4.6,2.9
+175,CUST-0269,Stylus,Peripherals,2481.14,7,17/06/2025,London,22.0,4.5
+176,CUST-0144,Tripod,Gaming,968.88,5,01-21-2024,Dundee,0.0,1.1
+177,CUST-0161,Chair Mat,,1436.73,6,07-12-2025,Exeter,17.9,3.6
+178,CUST-0233,Label Maker,,1041.93,2,11/10/2024,,27.5,4.1
+179,CUST-0383,Laptop,Accessories,2118.94,3,2025-08-24,Aberdeen,8.6,4.0
+180,CUST-0127,UPS,ACCESSORIES,2256.08,7,12-01-2024,Sheffield,5.6,
+181,CUST-0207,Cable Pack,,2194.0,2,2024-08-30,Cardiff,19.6,3.9
+182,CUST-0143,RAM Module,ELECTRONICS,2436.06,6,23/04/2025,Cardiff,,4.7
+183,CUST-0439,Cable Pack,Networking,73.66,5,2025-07-14,Cambridge,20.6,2.3
+184,CUST-0385,Shredder,Peripherals,2100.34,1,28/05/2025,Cambridge,9.6,3.0
+185,CUST-0430,Desk Lamp,Accessories,1880.67,4,2024-02-28,Stoke,7.6,1.1
+186,CUST-0227,Monitor,Electronics,575.59,2,08/04/2024,Edinburgh,28.7,1.0
+187,CUST-0447,Smartwatch,STORAGE,2391.02,4,05-09-2025,Coventry,,2.0
+188,CUST-0330,Tripod,Office,374.7,1,05-28-2025,Leeds,13.7,1.4
+189,CUST-0289,Tripod,Audio,1700.48,2,10-23-2024,Nottingham,25.4,2.0
+190,CUST-0324,Switch,,566.1,8,2024-05-02,Oxford,,1.7
+191,CUST-0484,Webcam, Audio,1081.29,6,2025-08-16,Aberdeen,12.7,1.1
+192,CUST-0476,External HDD,Accessories,1799.3,2,25/01/2025,Manchester,4.7,4.6
+193,CUST-0382,UPS, Office,1410.49,6,01-12-2024,Southampton,12.8,1.0
+194,CUST-0220,Desk Lamp,Gaming,1071.62,9,2025-01-23,Birmingham,16.1,
+195,CUST-0215,Tablet,STORAGE,819.21,7,20/05/2025,Glasgow,0.7,1.6
+196,CUST-0332,Speaker,Peripherals,2099.95,9,01/02/2024,Southampton,13.3,4.6
+197,CUST-0358,VR Headset,,363.82,5,2024-06-19,Birmingham,23.4,4.6
+198,CUST-0458,Chair Mat, Audio,1078.11,7,2024-03-09,Norwich,20.4,
+199,CUST-0297,USB Hub, Office,"2,259.88",7,2024-12-27,Edinburgh,19.1,3.7
+200,CUST-0236,Monitor,Office,2115.39,3,2025-03-08,Reading,27.3,1.0
+201,CUST-0417,SSD Drive,Networking,$1005.35,7,09/04/2024,Cambridge,0.5,4.9
+202,CUST-0264,Power Bank,ACCESSORIES,1908.96,1,09/01/2024,Nottingham,16.7,4.5
+203,CUST-0324,Fan,ACCESSORIES,2058.79,9,2025-11-27,Stoke,23.6,4.6
+204,CUST-0406,Server Rack,,2222.77,6,23/04/2024,Norwich,16.2,3.6
+205,CUST-0333,UPS,Gaming,1363.54,5,22/05/2024,Coventry,9.7,2.4
+206,CUST-0271,Graphics Card, Office,515.13,7,23/09/2025,,4.1,4.6
+207,CUST-0251,Switch,networking  ,642.0,5,06-05-2024,Belfast,26.6,2.2
+208,CUST-0414,VR Headset,ELECTRONICS,742.76,5,16/09/2024,Dundee,14.1,
+209,CUST-0473,Wrist Rest,Networking,1486.54,7,2025-03-16,Nottingham,26.3,1.4
+210,CUST-0259,Splitter,ACCESSORIES,86.86,7,06-20-2024,,,4.7
+211,CUST-0195,Shredder,Networking,$1591.93,3,12-20-2025,Cardiff,20.2,1.6
+212,CUST-0332,Keyboard,Accessories,914.06,3,09-26-2024,Manchester,24.1,1.9
+213,CUST-0279,Webcam,,741.63,3,17/09/2025,Norwich,19.8,3.2
+214,CUST-0212,Headphones,Storage,2199.34,6,15/11/2024,Glasgow,,4.1
+215,CUST-0417,Headphones,Office,1152.71,6,04/03/2025,Stoke,15.4,3.5
+216,CUST-0151,KVM Switch,ACCESSORIES,242.16,3,22/12/2025,Exeter,24.1,1.9
+217,CUST-0367,Microphone,Networking,2067.73,3,11/09/2024,Oxford,11.2,
+218,CUST-0394,Shredder,Gaming,123.86,8,2024-04-21,Norwich,11.6,4.0
+219,CUST-0485,RAM Module,Electronics,1818.24,8,08/11/2024,Exeter,2.9,4.9
+220,CUST-0486,Drone,Storage,1935.9,7,04-05-2025,Leeds,27.4,4.2
+221,CUST-0212,Power Bank,Storage,884.74,4,2025-04-06,Oxford,2.7,2.8
+222,CUST-0200,Shredder,ELECTRONICS,2062.85,4,2024-04-01,Cardiff,19.4,4.6
+223,CUST-0212,Hub,Networking,1291.57,3,03/06/2025,Bath,12.4,2.6
+224,CUST-0180,Drone, Office,"1,160.92",5,2024-08-23,Manchester,12.2,3.1
+225,CUST-0286,Stylus,storage  ,118.28,3,2025-01-08,Aberdeen,20.4,2.9
+226,CUST-0212,Screen Protector,ELECTRONICS,728.62,8,2025-07-10,Cambridge,2.0,2.8
+227,CUST-0101,Desk Lamp,peripherals  ,2327.87,7,2024-08-21,Plymouth,17.8,4.1
+228,CUST-0229,Keyboard,ELECTRONICS,982.6,3,09-29-2025,Coventry,23.2,3.1
+229,CUST-0319,Scanner,Electronics,1369.02,9,25/06/2025,Exeter,,2.3
+230,CUST-0153,Drone,Accessories,$1332.39,5,2024-07-22,Newcastle,5.1,2.0
+231,CUST-0442,Memory Card,Networking,1478.13,9,04/10/2025,Nottingham,26.9,1.2
+232,CUST-0323,Speaker,Peripherals,158.02,7,2025-11-27,Bristol,19.7,3.3
+233,CUST-0324,KVM Switch, Audio,$908.63,7,20/01/2025,Coventry,26.5,1.9
+234,CUST-0484,Chair Mat,ACCESSORIES,1809.21,6,29/05/2025,London,14.6,1.6
+235,CUST-0225,RAM Module,ELECTRONICS,505.4,2,2025-08-02,,16.3,3.6
+236,CUST-0229,Monitor,Office,512.93,9,2025-11-21,Sheffield,27.6,3.7
+237,CUST-0152,Charger,Audio,30.18,6,10-26-2024,Leeds,27.0,4.0
+238,CUST-0271,Tripod,,1096.52,8,11-06-2024,Plymouth,13.4,3.0
+239,CUST-0317,VR Headset,Electronics,2207.42,1,27/01/2025,Nottingham,8.2,4.6
+240,CUST-0259,Tablet,Electronics,134.49,5,20/03/2025,Stoke,11.8,4.7
+241,CUST-0297,Splitter,Gaming,481.84,1,06-20-2024,Cardiff,11.6,
+242,CUST-0346,Keyboard,peripherals  ,778.66,8,16/02/2024,Coventry,8.6,3.5
+243,CUST-0423,Laptop Stand,peripherals  ,1830.65,8,17/12/2024,Reading,8.1,2.2
+244,CUST-0302,Fan,Accessories,1603.39,1,2025-09-13,Edinburgh,25.8,4.9
+245,CUST-0283,RAM Module,storage  ,1042.78,9,27/02/2024,Norwich,2.1,2.1
+246,CUST-0222,Keyboard,ACCESSORIES,1898.88,2,11-25-2024,Aberdeen,20.3,1.8
+247,CUST-0354,Chair Mat,,1526.03,9,2025-01-17,Glasgow,5.2,2.8
+248,CUST-0393,VR Headset,ELECTRONICS,2240.62,1,2024-06-10,Glasgow,10.3,1.2
+249,CUST-0379,Smartwatch,Office,2045.98,9,10-12-2024,Oxford,1.8,4.9
+250,CUST-0424,Hub,Audio,635.77,4,29/03/2025,Reading,8.1,3.4
+251,CUST-0471,RAM Module,,$682.24,9,07-20-2025,Cardiff,23.1,3.2
+252,CUST-0197,Cable Pack,Electronics,317.76,7,01-31-2025,Liverpool,26.6,3.6
+253,CUST-0297,Adapter,Accessories,845.73,6,2024-01-26,,6.6,3.0
+254,CUST-0494,Chair Mat,Audio,2498.86,5,2024-05-05,York,13.9,1.1
+255,CUST-0339,Headphones,networking  ,1017.35,9,07-16-2024,Brighton,14.1,3.4
+256,CUST-0243,Tablet,Audio,555.12,2,06/07/2024,Plymouth,26.2,3.9
+257,CUST-0196,VR Headset,Accessories,1907.39,2,2025-12-16,Manchester,22.9,2.7
+258,CUST-0300,Desk Lamp,Electronics,1358.47,9,28/04/2025,Belfast,15.4,4.0
+259,CUST-0223,Cable Pack,ACCESSORIES,378.26,3,06-06-2025,Brighton,20.1,1.9
+260,CUST-0286,Memory Card,Networking,954.82,8,19/12/2024,,25.4,1.9
+261,CUST-0425,SSD Drive,Networking,1039.1,9,2025-10-19,Leicester,0.3,1.6
+262,CUST-0448,Headphones,Accessories,1885.81,8,09/04/2024,Nottingham,12.1,2.5
+263,CUST-0358,Label Maker,Audio,56.58,4,09/07/2025,Nottingham,27.2,4.4
+264,CUST-0247,Wrist Rest, Office,676.2,1,11-23-2025,Nottingham,22.2,4.3
+265,CUST-0351,Stylus,ELECTRONICS,1296.4,4,09-17-2025,Leicester,16.3,2.5
+266,CUST-0445,Webcam,Accessories,$675.77,9,2024-09-11,Southampton,15.9,3.4
+267,CUST-0246,Tripod,ACCESSORIES,"1,572.94",2,25/06/2025,Bristol,10.4,3.9
+268,CUST-0247,Label Maker,Accessories,1207.26,3,11-24-2024,Newcastle,15.6,2.0
+269,CUST-0451,Speaker, Office,907.47,8,2024-10-02,Cambridge,19.7,1.7
+270,CUST-0298,Laptop Stand, Office,2373.28,6,2024-10-01,Aberdeen,12.6,4.9
+271,CUST-0407,Headphones,Storage,$1582.24,8,12-19-2025,Leeds,21.4,3.5
+272,CUST-0227,Speaker,peripherals  ,329.2,7,12-27-2025,Swansea,25.8,4.9
+273,CUST-0138,Screen Protector,Office,1402.43,5,05/07/2025,Belfast,4.6,2.4
+274,CUST-0437,Adapter,Audio,1952.93,9,27/01/2024,London,,3.8
+275,CUST-0459,Server Rack,storage  ,1772.68,4,23/03/2024,Stoke,12.2,1.9
+276,CUST-0228,Scanner,Gaming,434.36,6,2025-11-12,Glasgow,20.6,2.0
+277,CUST-0366,Fan, Audio,2431.19,2,2024-06-15,Nottingham,7.5,3.0
+278,CUST-0250,Keyboard,Gaming,1124.79,2,08-16-2024,London,19.2,2.3
+279,CUST-0397,Adapter,Audio,401.77,2,08-31-2025,Norwich,26.3,1.7
+280,CUST-0198,VR Headset,,$454.59,7,06-11-2025,,12.5,2.1
+281,CUST-0362,Adapter,STORAGE,250.10,2,08/10/2025,Birmingham,27.3,1.1
+282,CUST-0351,Mouse Pad,ACCESSORIES,$2009.78,2,2025-06-07,Birmingham,29.8,3.8
+283,CUST-0243,Speaker,Storage,309.47,9,2024-04-15,,3.2,3.0
+284,CUST-0445,Server Rack,,317.19,7,19/11/2025,Leeds,7.0,1.4
+285,CUST-0211,Projector,Storage,2126.93,3,12/05/2024,Birmingham,28.5,1.7
+286,CUST-0159,Webcam, Audio,864.79,3,2024-09-25,Leicester,28.7,1.4
+287,CUST-0468,Desk Lamp,Electronics,81.99,7,09-10-2025,Bristol,2.9,3.5
+288,CUST-0101,Docking Station, Office,134.48,5,18/01/2024,Birmingham,0.4,1.4
+289,CUST-0484,Phone Case, Office,359.72,6,26/04/2024,Stoke,,4.0
+290,CUST-0403,Adapter,Office,537.42,8,2024-05-23,Reading,29.9,1.1
+291,CUST-0353,Laptop Stand,Networking,$1664.54,9,2025-07-04,Edinburgh,,2.0
+292,CUST-0239,Projector,Peripherals,397.53,1,2025-10-27,Cambridge,15.1,4.6
+293,CUST-0136,Label Maker,ACCESSORIES,301.59,3,25/02/2025,Newcastle,25.5,3.9
+294,CUST-0259,Splitter, Audio,1912.97,7,03/01/2025,,0.6,1.3
+295,CUST-0108,Speaker,Peripherals,1679.28,6,11/07/2025,Oxford,,4.3
+296,CUST-0332,Switch,networking  ,1091.13,7,08/11/2025,Derby,8.3,3.0
+297,CUST-0198,Server Rack,Peripherals,"1,375.53",8,03/08/2024,Liverpool,25.9,4.4
+298,CUST-0246,Chair Mat,Audio,783.4,6,28/02/2025,Bristol,8.5,3.4
+299,CUST-0403,Hub, Audio,1208.84,3,2025-03-21,London,20.6,3.7
+300,CUST-0307,Camera,Gaming,$1269.15,2,04/07/2024,Stoke,20.2,
+301,CUST-0230,Mouse Pad,Gaming,971.16,7,29/05/2024,Belfast,6.6,1.9
+302,CUST-0251,Memory Card,Networking,2266.9,1,06-21-2025,Derby,1.0,3.5
+303,CUST-0153,USB Hub, Audio,45.07,3,10-13-2025,Dundee,12.3,2.8
+304,CUST-0219,Headphones,Audio,1956.52,4,10-04-2024,York,8.7,1.2
+305,CUST-0260,Switch,Peripherals,315.34,1,10-24-2025,Birmingham,24.3,1.1
+306,CUST-0215,Server Rack,storage  ,$1994.88,5,13/04/2024,Leeds,24.0,1.5
+307,CUST-0174,Printer,networking  ,1541.7,3,2025-08-23,Newcastle,,
+308,CUST-0212,Microphone,STORAGE,2108.98,2,2025-12-25,Leicester,18.2,3.3
+309,CUST-0203,Hub,peripherals  ,248.3,3,2025-01-28,London,18.1,3.2
+310,CUST-0439,Graphics Card,ELECTRONICS,1399.66,8,11-25-2025,Cardiff,-5.0,1.1
+311,CUST-0353,Scanner,Gaming,1255.21,6,06-04-2025,Newcastle,12.8,2.9
+312,CUST-0326,Switch,ACCESSORIES,1766.95,7,21/02/2024,York,8.3,4.7
+313,CUST-0211,Surge Protector,storage  ,"1,338.05",6,08-13-2024,Nottingham,8.0,2.6
+314,CUST-0198,External HDD,ACCESSORIES,$1354.13,6,04/07/2024,Swansea,16.1,3.5
+315,CUST-0252,Printer,Electronics,1076.84,3,05-10-2024,Brighton,13.5,
+316,CUST-0448,Stylus, Audio,775.54,8,09-23-2025,Leeds,,4.1
+317,CUST-0483,Camera,Accessories,1208.25,7,2025-03-07,London,2.7,3.1
+318,CUST-0465,Mouse,ELECTRONICS,300.64,7,02-06-2025,Bath,21.6,4.4
+319,CUST-0437,Charger,Gaming,2403.98,6,07-28-2024,Nottingham,6.4,2.6
+320,CUST-0293,Speaker,networking  ,1787.45,5,2024-11-24,London,5.9,4.6
+321,CUST-0409,Fan,Storage,2381.41,8,2025-10-12,Glasgow,,
+322,CUST-0262,Smartwatch,,570.68,5,2025-08-28,Glasgow,,2.1
+323,CUST-0307,External HDD,storage  ,2198.96,9,05-08-2024,Southampton,17.5,1.2
+324,CUST-0268,Mouse,Electronics,2022.93,9,08-26-2025,Coventry,11.1,4.2
+325,CUST-0260,Scanner,,1694.5,1,29/01/2024,Norwich,13.5,
+326,CUST-0167,Speaker,,1564.45,6,2025-06-07,Southampton,16.1,1.9
+327,CUST-0388,UPS,Storage,794.79,7,23/10/2024,Bristol,6.1,1.9
+328,CUST-0497,Mouse Pad,Audio,2041.94,3,2024-10-19,Leeds,4.7,4.6
+329,CUST-0376,Shredder,Office,1256.28,7,12-20-2025,Edinburgh,26.4,4.3
+330,CUST-0403,Splitter,Peripherals,181.87,7,02-09-2025,Bath,13.0,3.2
+331,CUST-0483,Screen Protector,Office,785.59,2,17/05/2025,York,12.4,
+332,CUST-0491,Adapter,ELECTRONICS,2338.57,7,2024-06-22,Leicester,1.1,2.9
+333,CUST-0234,Printer,STORAGE,2127.45,1,10/05/2025,Exeter,14.9,
+334,CUST-0294,VR Headset,Accessories,2454.85,5,10-16-2025,Leeds,16.6,4.7
+335,CUST-0227,Desk Lamp,STORAGE,1571.84,9,2025-07-07,Reading,16.8,1.5
+336,CUST-0132,Server Rack,Storage,622.54,7,25/10/2024,York,21.2,2.7
+337,CUST-0275,Drone,Networking,411.22,7,07-10-2024,Cardiff,5.3,2.4
+338,CUST-0470,Label Maker,,471.35,2,10-25-2025,Plymouth,7.6,3.0
+339,CUST-0474,Webcam,STORAGE,54.39,8,06-14-2024,Nottingham,,2.8
+340,CUST-0121,Docking Station,Gaming,979.75,3,19/08/2024,Southampton,28.4,3.1
+341,CUST-0337,Surge Protector,storage  ,482.61,8,06-24-2025,Norwich,4.1,
+342,CUST-0257,USB Hub,ACCESSORIES,1032.08,3,20/05/2025,Derby,14.9,3.1
+343,CUST-0137,Graphics Card,Gaming,$2337.81,7,2024-10-30,Southampton,6.4,2.0
+344,CUST-0329,Splitter,Gaming,1079.2,2,03-12-2025,Exeter,1.8,1.7
+345,CUST-0464,Scanner,storage  ,2195.57,4,16/05/2025,Belfast,9.8,1.3
+346,CUST-0150,VR Headset,storage  ,1515.73,6,27/01/2025,Brighton,4.3,4.1
+347,CUST-0363,Laptop Stand,ELECTRONICS,621.59,9,2025-08-21,Glasgow,,2.7
+348,CUST-0382,Cable Pack,Peripherals,$892.86,5,02-08-2025,Norwich,16.0,3.5
+349,CUST-0126,Surge Protector,Networking,214.38,9,12-27-2024,Coventry,4.3,3.9
+350,CUST-0325,Tripod,Networking,836.99,5,07-16-2024,Liverpool,0.3,3.7
+351,CUST-0376,Fan,Gaming,1695.46,8,2025-07-09,Swansea,,2.9
+352,CUST-0385,Ethernet Cable,Office,184.92,1,01-17-2024,Manchester,5.3,2.6
+353,CUST-0196,Monitor,ELECTRONICS,517.48,7,13/01/2025,,18.2,2.5
+354,CUST-0383,Power Bank, Audio,$956.7,4,03-16-2024,Stoke,,3.6
+355,CUST-0466,Scanner, Audio,$2455.21,5,16/12/2025,Nottingham,17.6,3.0
+356,CUST-0416,Camera, Office,1963.23,6,04/09/2024,York,9.5,4.4
+357,CUST-0403,Monitor,networking  ,1835.05,5,12-26-2025,Cambridge,2.6,
+358,CUST-0246,Mouse Pad,Gaming,294.9,1,2024-06-06,Derby,6.7,1.7
+359,CUST-0103,Screen Protector,,1953.58,9,2025-01-27,York,5.6,1.5
+360,CUST-0134,Smartwatch,ACCESSORIES,1964.25,2,2024-09-23,London,12.8,3.5
+361,CUST-0291,Ethernet Cable,,1504.75,9,09-02-2025,Bristol,19.7,2.2
+362,CUST-0148,Screen Protector,Peripherals,2475.95,2,12-28-2025,Exeter,7.9,1.1
+363,CUST-0116,Graphics Card,Audio,816.51,9,11-03-2025,Brighton,0.4,4.6
+364,CUST-0271,Laptop,storage  ,2353.47,6,28/08/2025,Stoke,15.6,1.9
+365,CUST-0319,Ethernet Cable,Accessories,2287.25,9,11-07-2025,Manchester,18.2,4.7
+366,CUST-0257,Wrist Rest,Office,33.64,6,08-07-2024,Bristol,28.9,3.9
+367,CUST-0145,Stylus, Office,1128.04,6,06-06-2025,Liverpool,17.7,4.1
+368,CUST-0472,Charger,Storage,2442.88,2,11/01/2025,Brighton,14.1,1.8
+369,CUST-0105,KVM Switch,peripherals  ,262.29,8,09-08-2025,Norwich,17.2,1.9
+370,CUST-0198,Fan,Storage,1371.72,3,01-02-2024,Newcastle,27.8,3.1
+371,CUST-0479,Smartwatch,STORAGE,2447.5,7,2024-04-10,Oxford,24.9,1.7
+372,CUST-0332,Camera,Accessories,1390.96,5,2024-02-27,Norwich,9.7,2.2
+373,CUST-0136,Drone,STORAGE,478.59,3,2025-11-22,York,7.1,
+374,CUST-0379,Smartwatch,Gaming,1457.55,1,2024-12-06,Newcastle,7.9,1.6
+375,CUST-0448,USB Hub,Audio,515.08,8,01-20-2024,Derby,15.1,1.8
+376,CUST-0401,Fan,Electronics,1301.66,3,12/11/2024,Bristol,22.3,4.2
+377,CUST-0280,Tablet,storage  ,189.74,2,21/10/2025,Exeter,15.1,1.7
+378,CUST-0194,Projector,Electronics,1515.68,1,20/06/2025,,2.0,1.1
+379,CUST-0198,Webcam,Office,1294.39,4,24/09/2025,Newcastle,21.7,3.5
+380,CUST-0287,KVM Switch, Office,1851.7,8,2025-03-29,Bristol,24.2,4.9
+381,CUST-0215,Cable Pack,Gaming,1578.6,3,2024-11-18,Cardiff,8.7,2.3
+382,CUST-0290,Scanner,Networking,1376.27,1,05-27-2025,Swansea,19.9,1.5
+383,CUST-0352,Tablet, Office,1726.0,4,01-13-2024,Manchester,12.8,3.3
+384,CUST-0260,Microphone,storage  ,364.14,9,2025-07-13,Brighton,26.7,4.6
+385,CUST-0355,Wrist Rest, Office,1490.42,1,01-05-2025,Liverpool,,4.1
+386,CUST-0422,VR Headset,STORAGE,434.42,2,27/11/2024,Plymouth,15.8,3.5
+387,CUST-0227,UPS,Networking,2314.18,9,17/09/2024,Plymouth,20.7,2.3
+388,CUST-0117,VR Headset,Peripherals,175.49,2,2024-07-23,Swansea,26.5,3.2
+389,CUST-0380,Fan,networking  ,1078.79,3,17/11/2025,Coventry,14.9,
+390,CUST-0322,Monitor,Audio,1741.01,7,2025-01-21,York,9.4,3.7
+391,CUST-0153,Screen Protector,networking  ,1147.77,3,04-12-2025,Derby,22.6,3.9
+392,CUST-0157,Drone,Audio,234.78,9,09/03/2024,Bristol,6.6,4.9
+393,CUST-0422,Speaker,Storage,1385.68,6,09/06/2024,Southampton,11.7,2.0
+394,CUST-0459,Splitter, Office,1605.87,3,30/07/2024,Aberdeen,26.0,1.1
+395,CUST-0273,External HDD,ELECTRONICS,1760.96,9,2024-11-27,Brighton,21.7,3.2
+396,CUST-0379,Cable Pack,storage  ,936.28,1,2025-07-04,Sheffield,12.1,3.8
+397,CUST-0213,Fan,STORAGE,1411.33,3,12/09/2024,,6.4,4.2
+398,CUST-0387,Fan,,1129.46,1,12-28-2025,Aberdeen,10.7,1.8
+399,CUST-0441,Tablet,Office,1681.78,2,2024-06-20,Swansea,8.5,2.0
+400,CUST-0250,Scanner,,1460.97,8,05-12-2025,Aberdeen,,3.1
+401,CUST-0226,Mouse,Electronics,1316.76,7,18/01/2025,York,22.3,2.3
+402,CUST-0254,KVM Switch, Audio,627.56,2,08-11-2025,Cambridge,7.6,4.4
+403,CUST-0485,Charger,peripherals  ,10.04,2,2025-06-10,Cardiff,13.6,2.9
+404,CUST-0372,Power Bank,Office,439.33,9,20/11/2024,Manchester,11.6,4.2
+405,CUST-0203,Ethernet Cable,Networking,297.08,6,2024-07-26,Dundee,29.5,3.3
+406,CUST-0492,Tablet,Networking,1125.47,5,25/11/2024,Bath,11.7,4.1
+407,CUST-0398,Mouse Pad,networking  ,1532.58,6,31/10/2024,Sheffield,2.4,2.3
+408,CUST-0345,Keyboard,peripherals  ,536.65,9,30/05/2025,Stoke,2.7,4.3
+409,CUST-0275,Screen Protector,Accessories,"2,347.95",7,03-28-2025,,17.7,2.1
+410,CUST-0138,NAS,Peripherals,21.67,9,06-11-2025,Belfast,18.0,3.2
+411,CUST-0269,Laptop Stand,storage  ,1931.89,4,18/04/2025,London,12.6,1.9
+412,CUST-0346,Fan,Audio,1564.89,2,06-24-2025,Leeds,13.0,2.9
+413,CUST-0125,Router,ACCESSORIES,937.02,8,2024-03-19,Dundee,1.6,2.3
+414,CUST-0454,KVM Switch, Audio,130.97,4,2024-06-01,Sheffield,15.5,2.1
+415,CUST-0405,Phone Case,STORAGE,1570.58,9,02-04-2025,Cardiff,15.1,4.9
+416,CUST-0112,Tripod,Office,967.11,4,02-26-2024,Leeds,4.5,1.6
+417,CUST-0415,Power Bank, Office,$2340.99,8,04/07/2024,Cardiff,3.1,4.1
+418,CUST-0490,Webcam,STORAGE,1357.27,9,27/08/2025,Derby,3.7,4.9
+419,CUST-0412,Docking Station,,2349.43,9,11-23-2025,Liverpool,3.0,1.1
+420,CUST-0135,Headphones,ELECTRONICS,555.11,4,2025-03-15,London,18.3,3.8
+421,CUST-0272,Keyboard,Storage,1815.69,1,04-10-2025,Belfast,,2.0
+422,CUST-0119,Laptop,Electronics,"1,545.04",3,21/03/2025,Stoke,7.5,1.2
+423,CUST-0420,Memory Card,Peripherals,1849.82,9,02/05/2025,Southampton,5.2,2.6
+424,CUST-0363,Cable Pack,ELECTRONICS,540.6,4,2024-03-13,Exeter,,4.7
+425,CUST-0499,VR Headset,Peripherals,1664.16,5,01/12/2025,,,1.0
+426,CUST-0241,Drone,Accessories,1247.61,7,01-17-2024,Stoke,6.9,3.4
+427,CUST-0470,Shredder,,1858.35,5,11-21-2024,Cambridge,9.8,3.0
+428,CUST-0242,Chair Mat,networking  ,820.98,4,2025-09-23,Liverpool,6.3,4.5
+429,CUST-0191,Desk Lamp,networking  ,2225.69,2,2025-06-29,Cambridge,14.8,1.3
+430,CUST-0453,Smartwatch,,215.33,2,08/12/2025,Bath,0.6,3.7
+431,CUST-0421,Stylus,Storage,2018.94,4,2024-07-20,Brighton,20.1,3.7
+432,CUST-0387,Cable Pack,peripherals  ,2153.99,9,06-06-2025,Leicester,15.7,3.7
+433,CUST-0314,NAS,storage  ,2044.04,8,03/02/2025,Brighton,,
+434,CUST-0441,Phone Case,peripherals  ,1284.25,3,2025-03-20,Bristol,4.9,4.3
+435,CUST-0150,Mouse Pad,ELECTRONICS,1098.77,9,08-09-2024,Nottingham,24.1,1.2
+436,CUST-0252,SSD Drive,Peripherals,"2,490.67",5,08-14-2025,Norwich,23.8,2.9
+437,CUST-0285,UPS,Audio,576.78,3,09-28-2024,Newcastle,3.8,2.6
+438,CUST-0162,Chair Mat,,1369.46,5,16/01/2024,Derby,12.0,2.2
+439,CUST-0289,Screen Protector,Audio,"1,678.34",4,06-07-2025,Stoke,,2.8
+440,CUST-0224,Fan,,1753.66,8,21/01/2024,Dundee,7.6,2.5
+441,CUST-0249,SSD Drive,storage  ,514.04,5,2024-08-15,Edinburgh,7.9,
+442,CUST-0413,Cable Pack,storage  ,"1,636.72",8,2024-10-14,Oxford,16.7,4.9
+443,CUST-0157,Mouse Pad,ELECTRONICS,2046.83,9,05-13-2024,Cambridge,12.3,1.4
+444,CUST-0441,UPS,STORAGE,129.8,4,2025-02-07,Exeter,28.4,4.7
+445,CUST-0404,USB Hub,,"2,279.25",7,2024-03-06,Norwich,3.8,2.9
+446,CUST-0279,Keyboard, Audio,78.61,2,2025-08-26,York,29.2,3.5
+447,CUST-0269,Fan,storage  ,893.15,6,15/09/2024,Dundee,6.9,4.3
+448,CUST-0425,NAS,storage  ,44.45,8,2024-04-12,Nottingham,23.2,2.4
+449,CUST-0370,Desk Lamp,,$197.48,7,2025-07-20,Leicester,10.2,2.7
+450,CUST-0153,Keyboard,Networking,2278.36,7,10/04/2024,Norwich,4.3,2.6
+451,CUST-0200,Power Bank,Gaming,890.38,8,08-13-2024,Reading,25.7,2.5
+452,CUST-0363,UPS,Accessories,1064.8,7,2025-04-07,Exeter,9.3,4.7
+453,CUST-0152,Cable Pack,Audio,542.28,5,2024-01-26,Stoke,19.8,4.3
+454,CUST-0159,Chair Mat,Storage,1494.75,7,20/05/2025,Exeter,17.0,1.4
+455,CUST-0207,Surge Protector,storage  ,1489.03,3,11/12/2025,London,14.2,1.4
+456,CUST-0104,Charger,storage  ,933.64,5,09-25-2025,Stoke,14.9,2.7
+457,CUST-0202,USB Hub,networking  ,835.92,7,11-10-2024,Brighton,22.0,1.4
+458,CUST-0295,Screen Protector,ACCESSORIES,2212.99,9,2025-09-09,Glasgow,2.6,3.5
+459,CUST-0361,NAS, Office,961.29,2,19/08/2024,Swansea,20.0,1.6
+460,CUST-0464,Power Bank,Networking,1236.28,4,2025-05-10,Birmingham,26.9,3.1
+461,CUST-0471,Camera,storage  ,711.85,7,03/12/2025,Norwich,1.7,
+462,CUST-0449,RAM Module,Gaming,$1967.99,1,01-25-2024,Belfast,-10.0,2.3
+463,CUST-0146,Memory Card,,996.63,2,14/10/2024,York,21.5,3.7
+464,CUST-0454,Label Maker,networking  ,1286.46,9,06/02/2024,Glasgow,13.1,2.9
+465,CUST-0410,Ethernet Cable,Electronics,637.13,7,05-16-2024,Edinburgh,12.1,4.9
+466,CUST-0407,Mouse,Networking,2469.21,7,15/11/2024,Southampton,4.1,4.5
+467,CUST-0243,Desk Lamp,,732.28,6,03-26-2024,Birmingham,15.2,2.4
+468,CUST-0368,SSD Drive,Peripherals,1928.0,3,02-22-2024,Nottingham,3.8,1.2
+469,CUST-0469,Tablet,Accessories,1071.6,3,08-22-2024,Nottingham,,4.4
+470,CUST-0223,Speaker,,519.51,2,03-08-2025,Belfast,,4.6
+471,CUST-0205,Screen Protector,Storage,2000.3,6,09/04/2024,Manchester,7.7,4.3
+472,CUST-0257,SSD Drive, Audio,837.35,4,08-21-2025,Liverpool,14.4,1.5
+473,CUST-0246,Router,Accessories,2163.66,5,01-30-2025,Bristol,29.8,5.0
+474,CUST-0244,Stylus,ACCESSORIES,2288.57,3,02-18-2025,Leeds,20.6,2.0
+475,CUST-0219,Surge Protector,STORAGE,2150.26,6,2025-09-04,Dundee,25.2,3.9
+476,CUST-0418,Stylus,ELECTRONICS,92.34,3,2025-04-07,,12.4,4.6
+477,CUST-0374,UPS,Office,1969.5,8,09-17-2025,Derby,23.0,1.9
+478,CUST-0191,KVM Switch, Office,1031.29,9,29/12/2024,Leicester,1.2,4.6
+479,CUST-0157,Printer, Office,2184.94,4,03-24-2024,Bristol,3.7,2.2
+480,CUST-0445,Memory Card,Audio,1596.7,9,31/08/2024,Edinburgh,6.1,4.9
+481,CUST-0328,Scanner,Electronics,2084.94,7,06-14-2024,Southampton,12.1,2.1
+482,CUST-0216,Tablet,Networking,1251.08,3,28/02/2024,Norwich,25.4,4.8
+483,CUST-0417,Server Rack,storage  ,1339.89,7,18/05/2025,York,10.4,1.2
+484,CUST-0378,Chair Mat,STORAGE,365.25,1,2024-05-02,Southampton,,3.8
+485,CUST-0226,Projector,networking  ,"1,961.05",3,2024-05-18,Exeter,21.3,
+486,CUST-0492,Memory Card, Audio,1051.38,6,09-30-2024,Nottingham,17.6,2.9
+487,CUST-0495,Splitter,STORAGE,1252.7,4,15/07/2025,Stoke,10.7,1.9
+488,CUST-0228,SSD Drive,Storage,1963.82,7,27/04/2024,Plymouth,17.3,3.8
+489,CUST-0157,Tablet,Electronics,1499.12,3,04-27-2025,London,10.3,1.8
+490,CUST-0221,Ethernet Cable,Peripherals,506.74,1,12-03-2025,Coventry,,3.2
+491,CUST-0100,Desk Lamp,peripherals  ,1477.63,9,11-23-2025,York,29.8,2.0
+492,CUST-0338,Splitter, Office,1022.04,6,03-18-2024,Stoke,3.8,4.8
+493,CUST-0389,Screen Protector,Accessories,1176.47,8,2024-10-21,Derby,2.2,
+494,CUST-0195,Smartwatch,Accessories,75.64,3,21/01/2024,London,26.4,
+495,CUST-0225,UPS,Storage,529.02,8,06-19-2024,Leeds,9.1,2.0
+496,CUST-0217,Scanner,,706.19,2,29/07/2024,Belfast,19.5,2.7
+497,CUST-0147,Cable Pack,Gaming,1783.84,4,28/05/2024,Birmingham,9.9,1.9
+498,CUST-0188,Phone Case,storage  ,33.67,3,2024-05-30,Coventry,11.7,3.0
+499,CUST-0336,Ethernet Cable, Audio,$1024.9,1,09/03/2024,Bath,,4.5
+500,CUST-0472,Laptop Stand,,2310.45,7,2025-06-04,Cardiff,10.3,3.8
+501,CUST-0484,Power Bank,Audio,284.14,2,01-05-2025,Birmingham,12.3,3.3
+502,CUST-0371,Projector,ELECTRONICS,1293.48,4,2024-04-10,Derby,21.6,1.4
+503,CUST-0288,Graphics Card,,1967.37,9,2025-10-19,Liverpool,15.3,3.8
+504,CUST-0291,Adapter,storage  ,2356.62,6,2024-08-30,Liverpool,28.3,
+505,CUST-0168,Scanner,Electronics,1868.21,8,2025-05-26,Norwich,1.3,4.1
+506,CUST-0377,Projector,Gaming,1802.81,2,07-08-2025,Dundee,15.1,2.0
+507,CUST-0448,Mouse,Office,2067.09,7,13/08/2024,Sheffield,17.5,2.7
+508,CUST-0346,Projector,Office,1118.27,6,01/08/2024,Norwich,27.6,2.4
+509,CUST-0175,Projector, Office,2015.58,9,2024-03-07,Reading,1.5,4.4
+510,CUST-0253,Splitter, Audio,24.87,7,02-02-2025,London,17.2,1.5
+511,CUST-0243,Speaker,Storage,2311.78,1,04-24-2025,Brighton,25.6,3.3
+512,CUST-0185,Surge Protector,Peripherals,$1111.05,8,09/08/2024,Aberdeen,7.3,1.6
+513,CUST-0284,Projector,ACCESSORIES,1385.68,3,03/03/2025,Glasgow,,3.8
+514,CUST-0384,Speaker,ELECTRONICS,640.93,2,19/02/2025,Cardiff,0.6,4.6
+515,CUST-0319,Wrist Rest, Audio,1857.61,3,11-21-2024,Belfast,22.0,2.7
+516,CUST-0168,Ethernet Cable,Audio,196.21,6,09/12/2024,Nottingham,28.0,3.0
+517,CUST-0146,External HDD, Audio,2182.23,3,09/10/2024,Leicester,19.7,4.7
+518,CUST-0193,Mouse, Audio,2071.15,5,16/08/2024,Sheffield,13.2,3.1
+519,CUST-0337,Memory Card,Networking,544.07,6,10-16-2024,Glasgow,1.3,3.0
+520,CUST-0303,External HDD,Storage,$2024.26,8,15/12/2025,Glasgow,27.6,3.3
+521,CUST-0499,Wrist Rest,,1966.96,7,2024-01-24,Derby,14.1,3.8
+522,CUST-0317,UPS,Networking,"1,582.38",8,2024-09-30,Derby,0.9,1.4
+523,CUST-0440,Cable Pack,Networking,936.93,3,12-28-2024,Reading,20.7,4.3
+524,CUST-0138,VR Headset,networking  ,682.39,4,11-04-2025,,14.5,2.7
+525,CUST-0199,Hub,Peripherals,583.3,6,14/04/2025,Sheffield,3.7,1.3
+526,CUST-0388,NAS,networking  ,799.93,7,2025-11-05,Coventry,6.4,
+527,CUST-0353,Shredder,Peripherals,2259.38,9,02-11-2024,Birmingham,1.9,2.5
+528,CUST-0321,Adapter,storage  ,198.71,1,22/12/2025,Swansea,17.2,1.4
+529,CUST-0456,Tablet,Electronics,"2,073.03",8,10/04/2025,Dundee,18.7,3.5
+530,CUST-0122,Keyboard,Office,875.48,8,2024-04-27,Edinburgh,,4.5
+531,CUST-0349,Webcam,ELECTRONICS,$1306.39,6,11-04-2024,Oxford,,4.6
+532,CUST-0109,RAM Module,Storage,$1987.24,4,2024-04-09,York,25.8,4.8
+533,CUST-0345,Webcam,storage  ,2211.52,3,31/10/2024,Derby,18.5,4.5
+534,CUST-0424,RAM Module,peripherals  ,865.23,3,10-12-2024,Cambridge,0.4,1.0
+535,CUST-0199,External HDD, Audio,"1,157.30",6,03-03-2024,London,,2.5
+536,CUST-0389,Printer,Accessories,1039.22,8,2024-10-08,Dundee,12.5,4.3
+537,CUST-0279,Scanner,Storage,38.06,7,19/10/2024,Aberdeen,17.0,2.5
+538,CUST-0322,Splitter,Electronics,743.38,1,01-07-2024,Glasgow,100.0,3.4
+539,CUST-0493,Smartwatch,Audio,$1150.68,6,04-01-2024,Coventry,,3.4
+540,CUST-0349,SSD Drive,,1030.68,7,07-08-2024,Derby,,
+541,CUST-0246,SSD Drive,STORAGE,1806.21,7,04-20-2025,Manchester,4.0,4.6
+542,CUST-0195,Laptop Stand,Office,965.09,9,2025-04-06,London,20.1,3.0
+543,CUST-0356,Power Bank,STORAGE,1225.99,5,30/04/2025,Edinburgh,0.1,2.9
+544,CUST-0424,KVM Switch,STORAGE,1076.87,1,2024-12-29,Stoke,27.7,5.0
+545,CUST-0103,USB Hub,Accessories,$1852.86,2,07/01/2024,Newcastle,3.4,3.0
+546,CUST-0115,Tablet,Gaming,2158.12,4,2025-10-29,Newcastle,2.8,
+547,CUST-0379,Power Bank,networking  ,$1332.06,5,01/01/2025,Cambridge,10.0,3.1
+548,CUST-0435,Phone Case,Audio,1974.63,9,09-06-2024,Oxford,11.2,4.3
+549,CUST-0346,Monitor,networking  ,745.48,1,08-27-2024,Manchester,6.4,4.1
+550,CUST-0357,Webcam,Peripherals,$1355.72,3,04-15-2025,Edinburgh,17.6,4.2
+551,CUST-0483,Ethernet Cable,Networking,866.35,5,12-01-2025,Edinburgh,13.3,3.8
+552,CUST-0259,Wrist Rest,Gaming,1038.43,3,31/12/2024,Belfast,1.0,2.0
+553,CUST-0439,Keyboard,networking  ,"1,832.37",4,06/02/2025,Exeter,9.6,4.4
+554,CUST-0251,Splitter,Storage,2204.75,3,06-04-2025,Plymouth,24.3,4.6
+555,CUST-0495,Hub,Storage,$308.13,4,2024-07-28,,20.7,1.8
+556,CUST-0277,Charger,networking  ,"1,588.42",1,21/06/2024,Reading,21.7,1.5
+557,CUST-0262,Tablet, Audio,$1457.45,8,2025-08-12,Sheffield,20.9,4.9
+558,CUST-0479,Stylus,networking  ,300.45,4,02-06-2025,Birmingham,9.3,4.5
+559,CUST-0132,Smartwatch,STORAGE,533.68,7,04-28-2024,Newcastle,3.0,4.6
+560,CUST-0278,Microphone,Peripherals,$780.95,2,12-01-2024,Stoke,8.2,4.5
+561,CUST-0200,Smartwatch,Electronics,421.49,2,07/09/2025,Sheffield,25.0,3.2
+562,CUST-0367,Speaker,ELECTRONICS,613.11,6,07-09-2024,Dundee,29.4,3.6
+563,CUST-0422,Chair Mat,Gaming,672.66,2,05-26-2024,,14.8,3.2
+564,CUST-0164,Server Rack,Gaming,842.51,6,2024-10-10,,0.3,1.2
+565,CUST-0267,Docking Station,networking  ,1874.73,2,09-26-2025,Brighton,4.2,4.0
+566,CUST-0429,UPS,ACCESSORIES,$1431.92,4,2025-12-18,Bath,9.7,3.0
+567,CUST-0142,Camera,Audio,2465.69,7,01-28-2025,Cambridge,17.4,3.6
+568,CUST-0143,Server Rack,Office,1039.77,8,01-22-2024,Leeds,2.3,3.0
+569,CUST-0384,SSD Drive,Audio,1885.89,3,14/04/2024,Exeter,28.3,3.0
+570,CUST-0496,Fan, Office,2179.31,9,03/04/2025,Liverpool,11.0,1.7
+571,CUST-0111,Scanner,,"1,699.05",2,16/12/2025,Plymouth,27.4,2.1
+572,CUST-0194,NAS,Storage,"1,032.60",8,09-10-2025,Leicester,23.4,1.6
+573,CUST-0401,Stylus,networking  ,1885.22,8,08-08-2024,London,22.7,1.8
+574,CUST-0485,Webcam,Storage,513.15,4,09/08/2024,Birmingham,18.2,
+575,CUST-0352,Stylus,Storage,822.24,1,12-13-2025,Glasgow,18.8,1.6
+576,CUST-0341,Docking Station,ACCESSORIES,"1,368.98",1,2024-12-14,Exeter,19.1,2.1
+577,CUST-0134,Ethernet Cable,Storage,$1440.65,2,14/12/2025,,18.9,3.4
+578,CUST-0314,Tripod,ELECTRONICS,60.24,9,08-23-2024,Oxford,16.6,3.4
+579,CUST-0436,Scanner,storage  ,$2363.06,2,2025-12-12,Reading,29.6,
+580,CUST-0189,Splitter,Peripherals,1743.09,2,2025-03-19,Southampton,22.0,4.2
+581,CUST-0363,Keyboard,peripherals  ,"1,241.78",6,14/09/2025,Cardiff,23.3,4.1
+582,CUST-0192,Laptop Stand,Office,2333.15,7,08-23-2024,Reading,26.2,1.9
+583,CUST-0189,Graphics Card,networking  ,"1,100.54",7,2024-04-13,Birmingham,6.5,2.2
+584,CUST-0214,Drone, Audio,$2451.19,9,04-24-2025,Swansea,2.5,4.8
+585,CUST-0204,Fan,ELECTRONICS,1283.15,6,09-13-2024,Nottingham,14.5,4.3
+586,CUST-0490,Cable Pack,STORAGE,290.14,8,2025-05-14,Birmingham,15.4,
+587,CUST-0295,Projector,storage  ,1913.18,6,2025-05-24,Newcastle,24.9,1.3
+588,CUST-0413,USB Hub,Office,1698.85,2,22/07/2025,Manchester,13.3,
+589,CUST-0213,Smartwatch,ELECTRONICS,1933.6,1,2025-09-01,Aberdeen,17.1,3.2
+590,CUST-0174,Shredder,storage  ,"2,378.85",5,01-10-2025,Leicester,15.8,1.7
+591,CUST-0475,Surge Protector,Storage,1942.34,9,22/02/2025,Nottingham,1.1,2.8
+592,CUST-0316,Router, Audio,1530.28,8,07-17-2024,York,18.5,3.4
+593,CUST-0376,Printer,Peripherals,2143.99,4,12/03/2025,Exeter,24.8,2.3
+594,CUST-0348,Desk Lamp,networking  ,1684.75,5,18/08/2025,Brighton,4.7,4.1
+595,CUST-0263,Power Bank,Gaming,1023.26,5,10-07-2024,Cambridge,17.8,4.4
+596,CUST-0493,Tripod,Audio,2214.62,6,12-02-2025,Edinburgh,17.8,2.3
+597,CUST-0456,Monitor,Networking,558.64,3,31/05/2024,Nottingham,,4.4
+598,CUST-0291,Laptop Stand,peripherals  ,1788.03,5,28/10/2024,Leeds,3.7,1.4
+599,CUST-0326,NAS,Peripherals,2204.5,2,10-12-2025,Cardiff,29.4,4.4
+600,CUST-0276,Power Bank,Gaming,1829.63,1,08-22-2024,Reading,,1.6
+601,CUST-0198,Desk Lamp,Electronics,1744.7,1,14/07/2025,Belfast,6.8,1.3
+602,CUST-0135,Shredder,,1882.83,7,07/02/2024,Cardiff,5.1,3.6
+603,CUST-0195,Scanner,ELECTRONICS,1165.31,2,02-24-2025,Edinburgh,20.0,2.9
+604,CUST-0251,Splitter, Office,2186.06,4,13/12/2024,Leicester,,4.6
+605,CUST-0250,Camera,Electronics,512.57,5,03-19-2024,Derby,19.3,2.5
+606,CUST-0289,VR Headset,Gaming,322.83,7,2024-09-29,Bristol,2.6,2.1
+607,CUST-0323,Camera,Peripherals,717.34,2,17/11/2025,,26.8,3.0
+608,CUST-0136,Mouse,ELECTRONICS,1331.29,6,03/11/2024,,11.7,2.8
+609,CUST-0367,Cable Pack,networking  ,1278.85,1,2024-01-09,Glasgow,9.4,2.4
+610,CUST-0468,VR Headset,,2052.39,7,2025-03-19,Manchester,13.9,3.8
+611,CUST-0282,Camera,Networking,1014.4,9,2024-07-23,Belfast,11.7,4.0
+612,CUST-0112,Webcam,Storage,1213.44,5,2025-11-28,Brighton,25.9,4.4
+613,CUST-0378,External HDD,ELECTRONICS,38.35,5,15/07/2024,Norwich,27.9,
+614,CUST-0316,Hub,,1027.3,4,2024-04-24,Nottingham,9.1,2.1
+615,CUST-0454,Smartwatch,networking  ,$1621.2,3,2025-10-14,Bristol,25.9,3.9
+616,CUST-0460,Keyboard,networking  ,43.69,9,2024-10-02,Cardiff,23.4,2.6
+617,CUST-0385,Server Rack,ELECTRONICS,705.8,5,26/08/2024,,27.9,3.7
+618,CUST-0372,Stylus,Peripherals,523.85,8,26/01/2025,Newcastle,7.4,2.9
+619,CUST-0468,Adapter,STORAGE,109.75,9,2025-01-03,Norwich,17.3,5.0
+620,CUST-0161,Router,,1200.75,5,07-13-2024,Swansea,8.2,3.9
+621,CUST-0183,Cable Pack,storage  ,$458.4,9,12/01/2024,Brighton,24.7,4.8
+622,CUST-0467,Projector,Gaming,1858.99,2,2025-11-19,,-10.0,4.3
+623,CUST-0316,Drone,Accessories,2120.58,9,08-04-2024,Stoke,16.9,4.6
+624,CUST-0441,Wrist Rest,ELECTRONICS,1366.24,4,21/03/2025,Aberdeen,10.2,4.3
+625,CUST-0496,SSD Drive,peripherals  ,2454.36,6,06-12-2024,Sheffield,9.7,2.8
+626,CUST-0286,Camera,networking  ,1128.94,6,22/02/2024,Dundee,19.3,2.0
+627,CUST-0118,Label Maker,Audio,1285.85,6,12-18-2025,Liverpool,25.5,2.5
+628,CUST-0276,Surge Protector,ELECTRONICS,2473.1,2,2024-12-25,Derby,18.3,1.1
+629,CUST-0199,Microphone,Gaming,582.71,7,25/02/2024,,25.6,3.1
+630,CUST-0495,Hub, Audio,$2356.65,6,09/09/2024,Belfast,7.9,3.0
+631,CUST-0332,NAS, Audio,111.88,1,06-28-2024,Cambridge,15.6,3.1
+632,CUST-0175,Charger,Office,1118.74,2,08-22-2024,Cambridge,13.5,4.9
+633,CUST-0364,Charger, Office,179.66,7,12-08-2025,Leeds,0.3,4.6
+634,CUST-0383,Mouse,peripherals  ,"1,824.44",1,2024-01-22,Cardiff,16.7,1.6
+635,CUST-0305,Tripod,networking  ,1522.98,1,2025-03-15,Edinburgh,19.8,2.5
+636,CUST-0322,Headphones,Electronics,"1,768.05",1,2025-07-23,Cambridge,17.8,2.7
+637,CUST-0483,Memory Card, Office,939.33,8,07-10-2024,Bristol,22.1,2.4
+638,CUST-0151,Server Rack,networking  ,926.86,4,04-12-2024,Newcastle,17.1,4.2
+639,CUST-0438,Splitter,storage  ,118.07,4,10-01-2025,Edinburgh,2.0,3.1
+640,CUST-0466,KVM Switch,Storage,878.11,2,07-20-2025,Cardiff,3.5,3.3
+641,CUST-0243,Charger,STORAGE,2323.57,1,27/07/2025,,17.9,4.4
+642,CUST-0472,External HDD, Office,951.17,9,2024-08-19,Birmingham,99.0,4.2
+643,CUST-0168,Chair Mat,networking  ,"2,079.26",7,20/08/2024,Oxford,2.4,1.5
+644,CUST-0198,Power Bank,Accessories,2106.6,4,11-28-2024,Manchester,12.9,3.9
+645,CUST-0495,Mouse,Networking,936.24,6,2025-01-09,Leicester,16.6,2.7
+646,CUST-0124,External HDD, Audio,1581.81,2,2025-10-25,,9.9,2.2
+647,CUST-0478,Webcam,Networking,242.95,7,2024-05-09,Stoke,,1.2
+648,CUST-0152,Screen Protector,Networking,263.68,2,2025-02-18,,,2.9
+649,CUST-0250,Chair Mat, Office,126.4,8,09-17-2025,Brighton,10.0,2.4
+650,CUST-0243,Laptop Stand,Peripherals,1454.63,8,10-16-2025,Bath,22.6,2.0
+651,CUST-0156,Mouse,Networking,$1068.05,1,2025-04-07,Exeter,95.0,3.8
+652,CUST-0138,Drone,Storage,$1372.34,8,02/10/2024,Leeds,19.1,4.1
+653,CUST-0208,Tripod,storage  ,1305.08,2,2024-05-19,Dundee,,2.0
+654,CUST-0280,Headphones,Electronics,878.76,6,12-13-2025,Bath,0.3,1.2
+655,CUST-0141,Laptop,Networking,1695.3,1,09-26-2024,Liverpool,20.9,4.4
+656,CUST-0285,Adapter,peripherals  ,1897.46,5,2025-10-26,Liverpool,11.3,1.0
+657,CUST-0497,Smartwatch,ELECTRONICS,41.5,7,2024-03-25,Swansea,28.3,4.7
+658,CUST-0322,Camera,,522.07,1,2024-01-31,Newcastle,24.5,3.5
+659,CUST-0221,Server Rack,ELECTRONICS,$1784.52,2,27/08/2024,Swansea,17.6,2.3
+660,CUST-0232,Microphone,Peripherals,$969.62,7,28/12/2024,Oxford,7.6,2.0
+661,CUST-0262,KVM Switch,Storage,1657.9,6,2025-01-23,Aberdeen,6.1,1.0
+662,CUST-0314,Printer,Electronics,870.67,3,10-29-2025,Derby,10.2,1.9
+663,CUST-0320,Tablet,Accessories,$979.93,2,01-05-2025,Birmingham,14.3,1.6
+664,CUST-0334,Graphics Card,Gaming,400.9,4,02-16-2024,Nottingham,8.9,3.4
+665,CUST-0430,Keyboard, Office,649.29,3,02-25-2025,Exeter,15.4,1.7
+666,CUST-0245,Charger,Electronics,1515.5,7,2024-03-02,Birmingham,5.0,3.1
+667,CUST-0338,Phone Case,Gaming,1085.74,8,2025-11-09,Brighton,29.3,3.4
+668,CUST-0175,Graphics Card,peripherals  ,1936.89,2,28/04/2024,Leicester,3.2,2.2
+669,CUST-0108,Fan,Office,2132.2,7,20/08/2025,Newcastle,28.0,1.1
+670,CUST-0173,Graphics Card, Audio,$1356.41,8,2025-01-26,Cambridge,27.4,1.1
+671,CUST-0352,Smartwatch,,1896.88,6,02-21-2024,Leicester,15.8,1.1
+672,CUST-0329,Surge Protector,storage  ,770.73,6,15/10/2024,Glasgow,21.7,4.0
+673,CUST-0106,Splitter,Audio,1040.35,1,02/12/2024,Brighton,13.1,2.3
+674,CUST-0273,Laptop,storage  ,1783.38,4,22/07/2024,Reading,18.9,4.2
+675,CUST-0240,Headphones,networking  ,968.60,1,01-16-2025,Brighton,10.2,2.7
+676,CUST-0267,Power Bank, Audio,1473.32,4,05-15-2024,Oxford,9.0,2.8
+677,CUST-0269,SSD Drive, Audio,467.51,2,22/05/2025,Cardiff,17.3,3.1
+678,CUST-0492,Switch,ELECTRONICS,1501.43,5,2025-01-15,Coventry,14.9,3.9
+679,CUST-0382,Smartwatch,Storage,2154.48,9,07-29-2025,Norwich,17.4,2.1
+680,CUST-0221,Laptop,ACCESSORIES,2172.26,3,2024-09-10,Birmingham,8.6,1.5
+681,CUST-0293,Power Bank,Peripherals,$1812.24,8,2024-04-23,Bath,11.0,3.2
+682,CUST-0104,Laptop Stand,peripherals  ,1865.65,3,07-26-2024,Nottingham,2.5,2.3
+683,CUST-0128,Switch,,1397.03,6,10/01/2025,Exeter,1.6,2.8
+684,CUST-0264,Tripod,Gaming,1463.75,4,2025-07-03,Birmingham,7.6,3.6
+685,CUST-0438,KVM Switch,Networking,338.46,8,08/09/2025,Derby,2.2,3.0
+686,CUST-0235,Tripod,Storage,1112.43,6,03-19-2025,,3.1,3.5
+687,CUST-0464,Smartwatch,Audio,1129.69,8,2024-03-19,Stoke,24.4,3.2
+688,CUST-0420,Tripod,Peripherals,2396.45,1,2025-11-18,Liverpool,1.2,
+689,CUST-0441,Shredder,ELECTRONICS,1080.56,6,12/04/2024,Cardiff,19.8,3.8
+690,CUST-0244,Shredder,peripherals  ,1375.61,1,11/08/2024,,8.2,3.1
+691,CUST-0426,NAS,Storage,1335.46,1,09-25-2025,Leicester,26.1,3.7
+692,CUST-0316,Laptop Stand,Peripherals,1593.72,8,04-25-2024,Plymouth,14.5,4.5
+693,CUST-0400,KVM Switch,Office,1871.84,7,13/08/2024,Bath,9.2,2.7
+694,CUST-0231,Cable Pack,Office,566.48,3,2024-06-30,Birmingham,15.5,2.7
+695,CUST-0391,Webcam,storage  ,1324.17,6,2024-11-13,Belfast,11.5,4.1
+696,CUST-0169,NAS,storage  ,2065.66,9,2024-07-28,London,16.9,3.3
+697,CUST-0351,Power Bank,Peripherals,1160.47,7,05/04/2024,York,3.4,1.3
+698,CUST-0374,Charger,Audio,699.75,3,03-26-2024,York,29.9,4.6
+699,CUST-0463,Mouse,storage  ,1638.5,6,2025-01-28,Norwich,12.8,1.1
+700,CUST-0281,RAM Module,peripherals  ,2060.3,4,15/05/2025,Norwich,10.4,4.0
+701,CUST-0266,Tripod,Storage,162.54,3,05-12-2024,Nottingham,21.3,4.0
+702,CUST-0190,Power Bank,Audio,1943.09,9,10/10/2025,Sheffield,10.9,4.8
+703,CUST-0301,Wrist Rest,storage  ,2055.01,2,2025-11-29,London,-5.0,1.2
+704,CUST-0445,Fan,Accessories,1156.5,1,13/03/2025,York,13.6,3.4
+705,CUST-0118,Laptop,Gaming,2458.35,2,07-10-2024,Stoke,,2.7
+706,CUST-0138,Drone,Accessories,1967.84,7,21/11/2025,Aberdeen,3.2,2.3
+707,CUST-0225,Webcam,STORAGE,1935.29,1,2024-02-08,Brighton,25.4,1.4
+708,CUST-0272,Tripod,Office,1870.86,6,20/11/2025,Dundee,22.1,3.3
+709,CUST-0240,Headphones,ELECTRONICS,$380.77,7,26/11/2024,Norwich,6.4,2.9
+710,CUST-0341,Projector,Electronics,546.99,9,2024-04-13,Norwich,4.4,1.4
+711,CUST-0319,Shredder,Gaming,1162.66,8,26/09/2025,Derby,9.5,3.4
+712,CUST-0225,Charger,Office,663.69,6,03/02/2024,Leicester,29.3,4.0
+713,CUST-0157,Smartwatch,Audio,1041.03,3,22/04/2024,Brighton,7.7,4.1
+714,CUST-0247,Hub,,2221.72,8,11-13-2024,Newcastle,13.7,4.6
+715,CUST-0416,Power Bank,Audio,2061.7,7,07-11-2025,Aberdeen,0.9,2.6
+716,CUST-0482,Desk Lamp,ELECTRONICS,1576.95,3,2024-04-27,Liverpool,11.9,4.8
+717,CUST-0460,Switch,Accessories,2146.01,9,12-01-2025,Newcastle,17.1,4.5
+718,CUST-0100,VR Headset,Electronics,1960.51,2,30/07/2024,Birmingham,28.6,2.2
+719,CUST-0486,Chair Mat,peripherals  ,1075.32,3,22/04/2024,Leicester,15.5,1.6
+720,CUST-0447,Fan,,$506.66,2,01-28-2025,London,24.6,2.7
+721,CUST-0289,External HDD,Audio,1287.93,1,26/05/2025,Edinburgh,16.4,2.6
+722,CUST-0290,Printer,ACCESSORIES,1841.89,4,02-14-2024,London,1.2,
+723,CUST-0468,KVM Switch,STORAGE,1093.87,5,18/03/2025,Oxford,9.5,3.3
+724,CUST-0411,Switch,,"1,668.60",6,2024-11-10,Cardiff,17.3,4.0
+725,CUST-0216,Microphone,Storage,240.35,5,08-15-2024,Stoke,28.5,3.0
+726,CUST-0233,NAS,storage  ,1871.27,1,02/11/2025,Swansea,-5.0,1.4
+727,CUST-0157,Memory Card,ACCESSORIES,2032.72,3,23/09/2024,Norwich,6.9,4.4
+728,CUST-0143,Power Bank,Electronics,1768.56,1,2025-01-13,Nottingham,6.6,2.2
+729,CUST-0272,Microphone,ELECTRONICS,"2,418.32",5,12-02-2025,Newcastle,6.0,4.9
+730,CUST-0259,Server Rack,peripherals  ,2067.5,5,2024-10-16,Stoke,27.7,1.5
+731,CUST-0272,Phone Case,,2258.22,6,18/10/2025,Bath,25.6,4.8
+732,CUST-0416,Hub,Electronics,2334.26,8,2024-07-22,,23.2,1.4
+733,CUST-0402,SSD Drive,Storage,"2,004.36",1,07-05-2025,London,11.8,1.9
+734,CUST-0248,Router,Gaming,"1,687.28",4,18/11/2024,Edinburgh,15.1,1.2
+735,CUST-0179,Laptop,networking  ,19.27,1,06-29-2024,Sheffield,13.9,3.8
+736,CUST-0473,SSD Drive,Storage,1167.24,9,11-15-2024,Exeter,7.6,4.4
+737,CUST-0312,Fan, Office,$1430.05,7,29/10/2024,Bath,15.2,2.7
+738,CUST-0302,Scanner,peripherals  ,763.56,7,18/07/2024,Norwich,0.9,4.7
+739,CUST-0351,Memory Card,Peripherals,798.67,5,11-22-2025,York,4.0,3.4
+740,CUST-0328,Headphones,Gaming,2403.09,7,2024-10-21,Oxford,26.6,3.5
+741,CUST-0263,KVM Switch,Electronics,2229.82,2,2025-01-30,Leeds,22.6,4.4
+742,CUST-0326,Ethernet Cable,peripherals  ,2123.7,4,05-17-2024,,12.7,2.2
+743,CUST-0246,KVM Switch,,1018.0,7,2024-05-08,London,15.5,2.4
+744,CUST-0119,VR Headset,Audio,39.18,3,2025-11-06,Cambridge,11.1,4.6
+745,CUST-0146,Laptop,Electronics,205.15,2,10-19-2024,Coventry,22.2,4.6
+746,CUST-0332,Wrist Rest,networking  ,783.93,2,06-20-2025,Plymouth,23.5,4.9
+747,CUST-0404,Switch,Electronics,$44.28,1,30/09/2025,Leicester,22.9,4.6
+748,CUST-0113,Graphics Card,networking  ,$47.79,5,2024-07-27,Bristol,21.7,1.5
+749,CUST-0242,Surge Protector,Gaming,2291.93,6,04-03-2024,London,6.1,4.3
+750,CUST-0100,Stylus,STORAGE,"1,766.87",6,08-12-2024,Bath,10.1,2.6
+751,CUST-0472,Screen Protector,Peripherals,775.85,9,2024-01-11,Southampton,14.1,5.0
+752,CUST-0153,Wrist Rest,storage  ,335.95,4,01-12-2024,,9.9,2.9
+753,CUST-0473,SSD Drive,Electronics,1281.53,1,2025-03-22,Glasgow,22.6,
+754,CUST-0358,KVM Switch,ACCESSORIES,18.34,6,10-14-2025,Norwich,9.9,3.1
+755,CUST-0243,Adapter,,2346.34,5,17/08/2025,Nottingham,4.1,2.3
+756,CUST-0111,Shredder,Networking,1039.96,6,08-16-2024,Derby,12.0,
+757,CUST-0429,Smartwatch,Networking,1008.83,3,2024-12-09,Aberdeen,29.4,4.6
+758,CUST-0323,Mouse Pad,Electronics,979.53,2,30/01/2025,Leicester,6.8,4.2
+759,CUST-0371,SSD Drive, Office,177.97,6,03-30-2025,Liverpool,18.4,1.6
+760,CUST-0457,Chair Mat,networking  ,1597.61,1,2025-11-01,London,13.0,
+761,CUST-0255,UPS,ACCESSORIES,1833.84,7,07/05/2024,Norwich,2.1,3.5
+762,CUST-0472,Monitor,STORAGE,1691.93,7,26/06/2025,York,,2.6
+763,CUST-0107,Projector,Audio,350.4,7,12-24-2024,,21.1,2.0
+764,CUST-0221,Laptop,networking  ,$1449.21,1,11-08-2024,Stoke,15.4,4.4
+765,CUST-0447,Docking Station,ELECTRONICS,1425.86,4,06-29-2025,Stoke,26.2,3.8
+766,CUST-0263,Printer,ELECTRONICS,2171.68,7,07-14-2024,Liverpool,,
+767,CUST-0189,Phone Case,Gaming,950.92,9,29/01/2024,Leicester,2.6,3.4
+768,CUST-0235,Charger,Networking,931.86,5,01-16-2024,Brighton,28.1,1.4
+769,CUST-0285,Label Maker,Electronics,1548.23,2,2025-08-11,Aberdeen,11.3,2.9
+770,CUST-0415,Headphones,ELECTRONICS,1584.52,7,2025-08-15,Norwich,17.3,1.8
+771,CUST-0277,Splitter,Electronics,1175.87,1,09-27-2025,Brighton,23.8,1.8
+772,CUST-0127,Wrist Rest,Gaming,1110.43,7,2025-09-05,Belfast,9.7,3.6
+773,CUST-0319,Laptop Stand,Networking,1237.9,6,16/08/2024,Exeter,21.5,4.6
+774,CUST-0456,Mouse,Storage,2153.31,7,23/10/2024,Cardiff,4.1,2.6
+775,CUST-0140,Webcam,STORAGE,1155.61,3,15/12/2025,Cardiff,8.7,1.8
+776,CUST-0327,RAM Module,Office,2350.13,3,26/07/2025,,,3.6
+777,CUST-0291,Projector,Office,1262.49,7,2025-08-05,Oxford,24.3,4.5
+778,CUST-0244,Splitter,ELECTRONICS,2373.26,2,09-06-2025,,6.7,4.0
+779,CUST-0300,Chair Mat,Office,2082.92,1,11-21-2024,Aberdeen,21.5,4.5
+780,CUST-0311,Label Maker,peripherals  ,909.27,9,10-30-2025,Sheffield,28.3,3.1
+781,CUST-0319,Speaker, Office,2159.79,9,24/12/2024,,15.8,4.0
+782,CUST-0339,RAM Module,STORAGE,279.61,7,19/11/2024,Reading,16.2,1.6
+783,CUST-0496,Speaker,networking  ,2312.99,7,2024-11-21,Sheffield,13.8,2.4
+784,CUST-0145,Printer,Storage,1580.95,3,2024-06-13,Southampton,9.8,2.6
+785,CUST-0134,Splitter,STORAGE,140.70,2,26/08/2025,Belfast,14.3,3.0
+786,CUST-0352,Tablet,peripherals  ,1612.42,7,2025-03-30,Norwich,18.1,4.7
+787,CUST-0489,Monitor, Audio,2435.75,9,2024-06-01,York,29.6,4.5
+788,CUST-0181,VR Headset,networking  ,179.15,1,2024-05-06,Stoke,28.1,1.5
+789,CUST-0470,Memory Card,peripherals  ,1388.95,4,18/09/2025,Manchester,25.9,1.7
+790,CUST-0355,UPS,Electronics,1870.75,6,13/06/2025,Leeds,26.7,
+791,CUST-0296,Monitor,Gaming,2026.6,7,04-01-2024,York,14.0,2.2
+792,CUST-0402,Memory Card,storage  ,1037.5,7,2025-04-25,Edinburgh,19.7,3.5
+793,CUST-0109,Docking Station,,514.40,2,2024-11-28,Swansea,26.9,4.6
+794,CUST-0411,Webcam,storage  ,110.64,4,2024-12-05,Leicester,11.8,4.8
+795,CUST-0385,VR Headset,Gaming,1451.42,5,02-21-2024,,28.9,3.6
+796,CUST-0341,Stylus,Gaming,"1,135.01",1,2025-04-10,Aberdeen,12.5,4.4
+797,CUST-0350,Speaker,peripherals  ,2372.12,1,12-18-2025,Liverpool,18.0,3.1
+798,CUST-0464,Splitter,Networking,156.21,3,2025-04-19,Birmingham,21.3,1.8
+799,CUST-0104,Microphone,peripherals  ,1715.06,3,14/03/2025,Liverpool,28.5,3.1
+800,CUST-0218,Docking Station,storage  ,67.29,8,2025-08-27,Brighton,7.3,3.2
+801,CUST-0388,Server Rack,peripherals  ,432.73,9,18/10/2025,Manchester,22.4,4.0
+802,CUST-0473,Tablet, Office,1136.68,1,2025-05-23,Derby,15.6,1.9
+803,CUST-0164,Laptop,Electronics,1139.91,2,05-28-2025,,8.1,2.5
+804,CUST-0245,Desk Lamp,peripherals  ,1715.82,2,06/11/2025,,23.3,2.5
+805,CUST-0323,USB Hub,ACCESSORIES,2275.98,4,2025-05-14,Newcastle,16.6,4.8
+806,CUST-0338,Chair Mat,Office,1599.39,2,17/12/2025,Swansea,,2.8
+807,CUST-0276,Router,storage  ,2384.07,7,04-29-2025,Reading,9.7,
+808,CUST-0366,Cable Pack,ACCESSORIES,"2,204.63",9,23/08/2025,Edinburgh,14.4,4.0
+809,CUST-0440,Laptop,Networking,1463.33,7,2025-11-09,Leeds,18.5,
+810,CUST-0381,Smartwatch,Gaming,2085.31,6,2024-09-26,Stoke,,3.3
+811,CUST-0162,USB Hub,ELECTRONICS,1608.23,1,28/05/2024,Aberdeen,6.0,
+812,CUST-0316,Cable Pack,STORAGE,201.0,9,23/05/2024,Bath,28.8,2.9
+813,CUST-0441,Router,networking  ,1852.71,5,2025-09-23,Edinburgh,15.3,4.8
+814,CUST-0414,Docking Station,Office,$241.8,5,06-03-2025,Leeds,22.0,1.9
+815,CUST-0382,Fan,networking  ,1487.24,6,04-17-2025,Stoke,12.3,1.3
+816,CUST-0276,Chair Mat,,1758.09,9,18/12/2024,Sheffield,10.7,4.6
+817,CUST-0197,Projector, Audio,170.99,8,19/03/2024,Glasgow,,4.4
+818,CUST-0204,Shredder,Office,580.83,8,27/09/2025,,12.3,5.0
+819,CUST-0198,Scanner,Electronics,2289.6,8,23/10/2025,Stoke,16.3,3.7
+820,CUST-0484,Shredder, Audio,1542.7,1,04-22-2024,Reading,16.3,4.7
+821,CUST-0410,Drone,Peripherals,619.48,1,2024-05-20,Reading,14.9,4.3
+822,CUST-0105,NAS,Accessories,1728.25,8,2025-12-30,Stoke,4.0,4.4
+823,CUST-0296,Memory Card,Accessories,1493.96,5,2025-02-14,Swansea,14.9,3.3
+824,CUST-0450,Wrist Rest,Accessories,1256.43,9,18/01/2025,York,5.1,2.5
+825,CUST-0232,Tablet,Peripherals,2440.59,2,05-31-2024,Swansea,3.8,4.7
+826,CUST-0457,Drone,networking  ,"1,710.22",9,09-18-2025,Glasgow,28.0,2.7
+827,CUST-0358,SSD Drive,Electronics,941.73,8,03/01/2025,Coventry,-5.0,3.2
+828,CUST-0122,UPS, Audio,2001.18,9,07-13-2025,Reading,19.8,2.8
+829,CUST-0152,Charger,Peripherals,2212.04,4,2025-04-06,York,12.1,3.3
+830,CUST-0264,Graphics Card,Accessories,317.43,1,2025-02-04,Plymouth,27.3,2.9
+831,CUST-0301,Mouse,Networking,505.38,1,2024-12-06,Reading,19.1,1.2
+832,CUST-0182,UPS,Storage,544.49,5,03-23-2025,Birmingham,,4.5
+833,CUST-0244,RAM Module, Audio,1729.57,2,2025-11-27,Coventry,11.1,2.8
+834,CUST-0184,Keyboard,storage  ,1509.58,8,20/07/2024,Swansea,28.8,3.4
+835,CUST-0177,Router,Gaming,1549.38,5,28/12/2024,Newcastle,24.6,1.6
+836,CUST-0465,Wrist Rest,Peripherals,2352.23,5,12-21-2024,Edinburgh,25.6,1.0
+837,CUST-0100,SSD Drive,,1940.9,2,01-23-2024,Stoke,5.2,2.0
+838,CUST-0150,Label Maker,Electronics,324.2,7,2024-07-04,,8.1,3.8
+839,CUST-0272,Mouse,storage  ,872.03,8,2024-05-13,Dundee,8.6,1.4
+840,CUST-0304,Webcam,ACCESSORIES,"1,091.31",1,24/01/2025,,8.1,4.6
+841,CUST-0359,Laptop Stand,Storage,992.92,2,2024-01-22,Plymouth,25.7,1.9
+842,CUST-0468,Fan, Audio,1674.92,4,2025-08-22,,1.0,1.8
+843,CUST-0387,Wrist Rest,ELECTRONICS,2230.27,5,05-04-2024,Belfast,2.3,1.7
+844,CUST-0133,Chair Mat,Office,768.60,2,20/02/2024,,8.2,1.1
+845,CUST-0447,Smartwatch,Accessories,1381.93,1,09/09/2024,Leicester,6.0,4.1
+846,CUST-0194,Headphones, Audio,"1,974.58",9,09-02-2024,Exeter,7.0,4.5
+847,CUST-0171,VR Headset,,1043.46,1,2024-04-15,Glasgow,23.9,3.5
+848,CUST-0138,Label Maker,ELECTRONICS,424.45,4,11/11/2024,Stoke,16.9,1.8
+849,CUST-0253,Tripod,ACCESSORIES,1190.0,2,01/07/2025,Birmingham,0.2,2.1
+850,CUST-0349,Cable Pack,Accessories,142.78,4,16/12/2025,Coventry,12.9,2.9
+851,CUST-0261,NAS,Storage,2356.25,8,24/09/2024,Coventry,12.2,4.8
+852,CUST-0217,Camera,STORAGE,191.68,8,07-04-2025,Bristol,3.4,2.0
+853,CUST-0358,Cable Pack,peripherals  ,1098.95,9,10-12-2025,,99.0,3.9
+854,CUST-0478,Switch,ACCESSORIES,1327.05,5,20/05/2024,Belfast,21.1,2.8
+855,CUST-0405,Label Maker,networking  ,2463.33,7,28/02/2025,Nottingham,21.6,2.2
+856,CUST-0367,Microphone,Accessories,419.22,3,2024-07-02,Stoke,21.9,2.8
+857,CUST-0153,Webcam,Storage,290.51,4,05-07-2024,Birmingham,0.0,1.3
+858,CUST-0335,UPS,Audio,$26.72,9,2024-09-09,Stoke,28.6,4.2
+859,CUST-0488,NAS,ELECTRONICS,$393.15,1,30/11/2025,Exeter,24.4,2.0
+860,CUST-0321,Switch,ELECTRONICS,522.15,2,08-17-2024,Bristol,27.1,
+861,CUST-0350,Server Rack,Office,1578.3,5,18/02/2025,Stoke,0.5,1.3
+862,CUST-0412,Router,storage  ,553.17,3,11-18-2024,Cardiff,28.0,4.8
+863,CUST-0211,Microphone,,56.2,2,07-21-2024,Reading,24.3,1.8
+864,CUST-0354,Switch,Peripherals,"2,067.41",1,12/09/2025,Exeter,25.1,4.5
+865,CUST-0402,Phone Case,Audio,917.16,3,02-25-2025,Plymouth,2.8,
+866,CUST-0306,KVM Switch,STORAGE,887.47,1,26/02/2024,Sheffield,22.2,4.9
+867,CUST-0328,Cable Pack,Networking,759.69,1,03-11-2024,Newcastle,,2.9
+868,CUST-0440,Chair Mat,Accessories,2438.56,1,2025-08-16,Manchester,20.4,3.9
+869,CUST-0497,Camera,peripherals  ,429.44,8,22/08/2025,Cambridge,17.1,2.5
+870,CUST-0165,Tablet,Audio,2246.1,3,24/03/2024,Cardiff,28.4,1.7
+871,CUST-0174,Cable Pack,Storage,1943.12,1,12/02/2024,,,2.8
+872,CUST-0202,Monitor, Office,195.82,7,28/08/2025,Manchester,18.0,1.7
+873,CUST-0291,Router,networking  ,2466.89,3,05-12-2024,Birmingham,14.3,4.9
+874,CUST-0351,Speaker,Gaming,682.06,8,05/03/2024,Brighton,,1.4
+875,CUST-0325,Ethernet Cable,Accessories,250.96,4,2025-01-10,,2.3,3.4
+876,CUST-0393,Docking Station,,2074.14,4,11/04/2025,,15.0,3.5
+877,CUST-0405,VR Headset,ELECTRONICS,1768.16,5,2024-07-31,Norwich,20.6,
+878,CUST-0197,Charger,networking  ,1544.96,6,2025-04-15,Dundee,23.8,3.6
+879,CUST-0437,Monitor,storage  ,394.17,7,03-28-2024,Cambridge,17.5,1.5
+880,CUST-0385,Label Maker,Storage,1198.85,4,30/01/2025,Bath,27.3,3.2
+881,CUST-0434,UPS,STORAGE,1952.49,8,07/02/2025,Dundee,28.3,2.1
+882,CUST-0446,Mouse Pad,Electronics,762.54,6,02/10/2025,Reading,1.9,4.8
+883,CUST-0407,Fan,Office,782.67,1,2025-01-16,Cambridge,12.1,4.0
+884,CUST-0348,KVM Switch,peripherals  ,12.84,1,2024-09-26,Belfast,0.7,4.9
+885,CUST-0265,Laptop Stand, Audio,439.74,9,12-15-2025,Newcastle,9.9,1.2
+886,CUST-0434,Drone,ACCESSORIES,2189.14,6,2024-11-06,Stoke,16.1,2.1
+887,CUST-0129,SSD Drive,Networking,1107.16,8,2024-07-26,Oxford,27.3,1.8
+888,CUST-0346,Phone Case,Networking,2460.67,7,25/10/2025,Swansea,25.4,1.0
+889,CUST-0205,Hub,networking  ,992.29,6,21/06/2025,Aberdeen,3.8,2.0
+890,CUST-0150,Camera,Electronics,"1,789.39",4,01/12/2024,Dundee,2.8,3.7
+891,CUST-0180,Surge Protector, Audio,708.39,7,2024-11-16,Norwich,17.7,1.9
+892,CUST-0232,Stylus, Audio,912.71,9,08-09-2025,Aberdeen,16.0,
+893,CUST-0384,Mouse,,480.86,7,06-11-2024,,,
+894,CUST-0487,Shredder,Office,$870.92,1,2025-06-24,Brighton,27.0,3.8
+895,CUST-0237,Speaker,Gaming,1370.36,9,28/11/2025,Bath,27.8,2.6
+896,CUST-0283,Monitor,ELECTRONICS,"2,479.47",4,21/10/2024,Nottingham,12.1,2.5
+897,CUST-0429,Wrist Rest,Audio,1662.18,3,10-11-2024,Manchester,26.7,2.8
+898,CUST-0372,Chair Mat,storage  ,502.12,4,21/01/2025,Aberdeen,,1.7
+899,CUST-0439,Surge Protector,Networking,117.18,4,05/07/2024,Coventry,22.1,3.5
+900,CUST-0168,Tablet,Audio,320.26,2,12-16-2025,Manchester,14.3,2.5
+901,CUST-0133,USB Hub,STORAGE,1408.58,1,07/07/2025,,3.7,4.4
+902,CUST-0361,Printer,Accessories,1914.08,1,19/02/2025,Southampton,27.8,4.0
+903,CUST-0152,NAS,Peripherals,2351.35,8,19/02/2025,Leeds,13.6,3.4
+904,CUST-0304,Graphics Card,Storage,44.48,2,2025-01-05,Oxford,22.0,2.5
+905,CUST-0225,External HDD,peripherals  ,1309.29,5,2024-02-25,Nottingham,11.0,
+906,CUST-0334,Speaker,Office,$1179.81,4,25/09/2025,Leeds,0.6,4.1
+907,CUST-0142,Printer,ELECTRONICS,1641.86,8,2024-05-09,Birmingham,3.0,2.9
+908,CUST-0339,USB Hub,,1401.15,2,10-31-2025,,14.9,1.9
+909,CUST-0470,Shredder,Audio,1719.16,9,11-03-2024,Exeter,20.7,1.8
+910,CUST-0210,Hub,ACCESSORIES,1646.92,7,27/01/2025,Norwich,10.0,1.7
+911,CUST-0348,Hub,networking  ,296.94,7,2024-04-19,Bristol,20.9,4.1
+912,CUST-0250,Camera,storage  ,2000.3,1,2025-10-02,,-10.0,1.9
+913,CUST-0282,Power Bank,storage  ,312.47,2,2024-12-05,,21.1,3.1
+914,CUST-0435,Monitor,Accessories,1747.83,4,2024-12-21,Exeter,14.8,2.8
+915,CUST-0194,USB Hub, Office,1043.28,4,2025-03-27,Belfast,27.4,3.3
+916,CUST-0473,Laptop,Storage,1287.06,3,14/04/2024,Sheffield,14.7,4.5
+917,CUST-0499,NAS,Storage,2258.73,7,25/05/2024,Plymouth,13.5,
+918,CUST-0107,Server Rack,storage  ,2225.26,8,10-25-2024,,6.0,
+919,CUST-0487,Hub,storage  ,2045.55,2,13/12/2025,Belfast,9.2,1.1
+920,CUST-0459,KVM Switch, Audio,1277.82,4,23/12/2025,Norwich,1.3,2.7
+921,CUST-0487,Speaker,ELECTRONICS,1841.92,3,08-26-2024,Birmingham,,3.4
+922,CUST-0283,Ethernet Cable, Audio,1284.68,2,2025-04-08,Bath,7.5,3.2
+923,CUST-0380,Router,Office,2174.67,6,2025-01-05,Belfast,9.1,3.6
+924,CUST-0294,Ethernet Cable,Gaming,1009.93,4,05-01-2025,Stoke,23.1,1.6
+925,CUST-0451,Laptop Stand,STORAGE,2425.74,6,2024-06-13,Cardiff,9.8,3.6
+926,CUST-0294,RAM Module, Office,2331.15,2,02/12/2024,Bath,7.3,1.7
+927,CUST-0254,Wrist Rest, Office,1855.3,4,01/08/2024,York,5.1,
+928,CUST-0192,RAM Module,ACCESSORIES,702.14,6,2024-11-23,Southampton,23.2,2.4
+929,CUST-0259,Cable Pack,STORAGE,333.48,5,2025-01-15,Manchester,3.9,3.8
+930,CUST-0160,Graphics Card,ELECTRONICS,2137.49,3,31/07/2025,Glasgow,13.6,1.2
+931,CUST-0221,Desk Lamp,Audio,417.43,8,26/08/2024,Bath,15.2,2.6
+932,CUST-0150,Hub,Peripherals,"2,136.38",7,2024-12-28,Stoke,20.6,3.8
+933,CUST-0376,SSD Drive,storage  ,"1,229.46",3,2024-07-20,Stoke,19.0,1.9
+934,CUST-0104,Desk Lamp,Electronics,1019.36,6,2025-10-05,Bristol,24.3,4.2
+935,CUST-0191,Phone Case,Gaming,2258.46,4,2025-08-23,Edinburgh,,3.5
+936,CUST-0269,Shredder,Office,1511.61,5,2025-02-05,Liverpool,8.9,3.4
+937,CUST-0416,Wrist Rest,Accessories,1443.65,5,2025-12-06,Newcastle,8.4,2.4
+938,CUST-0121,Mouse Pad,,1399.12,7,07-23-2025,Sheffield,4.4,2.9
+939,CUST-0425,Tripod,,$931.07,5,07-19-2024,Cambridge,8.7,
+940,CUST-0100,Monitor,Networking,1965.18,3,28/09/2025,York,9.3,2.9
+941,CUST-0232,Desk Lamp,Office,635.73,5,2024-02-11,Belfast,15.7,3.8
+942,CUST-0332,Docking Station,Peripherals,2347.54,7,01-27-2025,,19.9,2.7
+943,CUST-0111,Camera,Networking,2235.49,5,2025-03-16,Stoke,11.4,1.8
+944,CUST-0445,External HDD,Gaming,847.01,5,08/09/2025,Dundee,,1.9
+945,CUST-0145,Graphics Card,,"1,825.01",9,2024-11-15,,10.1,1.0
+946,CUST-0133,Chair Mat,Electronics,1435.19,3,08-02-2024,Southampton,8.7,2.2
+947,CUST-0177,Stylus,,$847.44,6,07-21-2025,Birmingham,16.2,4.0
+948,CUST-0317,Docking Station,Peripherals,2471.36,1,2024-08-23,Cambridge,0.7,4.2
+949,CUST-0400,Camera,Storage,67.97,5,08/09/2025,Aberdeen,2.4,
+950,CUST-0172,Graphics Card,peripherals  ,635.35,8,06-10-2024,Leicester,12.5,4.8
+951,CUST-0381,Projector,ACCESSORIES,1302.58,5,2024-01-09,Liverpool,28.3,3.0
+952,CUST-0348,Headphones,storage  ,1307.27,9,08-12-2024,Belfast,21.6,4.7
+953,CUST-0146,KVM Switch,Accessories,1474.39,6,30/11/2025,Coventry,2.6,3.8
+954,CUST-0220,Shredder,storage  ,1880.43,8,13/10/2024,Sheffield,25.4,3.9
+955,CUST-0313,Drone,Storage,1560.58,8,17/06/2024,Edinburgh,22.0,1.3
+956,CUST-0338,NAS,STORAGE,1502.7,3,14/12/2024,Oxford,18.3,1.9
+957,CUST-0155,VR Headset, Audio,138.52,7,2024-01-14,,24.6,1.0
+958,CUST-0449,Projector, Audio,944.44,7,03/06/2025,Swansea,12.1,3.9
+959,CUST-0206,Router,STORAGE,583.98,6,2025-07-01,,6.6,2.4
+960,CUST-0418,Screen Protector,networking  ,667.1,7,28/01/2024,Swansea,15.4,4.1
+961,CUST-0147,Ethernet Cable,STORAGE,"1,388.07",2,26/07/2024,Leicester,16.5,2.4
+962,CUST-0160,Label Maker,Electronics,502.77,9,12-16-2025,York,16.1,4.3
+963,CUST-0436,Tripod,Electronics,738.4,1,13/04/2024,Derby,17.0,1.5
+964,CUST-0125,Cable Pack,Audio,596.53,1,2025-03-01,London,28.5,1.7
+965,CUST-0391,Drone, Office,2371.51,3,06-24-2025,Reading,27.1,2.4
+966,CUST-0356,Laptop Stand,Networking,2361.94,3,05/06/2025,Glasgow,26.3,2.6
+967,CUST-0107,USB Hub,Gaming,$1526.8,1,09/11/2025,Leicester,24.0,
+968,CUST-0212,Scanner,Accessories,2311.68,7,2024-10-03,Birmingham,28.3,4.1
+969,CUST-0454,Tablet, Office,$1965.6,4,2024-07-06,London,3.0,1.4
+970,CUST-0352,Graphics Card,,1476.92,2,05-17-2024,Bristol,8.0,2.4
+971,CUST-0279,RAM Module,Gaming,21.06,5,14/04/2024,Sheffield,14.9,4.3
+972,CUST-0306,Charger,storage  ,1932.43,6,14/01/2025,Coventry,25.4,1.3
+973,CUST-0402,Speaker,Audio,1757.71,9,28/06/2025,Exeter,15.2,4.8
+974,CUST-0226,Chair Mat,Electronics,1540.06,4,12/11/2024,Dundee,22.4,4.9
+975,CUST-0155,Mouse, Audio,1902.26,2,2025-11-24,York,4.2,1.4
+976,CUST-0313,Drone,Peripherals,1284.74,5,2024-11-28,Dundee,7.6,2.2
+977,CUST-0113,USB Hub,Electronics,1761.69,3,05-12-2024,Dundee,22.0,2.5
+978,CUST-0127,Router,peripherals  ,2338.25,2,06-23-2025,Sheffield,4.9,4.1
+979,CUST-0177,Stylus,Accessories,942.63,1,2025-06-18,Nottingham,10.5,3.4
+980,CUST-0315,Keyboard,Networking,1771.76,2,2025-09-10,Derby,7.9,3.6
+981,CUST-0485,Hub,networking  ,1191.84,6,03/01/2025,London,10.5,
+982,CUST-0464,External HDD,Gaming,1687.63,8,12/10/2025,York,,1.5
+983,CUST-0253,Splitter,,1908.42,3,2024-04-08,Liverpool,11.0,4.3
+984,CUST-0113,Shredder,STORAGE,118.4,9,05-02-2024,Bristol,16.7,3.8
+985,CUST-0286,Tablet,Storage,1618.27,9,08-15-2025,,3.0,3.3
+986,CUST-0411,External HDD,STORAGE,570.72,2,01/04/2025,Glasgow,24.2,
+987,CUST-0470,Desk Lamp,peripherals  ,1676.73,8,2025-06-03,Dundee,11.1,3.8
+988,CUST-0106,UPS,Peripherals,1173.48,5,12-17-2025,Exeter,19.5,1.8
+989,CUST-0102,Docking Station,ACCESSORIES,1935.01,4,09/12/2025,Derby,21.8,2.7
+990,CUST-0210,Monitor,STORAGE,312.89,5,06-25-2025,Edinburgh,6.3,3.0
+991,CUST-0337,Wrist Rest,networking  ,1567.67,4,2024-01-20,Norwich,26.5,1.2
+992,CUST-0462,Memory Card,,699.78,8,2024-05-09,Leeds,18.5,4.8
+993,CUST-0338,Hub,STORAGE,2133.19,4,11/05/2024,Bath,12.9,1.5
+994,CUST-0373,Scanner, Office,2321.32,6,2025-01-21,Leeds,5.5,3.8
+995,CUST-0393,External HDD,STORAGE,2491.01,2,02/08/2024,Reading,28.3,3.0
+996,CUST-0326,Server Rack,ACCESSORIES,1991.04,5,12/02/2024,Leicester,22.7,1.1
+997,CUST-0470,UPS,Storage,1885.57,6,04/10/2024,Coventry,6.2,4.7
+998,CUST-0114,Camera,Accessories,542.67,5,09/05/2024,Plymouth,10.1,4.4
+999,CUST-0291,Adapter,Audio,843.34,2,06/12/2025,Glasgow,24.3,
+1000,CUST-0218,Tripod,STORAGE,1166.88,7,2025-12-16,Aberdeen,20.9,1.9
+1001,CUST-0127,Projector,peripherals  ,1934.59,4,06/08/2025,,23.0,1.5
+1002,CUST-0301,Camera, Audio,2287.84,8,2025-06-10,Manchester,13.2,2.5
+1003,CUST-0138,Keyboard,Networking,$476.9,7,03/06/2025,Coventry,21.5,2.0
+1004,CUST-0372,RAM Module,,2306.31,7,2025-07-11,,11.6,3.0
+1005,CUST-0330,SSD Drive,ACCESSORIES,"1,740.58",9,04-23-2024,Oxford,6.3,4.9
+1006,CUST-0185,Projector,Networking,1528.87,1,06-14-2024,Brighton,19.0,3.3
+1007,CUST-0225,Webcam,ACCESSORIES,503.6,6,2024-05-18,Oxford,29.3,4.6
+1008,CUST-0399,Splitter,peripherals  ,143.53,6,2024-10-25,Bath,,3.6
+1009,CUST-0124,External HDD,Networking,1423.32,6,26/06/2024,,13.8,2.9
+1010,CUST-0244,Monitor,ACCESSORIES,1630.53,6,19/12/2024,Norwich,20.2,4.4
+1011,CUST-0112,Speaker,storage  ,530.9,7,19/07/2024,,16.2,
+1012,CUST-0311,Shredder,Networking,$1393.36,6,04-24-2024,Newcastle,25.3,4.5
+1013,CUST-0124,Mouse,Storage,2141.95,1,07-07-2025,Manchester,22.9,2.2
+1014,CUST-0167,Headphones,Office,2088.49,3,2024-03-08,London,1.7,1.5
+1015,CUST-0493,NAS,Audio,2318.75,2,20/03/2025,Swansea,,4.4
+1016,CUST-0166,Mouse Pad,Peripherals,917.89,6,08/12/2025,Manchester,22.6,3.3
+1017,CUST-0332,Scanner,Accessories,798.53,8,09-14-2025,Stoke,25.9,4.6
+1018,CUST-0208,Router,storage  ,1874.82,3,05-24-2024,Norwich,19.5,4.8
+1019,CUST-0245,SSD Drive,ELECTRONICS,1080.63,8,05-23-2025,Cardiff,25.7,1.2
+1020,CUST-0210,Memory Card,Electronics,223.43,8,04-21-2025,Exeter,3.4,3.0
+1021,CUST-0327,SSD Drive,,710.59,5,2025-02-17,Swansea,10.4,2.5
+1022,CUST-0210,Keyboard,peripherals  ,1049.36,8,04-13-2024,Manchester,26.3,3.5
+1023,CUST-0133,NAS,STORAGE,734.83,6,05-07-2024,Derby,6.0,4.2
+1024,CUST-0210,Keyboard, Audio,833.85,5,27/10/2025,Leicester,2.3,2.1
+1025,CUST-0363,Ethernet Cable,networking  ,737.97,9,12-10-2024,Belfast,23.6,3.2
+1026,CUST-0468,Webcam,,108.54,7,07/06/2024,Leicester,25.1,3.8
+1027,CUST-0335,Mouse,Electronics,1594.55,8,2025-03-01,Belfast,4.9,1.5
+1028,CUST-0182,Microphone,peripherals  ,1495.24,1,01-23-2024,Stoke,25.6,4.3
+1029,CUST-0141,NAS, Office,1635.19,2,2025-06-08,Dundee,20.6,
+1030,CUST-0200,Mouse,,484.81,8,2025-12-06,Norwich,15.6,4.8
+1031,CUST-0105,Memory Card,Audio,742.66,9,2025-10-29,,24.9,2.4
+1032,CUST-0279,Screen Protector,Peripherals,1550.94,4,2025-02-22,Oxford,12.6,
+1033,CUST-0381,Drone,,1501.07,9,25/03/2024,Derby,5.8,3.0
+1034,CUST-0419,VR Headset,Networking,1268.29,4,04-26-2025,Cardiff,8.5,1.3
+1035,CUST-0325,Microphone,ELECTRONICS,879.28,9,23/10/2024,Cambridge,15.2,4.9
+1036,CUST-0414,Surge Protector,Electronics,2282.76,7,17/08/2024,,15.9,1.2
+1037,CUST-0464,SSD Drive,peripherals  ,852.73,2,10/11/2025,Cardiff,24.2,4.0
+1038,CUST-0328,Ethernet Cable,Accessories,1141.77,9,2024-06-04,Brighton,,3.1
+1039,CUST-0476,NAS,peripherals  ,$1696.89,4,2024-04-14,Leeds,,2.5
+1040,CUST-0388,Camera,Audio,1359.84,8,11-25-2024,Brighton,23.4,1.3
+1041,CUST-0249,Headphones,Networking,870.48,7,05-11-2024,York,,3.5
+1042,CUST-0376,Speaker,STORAGE,1091.93,7,16/01/2025,London,1.5,3.3
+1043,CUST-0297,Fan,Office,1987.23,8,26/09/2024,Norwich,26.2,2.1
+1044,CUST-0169,Printer,Storage,698.93,1,2025-01-30,Liverpool,2.3,4.6
+1045,CUST-0211,KVM Switch,Storage,359.93,5,04-08-2025,Belfast,7.4,2.2
+1046,CUST-0103,Phone Case,ACCESSORIES,$786.34,2,03-25-2025,Brighton,20.9,
+1047,CUST-0449,Hub,Accessories,2124.59,2,2024-09-09,Leeds,12.3,3.2
+1048,CUST-0430,Surge Protector, Office,227.03,1,11/10/2024,Exeter,-10.0,1.4
+1049,CUST-0417,Phone Case,peripherals  ,2479.28,5,01-20-2024,Exeter,8.9,4.7
+1050,CUST-0449,Smartwatch,Storage,1354.8,2,26/09/2024,Nottingham,0.4,2.5
+1051,CUST-0194,Screen Protector,ACCESSORIES,$2462.19,4,11-05-2024,Brighton,9.0,1.3
+1052,CUST-0251,Phone Case,Electronics,2347.8,3,13/04/2024,Bath,17.3,2.5
+1053,CUST-0410,Smartwatch,Networking,1134.77,3,04/07/2024,Reading,11.3,3.4
+1054,CUST-0236,SSD Drive,networking  ,500.24,2,2025-02-17,Stoke,16.0,3.1
+1055,CUST-0346,Power Bank, Audio,416.39,6,09-09-2024,Liverpool,26.3,3.8
+1056,CUST-0486,Keyboard,storage  ,603.77,2,12-12-2025,Swansea,27.4,1.2
+1057,CUST-0342,Phone Case,Networking,1776.78,8,01-03-2024,Newcastle,8.0,2.1
+1058,CUST-0130,Surge Protector,storage  ,686.01,8,08-23-2024,Aberdeen,13.9,4.3
+1059,CUST-0139,Server Rack,STORAGE,856.86,5,2025-04-09,Stoke,,1.3
+1060,CUST-0328,Microphone,Office,1124.7,7,10-15-2025,Birmingham,28.5,4.4
+1061,CUST-0135,Laptop Stand,Peripherals,2283.52,4,04/06/2025,Bath,30.0,1.4
+1062,CUST-0322,Adapter,Storage,477.54,1,11-07-2025,Belfast,7.1,4.3
+1063,CUST-0105,Headphones,Electronics,17.54,2,10-02-2024,Stoke,21.8,2.4
+1064,CUST-0421,Power Bank,storage  ,154.94,4,02-22-2024,Derby,11.3,3.4
+1065,CUST-0319,Adapter, Audio,2262.39,1,04-19-2024,Reading,0.2,
+1066,CUST-0174,NAS,Gaming,1620.55,8,10-09-2025,London,0.3,1.3
+1067,CUST-0103,Laptop,peripherals  ,686.24,9,14/11/2025,Bath,13.8,1.9
+1068,CUST-0434,Surge Protector,Storage,447.1,4,16/02/2024,Newcastle,14.7,1.5
+1069,CUST-0233,Router,peripherals  ,739.2,3,07-13-2025,Swansea,,2.2
+1070,CUST-0217,Power Bank, Audio,291.42,2,07-31-2024,Swansea,20.6,3.1
+1071,CUST-0468,Webcam,Accessories,2354.12,5,2024-07-23,Sheffield,8.8,3.4
+1072,CUST-0193,Ethernet Cable,STORAGE,1961.59,3,2024-03-13,Southampton,16.8,4.2
+1073,CUST-0161,Stylus,Peripherals,1158.67,7,17/03/2024,Dundee,9.0,3.6
+1074,CUST-0293,SSD Drive,Storage,2163.08,6,05/09/2025,Bristol,5.0,3.4
+1075,CUST-0434,External HDD,,627.4,1,04/07/2025,,12.2,
+1076,CUST-0302,Scanner,Electronics,1794.22,8,10-01-2024,Leeds,7.0,2.9
+1077,CUST-0491,Projector,,2141.05,2,2024-03-17,Derby,16.0,2.7
+1078,CUST-0125,Phone Case,storage  ,895.14,5,2025-03-17,Edinburgh,6.0,4.4
+1079,CUST-0272,Smartwatch,Accessories,1894.87,9,31/07/2025,Belfast,15.3,1.9
+1080,CUST-0399,Memory Card,Gaming,$741.21,8,16/01/2025,York,4.7,1.0
+1081,CUST-0232,VR Headset,,750.65,2,17/12/2025,Dundee,20.1,3.6
+1082,CUST-0425,Charger,ELECTRONICS,272.11,9,2025-12-13,Swansea,22.6,1.8
+1083,CUST-0217,Camera,Gaming,1102.94,5,2024-05-21,Leeds,3.3,4.6
+1084,CUST-0423,Projector,ACCESSORIES,1825.63,6,01-02-2025,Manchester,14.0,4.4
+1085,CUST-0374,Microphone,Storage,$2350.85,3,2024-12-17,Swansea,2.1,1.3
+1086,CUST-0311,Server Rack,Networking,1511.47,3,31/05/2024,Plymouth,17.9,1.4
+1087,CUST-0324,Mouse,Office,2158.52,8,2025-03-21,Cambridge,,3.0
+1088,CUST-0119,Splitter,,2057.12,2,29/10/2024,Southampton,15.8,3.4
+1089,CUST-0212,Router,Gaming,437.49,2,12-21-2025,Swansea,15.5,2.1
+1090,CUST-0239,Mouse,storage  ,$1217.11,5,09-20-2024,Brighton,27.7,3.9
+1091,CUST-0146,Mouse Pad,Networking,$296.72,6,28/09/2025,Exeter,16.5,
+1092,CUST-0100,RAM Module,Electronics,1706.97,2,04-08-2025,Newcastle,17.5,2.3
+1093,CUST-0189,Laptop,,2375.0,5,06-25-2024,Belfast,12.0,1.1
+1094,CUST-0241,Tablet,Peripherals,347.04,7,07-14-2025,Oxford,28.5,4.0
+1095,CUST-0419,Keyboard,Audio,1836.04,8,2024-09-02,Southampton,23.3,1.9
+1096,CUST-0137,Microphone,,1582.43,7,11-27-2024,Exeter,8.6,4.3
+1097,CUST-0392,Wrist Rest, Audio,1461.09,8,11/09/2024,Leeds,25.3,2.7
+1098,CUST-0481,Monitor, Office,978.35,9,18/12/2025,,13.0,3.3
+1099,CUST-0238,Stylus,STORAGE,891.05,5,04-07-2025,Manchester,24.9,4.5
+1100,CUST-0455,Webcam,Networking,$117.9,5,27/09/2024,Edinburgh,24.7,4.5
+1101,CUST-0432,Drone,Accessories,548.68,4,11/07/2025,Cardiff,,2.5
+1102,CUST-0358,Ethernet Cable,STORAGE,42.87,9,05/09/2024,Derby,21.0,1.8
+1103,CUST-0260,Switch,Audio,1455.64,5,2025-08-09,York,8.7,4.1
+1104,CUST-0489,Cable Pack,,269.1,2,2025-12-02,Brighton,8.9,2.7
+1105,CUST-0277,Ethernet Cable, Audio,2183.18,8,17/07/2025,Exeter,8.9,1.8
+1106,CUST-0109,Tripod,storage  ,1310.24,7,2024-03-28,Dundee,21.8,4.6
+1107,CUST-0360,Hub,Audio,1750.73,8,06/03/2024,Brighton,6.9,1.8
+1108,CUST-0237,Smartwatch,Networking,"1,030.09",3,2024-01-20,Cambridge,0.0,1.1
+1109,CUST-0271,KVM Switch,Audio,1403.65,4,2025-07-11,Norwich,21.5,
+1110,CUST-0485,Shredder,STORAGE,"2,356.93",5,2024-12-08,Plymouth,,3.5
+1111,CUST-0112,Hub,Office,211.42,6,2024-02-24,Plymouth,,3.6
+1112,CUST-0267,Memory Card,storage  ,638.57,1,03/06/2025,Newcastle,7.1,2.2
+1113,CUST-0229,Stylus,Networking,1951.07,4,2024-06-24,Edinburgh,11.4,2.3
+1114,CUST-0183,Server Rack,Electronics,251.35,5,2025-09-19,Cardiff,14.3,
+1115,CUST-0420,Drone,,193.77,7,05/12/2025,Leeds,1.3,3.7
+1116,CUST-0418,Surge Protector,Peripherals,907.05,5,10/05/2024,,29.1,1.2
+1117,CUST-0200,Desk Lamp,ELECTRONICS,234.96,1,05/11/2024,,21.5,4.7
+1118,CUST-0428,Hub,networking  ,1464.77,7,18/10/2024,Nottingham,9.7,1.9
+1119,CUST-0372,Surge Protector,ACCESSORIES,569.56,8,2025-05-09,Coventry,9.6,5.0
+1120,CUST-0364,Charger,storage  ,2239.77,7,12-03-2024,Swansea,13.5,1.7
+1121,CUST-0498,Webcam,Audio,1959.83,4,2024-01-10,Dundee,18.8,4.1
+1122,CUST-0137,Keyboard,Electronics,1750.76,8,05-01-2025,Stoke,4.4,1.9
+1123,CUST-0193,Phone Case,Storage,1544.28,5,11-16-2024,,5.7,1.3
+1124,CUST-0194,USB Hub,Storage,2159.35,9,07-22-2025,York,25.8,4.5
+1125,CUST-0404,Charger,ACCESSORIES,561.54,5,2025-09-16,Manchester,7.7,4.4
+1126,CUST-0168,RAM Module, Office,2183.41,1,08-05-2025,Cardiff,11.4,2.6
+1127,CUST-0417,Cable Pack,storage  ,1974.78,9,2024-02-26,Sheffield,26.1,3.8
+1128,CUST-0335,Router,storage  ,1871.66,5,09-27-2024,Manchester,19.9,3.2
+1129,CUST-0433,Drone,Peripherals,1405.33,6,2024-04-20,Liverpool,10.3,4.4
+1130,CUST-0472,Mouse, Office,619.38,4,16/03/2024,Glasgow,20.5,
+1131,CUST-0475,Mouse Pad,Audio,$1061.75,6,2025-06-15,Reading,0.6,
+1132,CUST-0236,Mouse, Audio,"1,984.96",8,2025-10-04,Glasgow,22.1,2.9
+1133,CUST-0175,Drone,Office,84.29,3,2024-05-01,Bath,14.6,2.4
+1134,CUST-0134,Stylus,ACCESSORIES,1956.22,5,15/06/2024,Exeter,24.4,4.6
+1135,CUST-0100,Charger,Peripherals,$603.98,2,10-03-2025,Glasgow,28.6,1.7
+1136,CUST-0395,Power Bank,Audio,365.05,2,10-05-2024,Coventry,27.8,1.6
+1137,CUST-0419,Stylus,,293.67,7,2025-04-13,Leeds,27.3,3.3
+1138,CUST-0159,Graphics Card,Electronics,72.99,6,01-13-2024,Stoke,15.4,3.6
+1139,CUST-0419,Chair Mat,networking  ,$1311.35,4,2024-02-21,Cardiff,10.8,1.8
+1140,CUST-0448,Mouse,Gaming,549.56,5,2025-07-03,Stoke,14.0,2.6
+1141,CUST-0427,Chair Mat,,2473.63,1,02-05-2025,Exeter,20.7,
+1142,CUST-0366,Projector, Audio,1438.22,7,2024-02-20,,26.5,2.0
+1143,CUST-0460,Camera,STORAGE,349.02,8,10-14-2025,Belfast,6.2,3.7
+1144,CUST-0328,Printer,STORAGE,1723.46,9,09-12-2025,Brighton,27.5,4.0
+1145,CUST-0369,Charger, Office,2244.87,8,26/10/2024,Belfast,24.5,2.8
+1146,CUST-0415,Laptop,ELECTRONICS,1864.22,5,2024-07-14,Stoke,29.4,4.8
+1147,CUST-0385,UPS,Storage,195.72,3,10-25-2025,Belfast,26.4,
+1148,CUST-0390,Phone Case,Accessories,2240.23,9,2025-10-01,Stoke,8.4,2.8
+1149,CUST-0312,UPS,Electronics,1985.85,6,05/06/2025,York,3.2,3.3
+1150,CUST-0264,Keyboard,,399.97,5,12-30-2024,Belfast,3.4,3.8
+1151,CUST-0104,Drone,Networking,134.21,3,13/10/2025,Liverpool,8.7,3.4
+1152,CUST-0438,Splitter,networking  ,1395.49,6,05/02/2025,Reading,18.4,4.5
+1153,CUST-0478,Webcam,STORAGE,394.31,3,2025-05-06,,24.1,2.4
+1154,CUST-0177,Chair Mat,Accessories,$2087.3,6,2025-07-28,Glasgow,27.0,2.2
+1155,CUST-0161,Speaker,storage  ,899.04,4,2024-09-24,Swansea,18.7,1.9
+1156,CUST-0231,VR Headset,Storage,2282.67,2,2024-01-11,Liverpool,0.2,1.2
+1157,CUST-0188,SSD Drive, Audio,1416.39,8,05/05/2024,Coventry,5.6,1.2
+1158,CUST-0336,Router, Audio,460.77,4,12-02-2025,Aberdeen,3.0,4.5
+1159,CUST-0141,VR Headset, Audio,353.3,9,03-29-2024,Coventry,10.9,3.7
+1160,CUST-0188,Monitor,Peripherals,1443.3,7,2025-09-19,Leicester,15.0,3.6
+1161,CUST-0395,Chair Mat,Office,"1,905.90",2,2024-01-14,Dundee,,3.5
+1162,CUST-0427,Cable Pack,peripherals  ,1954.86,4,2024-07-27,Coventry,10.5,4.4
+1163,CUST-0394,Monitor,Storage,693.01,5,2025-03-18,York,5.4,2.9
+1164,CUST-0203,Server Rack, Office,514.6,3,2025-01-23,Cambridge,19.4,4.5
+1165,CUST-0113,Smartwatch, Audio,46.81,9,04-27-2025,Stoke,13.9,2.4
+1166,CUST-0387,Scanner,ELECTRONICS,1699.6,5,2024-10-05,Leeds,14.9,4.7
+1167,CUST-0278,Scanner,Gaming,196.04,2,21/09/2025,Bristol,12.8,3.8
+1168,CUST-0224,Laptop Stand,Peripherals,1054.8,3,2025-03-09,Coventry,28.7,
+1169,CUST-0452,Speaker,peripherals  ,1506.2,9,20/01/2025,Brighton,,3.3
+1170,CUST-0122,Printer,Electronics,2343.09,7,13/09/2024,Aberdeen,15.5,3.1
+1171,CUST-0162,Charger,Electronics,782.95,2,2025-11-28,York,22.1,
+1172,CUST-0242,Power Bank,Electronics,628.18,9,02-03-2025,Bath,16.7,3.4
+1173,CUST-0252,Stylus,Electronics,1637.13,4,20/06/2024,Birmingham,27.9,2.3
+1174,CUST-0244,Fan, Office,1550.0,9,08-08-2024,Belfast,11.3,
+1175,CUST-0324,Webcam,,833.61,2,07-01-2024,Manchester,13.9,4.8
+1176,CUST-0408,Scanner,Storage,2320.61,4,12/03/2024,Leeds,2.7,3.6
+1177,CUST-0203,Fan, Audio,2112.93,5,09/10/2024,,18.3,4.5
+1178,CUST-0203,Switch,,563.84,2,12-20-2024,Newcastle,8.6,3.7
+1179,CUST-0138,Mouse,Storage,601.66,1,05-11-2025,Southampton,4.8,2.4
+1180,CUST-0297,Microphone,STORAGE,1283.19,7,02/08/2025,Brighton,16.3,3.1
+1181,CUST-0233,Docking Station,Networking,1935.06,1,2025-03-22,Coventry,16.0,3.7
+1182,CUST-0166,Printer,peripherals  ,114.88,8,2024-12-27,Plymouth,2.3,4.8
+1183,CUST-0490,Headphones, Audio,1734.87,3,11-16-2024,,20.9,2.0
+1184,CUST-0278,Docking Station,networking  ,1622.35,6,2024-12-11,Manchester,18.7,4.5
+1185,CUST-0141,VR Headset,peripherals  ,582.54,7,04-12-2024,Dundee,5.7,4.7
+1186,CUST-0114,Graphics Card, Audio,1704.98,1,07-10-2024,,14.1,3.7
+1187,CUST-0210,Chair Mat,Office,2350.76,6,07-12-2024,Cardiff,,4.7
+1188,CUST-0256,Mouse, Office,121.73,7,2025-10-25,Oxford,15.9,2.6
+1189,CUST-0388,Tablet,Accessories,802.53,6,08-22-2025,Leicester,11.9,4.8
+1190,CUST-0330,Printer, Office,1098.25,4,05/07/2024,Reading,9.7,3.8
+1191,CUST-0256,Cable Pack,Audio,2248.65,1,15/01/2024,Edinburgh,18.3,1.2
+1192,CUST-0137,RAM Module,peripherals  ,2405.84,9,10-23-2024,Exeter,28.2,4.6
+1193,CUST-0196,Microphone,Audio,1113.07,4,2025-08-07,Norwich,20.2,2.9
+1194,CUST-0388,Docking Station,STORAGE,1876.32,7,01-17-2024,York,2.2,2.8
+1195,CUST-0353,RAM Module,Storage,1331.49,7,03/03/2025,Reading,13.8,3.3
+1196,CUST-0295,Drone,,1346.77,2,16/08/2024,Birmingham,26.7,1.6
+1197,CUST-0185,Router,ACCESSORIES,698.86,1,07-28-2024,Stoke,2.8,2.9
+1198,CUST-0421,RAM Module,ACCESSORIES,546.31,8,10-20-2024,,29.7,
+1199,CUST-0109,Laptop Stand, Office,723.57,8,2025-08-04,London,28.5,1.1
+1200,CUST-0104,UPS,networking  ,1393.04,7,09/01/2025,Leeds,2.3,2.1
+1201,CUST-0222,USB Hub,Networking,77.74,8,02-23-2024,Derby,28.0,1.0
+1202,CUST-0429,Phone Case, Office,2268.59,3,01-31-2024,Cambridge,10.9,2.7
+1203,CUST-0452,Phone Case,,$394.93,2,2024-02-27,Swansea,25.3,3.9
+1204,CUST-0217,Projector,Accessories,554.12,7,22/09/2024,Bristol,12.6,4.2
+1205,CUST-0393,Monitor,ELECTRONICS,1298.1,8,2025-05-10,York,13.2,4.8
+1206,CUST-0496,Monitor,Gaming,1776.74,1,21/10/2024,Norwich,19.0,3.4
+1207,CUST-0258,External HDD,Storage,243.84,9,07-02-2025,Norwich,23.2,2.0
+1208,CUST-0402,Adapter,Gaming,797.65,4,07/03/2024,Derby,1.0,4.7
+1209,CUST-0327,Screen Protector,networking  ,2421.84,4,10-25-2024,Dundee,17.8,4.1
+1210,CUST-0464,Tripod,ELECTRONICS,659.55,3,2025-12-25,Liverpool,5.6,3.3
+1211,CUST-0315,External HDD,networking  ,786.06,6,02-25-2024,London,,3.8
+1212,CUST-0283,Fan, Audio,2092.06,1,01-27-2025,,10.4,4.7
+1213,CUST-0114,Camera,Storage,130.29,6,01-15-2025,London,14.1,
+1214,CUST-0256,Memory Card,Storage,1164.21,2,2025-03-22,York,10.0,2.5
+1215,CUST-0235,External HDD,Accessories,952.14,9,12/11/2024,Newcastle,3.2,3.9
+1216,CUST-0360,Tripod,,794.88,2,10/03/2025,Plymouth,4.4,1.2
+1217,CUST-0256,Drone,ACCESSORIES,$717.82,7,05/08/2024,Aberdeen,1.0,2.5
+1218,CUST-0146,USB Hub,Electronics,232.98,1,03/11/2025,Dundee,14.1,2.6
+1219,CUST-0423,Mouse Pad,Gaming,790.49,7,22/07/2025,Leicester,28.6,1.7
+1220,CUST-0431,Laptop Stand,,112.42,5,04-10-2025,Norwich,3.5,1.1
+1221,CUST-0272,Ethernet Cable,networking  ,$1953.5,8,24/08/2025,Dundee,28.4,1.5
+1222,CUST-0229,Charger,Office,998.58,4,01-30-2024,Newcastle,22.0,3.6
+1223,CUST-0194,USB Hub,Storage,1112.54,7,14/10/2024,York,,4.2
+1224,CUST-0214,Tripod,Electronics,2234.52,6,08-21-2024,Stoke,,5.0
+1225,CUST-0342,Ethernet Cable,Peripherals,1646.85,5,2024-11-08,Plymouth,24.8,2.4
+1226,CUST-0391,Headphones,ELECTRONICS,25.11,4,25/09/2024,Belfast,3.2,3.4
+1227,CUST-0381,Mouse,,2358.22,7,05-10-2024,Aberdeen,,4.7
+1228,CUST-0398,Mouse Pad,Electronics,$596.68,5,16/12/2024,Sheffield,,1.7
+1229,CUST-0382,Router, Audio,$273.5,5,2025-04-24,London,17.6,3.9
+1230,CUST-0168,Memory Card,Networking,1921.48,1,06-11-2024,Aberdeen,25.0,4.0
+1231,CUST-0247,Cable Pack,peripherals  ,1253.69,2,05/04/2024,Edinburgh,2.2,1.4
+1232,CUST-0110,Router,Gaming,1087.26,5,2025-05-24,Oxford,20.7,4.4
+1233,CUST-0353,Graphics Card,Gaming,627.51,3,12-18-2024,Stoke,16.0,4.3
+1234,CUST-0429,Microphone,Networking,1370.94,2,08-12-2024,Stoke,11.4,1.1
+1235,CUST-0459,External HDD,storage  ,689.59,4,27/04/2024,Swansea,,1.4
+1236,CUST-0137,Headphones, Office,$2254.45,4,07-10-2024,Derby,18.6,1.2
+1237,CUST-0233,Laptop,ELECTRONICS,541.94,4,08-12-2025,Belfast,26.7,2.3
+1238,CUST-0299,Speaker, Audio,2211.47,4,16/04/2024,Derby,14.9,3.0
+1239,CUST-0122,Router,Electronics,1400.72,3,2025-01-24,Liverpool,24.7,3.1
+1240,CUST-0402,Wrist Rest,Peripherals,2072.08,7,12/04/2025,,,2.1
+1241,CUST-0445,Server Rack,Storage,1783.55,9,21/06/2025,Cambridge,3.1,4.6
+1242,CUST-0401,Router,Accessories,1743.25,5,2025-08-26,Glasgow,1.8,2.5
+1243,CUST-0462,Stylus, Audio,814.24,4,03-13-2024,Cambridge,1.5,1.2
+1244,CUST-0495,Tripod,Gaming,588.57,2,11-04-2024,Reading,11.4,2.2
+1245,CUST-0317,Server Rack,Office,531.16,2,10/12/2025,Swansea,10.1,3.1
+1246,CUST-0240,Scanner,ELECTRONICS,2143.69,5,2024-07-04,Oxford,21.5,2.6
+1247,CUST-0203,Camera,Accessories,$2051.96,7,01-13-2024,,22.3,2.1
+1248,CUST-0309,Screen Protector,networking  ,1104.23,9,03-16-2024,Brighton,1.5,1.5
+1249,CUST-0210,Drone,networking  ,335.35,7,05-28-2024,Bristol,6.6,4.3
+1250,CUST-0203,Shredder, Office,958.72,5,05-01-2024,Aberdeen,8.2,5.0
+1251,CUST-0415,Tablet,Peripherals,1550.26,6,06/10/2024,Nottingham,16.4,2.3
+1252,CUST-0270,Router,networking  ,1138.74,3,15/11/2025,Stoke,4.3,2.5
+1253,CUST-0455,Wrist Rest,,1951.57,5,10/01/2025,Aberdeen,4.0,3.5
+1254,CUST-0423,Monitor,,2494.07,8,06/05/2025,Brighton,28.3,
+1255,CUST-0232,VR Headset,STORAGE,481.87,1,2024-09-29,Newcastle,24.1,
+1256,CUST-0475,Label Maker,Storage,1151.83,1,07-26-2025,Liverpool,5.4,4.6
+1257,CUST-0392,Stylus,Gaming,1080.3,7,14/12/2024,Coventry,12.2,3.2
+1258,CUST-0427,Adapter,Storage,764.71,5,02-12-2025,Birmingham,10.7,2.8
+1259,CUST-0226,Drone,networking  ,499.25,5,11-18-2024,London,23.7,3.6
+1260,CUST-0205,Splitter,storage  ,168.9,1,2024-03-29,Cambridge,15.3,4.8
+1261,CUST-0191,Fan,peripherals  ,2218.36,9,10/12/2025,Glasgow,3.8,4.2
+1262,CUST-0386,Fan,peripherals  ,1052.52,1,12-12-2025,Nottingham,22.2,1.2
+1263,CUST-0477,Memory Card, Office,1244.75,5,2025-06-22,Belfast,11.9,2.3
+1264,CUST-0492,Hub,Accessories,2292.77,9,25/05/2024,Glasgow,7.9,2.9
+1265,CUST-0150,Router,peripherals  ,1941.84,4,2024-09-13,Swansea,11.3,
+1266,CUST-0128,Hub,peripherals  ,330.60,8,08-27-2024,Southampton,14.9,3.8
+1267,CUST-0395,Speaker,Storage,"1,415.72",6,2025-05-17,Oxford,10.3,4.3
+1268,CUST-0396,Shredder,STORAGE,1108.42,3,11-07-2025,London,,3.9
+1269,CUST-0313,Splitter,Audio,1994.04,4,27/09/2024,Dundee,12.0,5.0
+1270,CUST-0366,Screen Protector, Office,1811.96,2,04-23-2024,Manchester,0.6,2.1
+1271,CUST-0356,RAM Module,Accessories,1727.56,1,07-21-2025,Edinburgh,23.2,4.5
+1272,CUST-0401,Splitter,Gaming,854.66,8,24/12/2024,Belfast,5.1,4.1
+1273,CUST-0200,Laptop,Electronics,2013.38,1,05/09/2025,Bath,1.3,2.4
+1274,CUST-0445,Mouse,Office,$135.72,1,2025-11-19,Edinburgh,19.6,3.9
+1275,CUST-0209,Label Maker,Accessories,403.26,4,04/12/2024,Aberdeen,23.2,1.4
+1276,CUST-0281,Fan,ACCESSORIES,$842.38,6,09-17-2024,Brighton,100.0,4.2
+1277,CUST-0412,Projector,storage  ,196.63,9,07-17-2024,Glasgow,14.8,3.1
+1278,CUST-0100,Graphics Card, Office,591.31,1,13/10/2024,Stoke,6.2,2.2
+1279,CUST-0418,Adapter,Audio,2076.23,7,16/04/2025,Derby,22.1,3.6
+1280,CUST-0154,Router,storage  ,2370.89,5,2024-01-23,Sheffield,21.0,3.6
+1281,CUST-0470,Laptop Stand,Accessories,764.98,8,22/10/2024,Oxford,7.4,1.8
+1282,CUST-0498,Tablet,Accessories,664.97,7,2025-07-03,Brighton,27.1,1.1
+1283,CUST-0248,VR Headset,ACCESSORIES,703.33,4,2024-07-21,Bath,3.1,
+1284,CUST-0408,SSD Drive,peripherals  ,697.91,4,08-31-2024,Swansea,29.5,3.3
+1285,CUST-0236,Ethernet Cable,Gaming,94.65,6,2024-02-16,Brighton,25.8,4.5
+1286,CUST-0301,SSD Drive, Audio,2317.66,6,13/08/2025,York,20.6,
+1287,CUST-0412,Shredder,,538.18,9,01-13-2024,Swansea,,3.1
+1288,CUST-0216,Cable Pack,storage  ,1052.91,5,2025-01-14,Leicester,21.7,4.0
+1289,CUST-0253,Screen Protector,Accessories,29.17,8,24/08/2025,Sheffield,5.7,2.8
+1290,CUST-0390,Microphone,Office,$2145.6,5,2024-08-08,,13.3,
+1291,CUST-0162,Desk Lamp,,1829.24,2,16/09/2025,Belfast,2.1,1.8
+1292,CUST-0343,Server Rack,Gaming,2367.16,6,18/05/2025,Stoke,11.7,2.5
+1293,CUST-0124,Docking Station,Office,"1,955.13",9,2025-07-08,Swansea,22.2,3.5
+1294,CUST-0189,Headphones,networking  ,787.7,3,06/09/2025,Stoke,11.6,1.1
+1295,CUST-0174,Scanner,Gaming,623.44,1,11-24-2024,Exeter,9.9,
+1296,CUST-0393,NAS,networking  ,1745.8,1,2025-06-26,Manchester,17.9,4.3
+1297,CUST-0485,Laptop,Office,913.46,3,2025-03-17,Edinburgh,26.2,2.6
+1298,CUST-0490,Microphone,STORAGE,1417.71,5,02/01/2024,Nottingham,1.4,2.8
+1299,CUST-0309,Tripod,Audio,20.61,3,11/12/2025,Birmingham,11.6,4.4
+1300,CUST-0446,SSD Drive,peripherals  ,159.4,9,2025-10-28,Leicester,4.7,4.1
+1301,CUST-0116,Speaker,Office,$1340.74,8,03-31-2024,London,,2.2
+1302,CUST-0227,SSD Drive,,"1,417.35",3,25/07/2024,Swansea,3.2,2.3
+1303,CUST-0463,Microphone,Office,1879.88,9,2024-03-05,Birmingham,19.9,3.7
+1304,CUST-0350,Switch,Electronics,334.25,6,01/11/2024,Dundee,8.6,3.3
+1305,CUST-0278,Laptop,Electronics,1285.39,7,29/01/2025,Belfast,6.0,1.6
+1306,CUST-0281,Server Rack,ELECTRONICS,$490.15,4,05/07/2024,,28.1,2.2
+1307,CUST-0251,Desk Lamp,networking  ,237.52,4,12-02-2024,Coventry,,4.6
+1308,CUST-0124,Drone,Networking,1029.19,2,2025-12-30,Leicester,13.1,3.8
+1309,CUST-0279,Desk Lamp,peripherals  ,412.52,5,2024-05-20,Exeter,0.6,4.9
+1310,CUST-0297,Screen Protector,Networking,558.35,8,05-18-2024,Coventry,14.5,4.1
+1311,CUST-0443,Headphones,Storage,797.3,7,2024-03-10,Liverpool,15.0,4.8
+1312,CUST-0260,Power Bank,Networking,652.17,7,21/09/2025,,9.6,1.9
+1313,CUST-0276,Router,Storage,223.54,6,23/07/2024,Leicester,4.0,4.1
+1314,CUST-0384,Adapter,ELECTRONICS,229.34,3,07-21-2025,Aberdeen,11.3,
+1315,CUST-0162,Printer,ELECTRONICS,487.16,5,11-17-2025,Plymouth,20.2,
+1316,CUST-0249,UPS,Audio,131.15,1,10-01-2025,Edinburgh,23.5,
+1317,CUST-0253,Camera, Audio,1568.01,7,20/11/2024,Dundee,15.9,2.4
+1318,CUST-0255,Tablet,Electronics,721.88,9,14/10/2024,Stoke,17.7,4.4
+1319,CUST-0469,Cable Pack,Office,702.97,1,03-04-2024,,6.0,4.4
+1320,CUST-0148,Docking Station,Office,833.34,2,13/07/2025,Reading,8.6,1.1
+1321,CUST-0436,USB Hub, Office,1658.68,3,2025-05-12,Plymouth,4.9,3.4
+1322,CUST-0183,Laptop Stand,networking  ,2177.23,3,2024-02-29,Coventry,7.5,2.5
+1323,CUST-0460,Switch,ACCESSORIES,1898.92,8,2024-09-13,,6.7,2.7
+1324,CUST-0276,Headphones,ACCESSORIES,1820.19,7,2024-08-26,Glasgow,15.6,4.3
+1325,CUST-0247,Headphones,Peripherals,$1213.56,6,2024-02-07,Reading,16.9,2.2
+1326,CUST-0217,Surge Protector,Gaming,1736.04,4,2025-02-13,Leeds,28.3,4.8
+1327,CUST-0441,Scanner,Audio,"1,384.14",9,2025-07-24,Exeter,5.9,1.7
+1328,CUST-0162,SSD Drive,Peripherals,544.55,1,12-22-2024,Cambridge,19.3,
+1329,CUST-0288,Graphics Card,Peripherals,525.43,2,2024-06-06,Birmingham,24.5,3.7
+1330,CUST-0459,Memory Card, Office,744.5,4,2025-03-08,Oxford,16.8,2.0
+1331,CUST-0148,KVM Switch,,2277.45,3,2025-03-06,Cambridge,7.7,2.3
+1332,CUST-0426,Scanner,,1370.8,1,2024-09-24,Cambridge,7.9,4.3
+1333,CUST-0356,Label Maker,,1836.09,5,28/12/2025,,1.2,4.0
+1334,CUST-0323,Laptop Stand,storage  ,869.66,7,2025-08-23,Aberdeen,9.2,2.3
+1335,CUST-0240,Screen Protector,networking  ,"1,022.25",2,13/09/2024,Manchester,22.3,3.1
+1336,CUST-0314,Printer,Peripherals,318.29,5,2025-10-04,Nottingham,1.4,1.2
+1337,CUST-0478,SSD Drive,Networking,432.38,6,10-20-2025,Reading,6.6,
+1338,CUST-0310,Adapter,Gaming,2069.25,7,16/02/2025,Exeter,21.2,2.9
+1339,CUST-0417,Chair Mat, Audio,1464.17,1,2024-01-02,Leicester,23.5,1.3
+1340,CUST-0131,RAM Module,Audio,847.14,7,24/05/2024,Glasgow,,4.4
+1341,CUST-0257,Mouse,networking  ,2008.11,4,2025-02-23,Birmingham,,3.9
+1342,CUST-0384,Cable Pack, Audio,620.07,8,14/07/2025,Glasgow,11.6,4.8
+1343,CUST-0404,Keyboard,,2440.2,4,10-04-2025,Glasgow,4.8,3.8
+1344,CUST-0385,Shredder,peripherals  ,865.32,6,26/02/2024,Glasgow,11.9,
+1345,CUST-0243,Camera,STORAGE,846.59,9,2024-06-26,Birmingham,17.4,3.2
+1346,CUST-0118,Monitor,Office,783.22,5,15/02/2024,Birmingham,28.4,3.4
+1347,CUST-0117,Charger,Gaming,309.67,4,2024-09-27,Bath,2.1,4.9
+1348,CUST-0356,Splitter,Accessories,282.29,8,05-18-2024,Norwich,15.2,3.6
+1349,CUST-0177,Splitter,storage  ,"1,622.02",9,27/05/2024,,9.9,1.1
+1350,CUST-0470,Chair Mat,Office,2188.42,4,28/09/2025,Derby,15.2,3.9
+1351,CUST-0274,Graphics Card, Audio,1977.35,3,20/03/2024,Derby,0.7,4.6
+1352,CUST-0293,Router,networking  ,357.06,8,2024-03-05,Reading,9.4,4.2
+1353,CUST-0212,Camera,Accessories,1366.23,5,2025-12-26,Cambridge,24.6,3.3
+1354,CUST-0213,Smartwatch,Accessories,268.45,2,2025-01-16,Swansea,16.6,3.7
+1355,CUST-0321,Mouse Pad,Gaming,118.01,9,2025-04-20,Bath,13.5,
+1356,CUST-0265,Adapter,Accessories,1642.68,3,08-28-2025,Leeds,8.6,
+1357,CUST-0418,Mouse, Audio,1340.21,2,22/06/2025,London,8.9,3.7
+1358,CUST-0231,Speaker,STORAGE,209.65,1,2024-03-14,Swansea,11.5,
+1359,CUST-0484,Scanner,ELECTRONICS,92.17,8,11-28-2025,Brighton,25.1,3.6
+1360,CUST-0363,Printer,storage  ,2474.44,3,06/08/2024,Bristol,29.0,3.4
+1361,CUST-0154,Phone Case,,79.90,7,2025-02-18,Oxford,13.2,1.6
+1362,CUST-0458,Scanner, Audio,1114.1,1,08-24-2024,Bristol,,1.8
+1363,CUST-0230,Scanner,ELECTRONICS,1264.02,1,2024-06-29,Edinburgh,25.4,3.5
+1364,CUST-0387,VR Headset, Audio,297.61,9,2025-07-11,Dundee,12.8,1.5
+1365,CUST-0365,Tablet,Electronics,426.81,8,04-02-2025,Bristol,16.6,2.1
+1366,CUST-0465,Graphics Card,ACCESSORIES,882.75,3,04-17-2025,,6.9,4.3
+1367,CUST-0261,Cable Pack,peripherals  ,1905.38,6,15/12/2025,Aberdeen,22.3,2.3
+1368,CUST-0479,Screen Protector,ACCESSORIES,1270.17,3,09-22-2025,,16.0,3.0
+1369,CUST-0186,Adapter,Accessories,1596.57,4,2024-01-17,Coventry,24.3,4.8
+1370,CUST-0154,Stylus, Office,2463.01,1,26/11/2024,Swansea,23.4,1.9
+1371,CUST-0387,RAM Module,Audio,"1,921.17",5,30/04/2025,Sheffield,6.5,2.6
+1372,CUST-0277,Chair Mat,Audio,1088.73,1,04-26-2024,Brighton,21.5,3.4
+1373,CUST-0490,Adapter,Electronics,1118.87,1,04-24-2024,Sheffield,24.0,4.0
+1374,CUST-0448,Charger,Office,1548.84,7,02/07/2025,York,10.4,4.6
+1375,CUST-0107,Chair Mat,Gaming,1665.09,6,09-16-2025,,5.2,4.7
+1376,CUST-0420,Ethernet Cable,Accessories,1254.27,2,2025-10-05,Edinburgh,0.1,4.1
+1377,CUST-0412,Surge Protector,Gaming,1613.93,2,26/05/2024,,13.5,
+1378,CUST-0346,Power Bank,ELECTRONICS,63.71,7,2024-03-21,Bath,10.6,1.1
+1379,CUST-0422,Router,Audio,1076.91,1,27/10/2025,Glasgow,,2.5
+1380,CUST-0354,NAS,Networking,700.95,2,09/01/2025,Brighton,5.6,1.6
+1381,CUST-0427,Scanner,storage  ,327.29,8,2024-03-03,Cardiff,25.8,3.8
+1382,CUST-0153,UPS,ELECTRONICS,253.37,6,03-03-2025,Edinburgh,7.7,3.6
+1383,CUST-0348,Shredder,,$1509.96,2,24/02/2025,Bath,6.8,
+1384,CUST-0338,Router,peripherals  ,1311.38,7,10/11/2025,Exeter,14.4,4.3
+1385,CUST-0328,Drone,storage  ,$637.69,4,2025-08-19,Swansea,15.0,2.0
+1386,CUST-0166,Scanner,STORAGE,1180.02,2,2025-10-10,Southampton,,2.7
+1387,CUST-0150,Surge Protector,ELECTRONICS,1233.12,6,2025-04-03,Newcastle,8.2,
+1388,CUST-0196,External HDD,Electronics,491.55,9,04-08-2025,Edinburgh,,2.7
+1389,CUST-0191,Shredder,STORAGE,$1631.97,9,02/01/2024,Stoke,21.6,2.8
+1390,CUST-0363,Smartwatch,Storage,1953.39,8,12-29-2024,Belfast,23.1,1.3
+1391,CUST-0390,Splitter,ELECTRONICS,1979.7,3,29/09/2025,Stoke,13.9,2.6
+1392,CUST-0195,KVM Switch,STORAGE,1508.16,3,2024-07-23,Cardiff,21.4,
+1393,CUST-0187,Stylus,Accessories,1281.54,2,12-02-2024,Leeds,22.1,4.7
+1394,CUST-0177,Router,storage  ,157.21,5,04-16-2025,Brighton,,2.7
+1395,CUST-0387,Speaker,Peripherals,723.14,4,2025-10-31,Belfast,29.0,2.7
+1396,CUST-0219,Router,Peripherals,237.71,7,10-01-2024,York,24.6,3.8
+1397,CUST-0401,SSD Drive,Accessories,2409.74,4,19/07/2025,Aberdeen,6.1,4.8
+1398,CUST-0499,UPS, Audio,342.02,9,07-26-2025,Oxford,5.6,2.1
+1399,CUST-0264,Adapter,Storage,$383.68,2,26/06/2024,Cardiff,3.8,2.8
+1400,CUST-0281,UPS,peripherals  ,2224.49,6,07-21-2024,Nottingham,,4.2
+1401,CUST-0497,USB Hub,Storage,2360.1,7,04-06-2025,London,22.4,3.4
+1402,CUST-0322,Microphone,Electronics,1915.74,4,20/02/2025,Manchester,,1.4
+1403,CUST-0410,NAS,Audio,18.49,6,01-18-2025,,23.5,3.5
+1404,CUST-0106,Scanner, Office,8.36,7,18/11/2025,Aberdeen,22.4,1.7
+1405,CUST-0429,Tablet,Gaming,948.36,4,05-08-2025,Cardiff,18.1,3.0
+1406,CUST-0362,Ethernet Cable,,362.77,8,2025-12-18,Edinburgh,20.6,3.1
+1407,CUST-0260,Ethernet Cable,Storage,50.87,9,09-10-2025,Brighton,0.6,4.5
+1408,CUST-0250,Switch,Networking,1162.85,1,02/05/2024,York,9.4,2.8
+1409,CUST-0184,Chair Mat,Electronics,2357.94,7,05-13-2024,Edinburgh,19.1,
+1410,CUST-0246,Ethernet Cable,ACCESSORIES,812.93,9,2025-07-15,Liverpool,0.3,1.9
+1411,CUST-0211,Laptop Stand,Office,1654.55,5,08-29-2025,Cambridge,1.0,
+1412,CUST-0480,Fan,ACCESSORIES,1632.33,2,19/07/2025,York,25.6,
+1413,CUST-0135,Speaker,peripherals  ,631.44,6,08-22-2024,,20.5,2.7
+1414,CUST-0384,Stylus,Electronics,1627.81,7,06-12-2024,Stoke,8.0,1.7
+1415,CUST-0287,Mouse,storage  ,534.77,2,08-03-2024,Sheffield,20.6,
+1416,CUST-0181,Fan,STORAGE,309.41,2,2025-07-22,Stoke,23.8,
+1417,CUST-0101,Router,ELECTRONICS,1754.95,1,03-30-2024,Swansea,,
+1418,CUST-0484,Cable Pack,Gaming,288.03,4,2025-07-10,Belfast,1.1,2.4
+1419,CUST-0402,Mouse Pad,Office,2492.29,7,06-16-2025,Nottingham,28.0,4.4
+1420,CUST-0296,Printer,ACCESSORIES,462.71,9,16/06/2025,Sheffield,10.4,3.2
+1421,CUST-0110,Cable Pack,,1487.38,3,06-19-2024,Plymouth,3.2,3.9
+1422,CUST-0333,Microphone,Office,1031.38,7,16/09/2025,Belfast,14.8,4.6
+1423,CUST-0485,Desk Lamp,Networking,320.33,7,08-19-2024,Bath,23.1,4.6
+1424,CUST-0294,NAS,Networking,74.47,7,08/03/2024,Cambridge,6.6,2.3
+1425,CUST-0218,Speaker,STORAGE,1558.72,2,2024-01-28,Leeds,8.1,4.8
+1426,CUST-0495,Ethernet Cable,peripherals  ,2017.86,6,09-19-2025,Derby,7.3,1.1
+1427,CUST-0119,Switch,Networking,$2105.83,2,11-23-2025,Aberdeen,29.8,2.5
+1428,CUST-0360,Tripod,Electronics,1209.37,6,09-11-2025,,,4.6
+1429,CUST-0392,Projector,Gaming,1944.75,3,08-08-2025,Glasgow,17.3,2.1
+1430,CUST-0355,Keyboard,storage  ,1683.75,2,07-02-2024,,27.8,2.1
+1431,CUST-0321,Docking Station,,1812.02,6,05-08-2024,Derby,4.4,2.2
+1432,CUST-0492,Microphone,Electronics,1234.03,2,15/05/2025,Sheffield,29.1,3.4
+1433,CUST-0325,Fan,Peripherals,1585.36,5,04-23-2025,Swansea,28.4,2.8
+1434,CUST-0152,Surge Protector, Audio,2014.79,2,2025-05-06,Birmingham,26.5,3.9
+1435,CUST-0454,External HDD,ELECTRONICS,997.72,3,10-04-2025,Stoke,6.4,4.6
+1436,CUST-0441,NAS,networking  ,2015.92,3,2025-04-11,Bristol,19.0,3.7
+1437,CUST-0463,KVM Switch,ELECTRONICS,1482.08,6,2025-08-23,Exeter,22.8,1.8
+1438,CUST-0379,Chair Mat,Networking,$418.92,6,2024-04-09,Manchester,29.6,4.7
+1439,CUST-0180,Tripod,Peripherals,66.59,3,2025-01-22,Cambridge,5.4,2.1
+1440,CUST-0301,KVM Switch,Storage,910.07,3,20/02/2025,Cardiff,,1.6
+1441,CUST-0257,SSD Drive,Storage,$1369.01,1,06-24-2024,Nottingham,10.2,1.4
+1442,CUST-0219,Hub,storage  ,2100.35,7,2025-04-15,Edinburgh,5.3,3.3
+1443,CUST-0158,Phone Case,Networking,323.08,8,08-20-2024,Belfast,12.6,1.5
+1444,CUST-0314,SSD Drive,,2001.51,2,2025-03-27,Cardiff,23.8,1.6
+1445,CUST-0227,Laptop,Electronics,2158.21,4,08-16-2024,Reading,13.9,2.2
+1446,CUST-0323,NAS,Networking,380.97,7,31/07/2024,Exeter,16.1,2.1
+1447,CUST-0308,Headphones,Audio,2129.73,8,10/02/2024,,29.9,3.4
+1448,CUST-0469,Keyboard, Office,2478.68,1,14/08/2024,Glasgow,12.0,4.3
+1449,CUST-0214,Laptop,Office,1818.46,4,08-22-2025,Sheffield,18.5,4.0
+1450,CUST-0308,Monitor,storage  ,1963.0,6,06-24-2025,London,11.0,2.0
+1451,CUST-0113,Adapter, Office,2486.07,3,2025-03-26,Sheffield,11.8,2.0
+1452,CUST-0108,Drone,ELECTRONICS,1515.68,5,01/03/2024,Exeter,,4.9
+1453,CUST-0139,Scanner,Storage,773.18,9,26/05/2024,Liverpool,28.1,
+1454,CUST-0336,Hub, Audio,2094.64,3,2024-11-29,York,,4.5
+1455,CUST-0380,VR Headset, Office,1538.14,5,2024-05-21,York,23.1,1.8
+1456,CUST-0458,Switch,Accessories,1455.08,8,28/11/2024,Brighton,2.7,4.8
+1457,CUST-0300,Chair Mat,,637.82,6,05-11-2025,York,6.3,2.4
+1458,CUST-0345,Graphics Card,networking  ,1892.05,4,02/11/2024,,15.1,2.8
+1459,CUST-0377,Router,,208.76,8,2025-02-26,Norwich,0.6,3.8
+1460,CUST-0334,UPS,storage  ,"2,311.10",3,2025-11-03,Belfast,,3.4
+1461,CUST-0103,External HDD,ELECTRONICS,817.93,3,20/11/2024,,15.5,2.3
+1462,CUST-0253,Mouse Pad,,323.8,4,11-01-2025,Cambridge,0.4,3.2
+1463,CUST-0128,Mouse Pad,Office,1108.7,9,21/04/2024,Swansea,,3.9
+1464,CUST-0208,Mouse,ELECTRONICS,110.96,5,17/12/2025,Nottingham,15.4,
+1465,CUST-0197,Splitter,peripherals  ,1713.14,8,16/04/2025,Swansea,17.2,1.0
+1466,CUST-0314,Label Maker,Accessories,2257.25,6,07-06-2025,Cambridge,,2.8
+1467,CUST-0392,Speaker,Networking,"2,093.97",3,08-11-2025,Birmingham,-10.0,1.5
+1468,CUST-0174,RAM Module,peripherals  ,322.79,8,29/11/2025,Swansea,12.4,3.7
+1469,CUST-0425,Camera,Peripherals,320.05,9,17/07/2025,Derby,27.9,1.9
+1470,CUST-0245,Ethernet Cable, Audio,2034.52,8,03-08-2025,Norwich,23.5,2.7
+1471,CUST-0227,Hub,,"2,311.01",4,2025-08-21,,6.0,1.8
+1472,CUST-0440,Wrist Rest, Office,1154.37,6,2024-09-04,Norwich,3.9,3.2
+1473,CUST-0141,Smartwatch,ELECTRONICS,1249.93,1,04-29-2024,Dundee,20.3,1.5
+1474,CUST-0455,Screen Protector,ELECTRONICS,799.06,4,07-26-2025,Coventry,16.8,1.1
+1475,CUST-0140,Charger,Audio,"2,236.19",8,03/12/2025,Swansea,23.7,1.2
+1476,CUST-0133,Charger,STORAGE,1614.03,1,2025-05-07,Sheffield,22.2,4.8
+1477,CUST-0116,VR Headset,Audio,724.19,3,24/10/2025,Coventry,18.8,1.6
+1478,CUST-0264,Power Bank,Gaming,750.46,1,2025-08-30,Bath,29.6,3.8
+1479,CUST-0252,Tablet,Audio,2228.54,9,2024-04-06,Edinburgh,,1.3
+1480,CUST-0477,Phone Case,Electronics,$39.02,2,2024-04-22,Dundee,3.4,
+1481,CUST-0175,Printer,Peripherals,810.2,9,03-31-2025,Reading,24.8,3.0
+1482,CUST-0186,Webcam,peripherals  ,1388.12,4,11/05/2024,Aberdeen,7.6,2.9
+1483,CUST-0216,Docking Station,Office,374.8,2,2024-04-30,Bristol,23.3,
+1484,CUST-0461,Tripod,peripherals  ,234.79,4,26/04/2025,Cardiff,28.7,4.8
+1485,CUST-0441,Monitor,peripherals  ,2039.11,6,08/02/2024,Southampton,20.9,4.1
+1486,CUST-0126,KVM Switch,Accessories,2236.54,7,26/05/2025,Glasgow,17.9,3.4
+1487,CUST-0412,Monitor,ELECTRONICS,2059.9,3,2024-06-09,,13.8,2.8
+1488,CUST-0386,Power Bank,Gaming,2247.48,3,2024-07-18,Plymouth,10.9,2.4
+1489,CUST-0233,Graphics Card,Gaming,1385.01,8,11-15-2025,York,10.6,4.8
+1490,CUST-0318,Desk Lamp,Office,2031.58,5,09-04-2024,Plymouth,19.1,3.4
+1491,CUST-0267,Drone,Peripherals,963.19,4,08-05-2024,Brighton,22.5,3.3
+1492,CUST-0197,Wrist Rest,Accessories,1667.34,7,22/03/2024,Aberdeen,20.4,1.9
+1493,CUST-0367,Tripod,Storage,2472.14,7,14/05/2025,Sheffield,6.0,1.2
+1494,CUST-0336,Memory Card,storage  ,568.19,9,2024-01-12,,14.8,4.8
+1495,CUST-0408,Router,,977.8,9,10-04-2025,,23.7,2.3
+1496,CUST-0493,Adapter,storage  ,1202.72,5,2024-08-05,,14.3,2.8
+1497,CUST-0272,External HDD,storage  ,349.35,8,04-15-2024,Edinburgh,16.1,1.5
+1498,CUST-0289,Router,Networking,207.19,1,11/06/2025,Leicester,-10.0,4.3
+1499,CUST-0221,Graphics Card,storage  ,2075.16,9,21/01/2025,Reading,19.8,1.1
+1500,CUST-0145,Memory Card,Gaming,2442.1,8,25/04/2025,Reading,12.3,4.3
+1069,CUST-0233,Router,peripherals  ,739.2,3,07-13-2025,Swansea,,2.2
+517,CUST-0146,External HDD, Audio,2182.23,3,09/10/2024,Leicester,19.7,4.7
+111,CUST-0162,External HDD,ACCESSORIES,2487.48,7,07/06/2024,London,,1.2
+1385,CUST-0328,Drone,storage  ,$637.69,4,2025-08-19,Swansea,15.0,2.0
+1352,CUST-0293,Router,networking  ,357.06,8,2024-03-05,Reading,9.4,4.2
+953,CUST-0146,KVM Switch,Accessories,1474.39,6,30/11/2025,Coventry,2.6,3.8
+1091,CUST-0146,Mouse Pad,Networking,$296.72,6,28/09/2025,Exeter,16.5,
+832,CUST-0182,UPS,Storage,544.49,5,03-23-2025,Birmingham,,4.5
+1034,CUST-0419,VR Headset,Networking,1268.29,4,04-26-2025,Cardiff,8.5,1.3
+421,CUST-0272,Keyboard,Storage,1815.69,1,04-10-2025,Belfast,,2.0
+1496,CUST-0493,Adapter,storage  ,1202.72,5,2024-08-05,,14.3,2.8
+238,CUST-0271,Tripod,,1096.52,8,11-06-2024,Plymouth,13.4,3.0
+599,CUST-0326,NAS,Peripherals,2204.5,2,10-12-2025,Cardiff,29.4,4.4
+1456,CUST-0458,Switch,Accessories,1455.08,8,28/11/2024,Brighton,2.7,4.8
+187,CUST-0447,Smartwatch,STORAGE,2391.02,4,05-09-2025,Coventry,,2.0
+1109,CUST-0271,KVM Switch,Audio,1403.65,4,2025-07-11,Norwich,21.5,
+1037,CUST-0464,SSD Drive,peripherals  ,852.73,2,10/11/2025,Cardiff,24.2,4.0
+1060,CUST-0328,Microphone,Office,1124.7,7,10-15-2025,Birmingham,28.5,4.4
+630,CUST-0495,Hub, Audio,$2356.65,6,09/09/2024,Belfast,7.9,3.0
+113,CUST-0180,Charger,Networking,982.69,6,2025-05-19,Liverpool,12.5,3.6
+28,CUST-0121,Screen Protector, Audio,$553.41,6,23/04/2025,Belfast,1.6,2.3
+1490,CUST-0318,Desk Lamp,Office,2031.58,5,09-04-2024,Plymouth,19.1,3.4
+1463,CUST-0128,Mouse Pad,Office,1108.7,9,21/04/2024,Swansea,,3.9
+945,CUST-0145,Graphics Card,,"1,825.01",9,2024-11-15,,10.1,1.0
+911,CUST-0348,Hub,networking  ,296.94,7,2024-04-19,Bristol,20.9,4.1
+184,CUST-0385,Shredder,Peripherals,2100.34,1,28/05/2025,Cambridge,9.6,3.0
+1333,CUST-0356,Label Maker,,1836.09,5,28/12/2025,,1.2,4.0
+1039,CUST-0476,NAS,peripherals  ,$1696.89,4,2024-04-14,Leeds,,2.5
+602,CUST-0135,Shredder,,1882.83,7,07/02/2024,Cardiff,5.1,3.6
+473,CUST-0246,Router,Accessories,2163.66,5,01-30-2025,Bristol,29.8,5.0
+834,CUST-0184,Keyboard,storage  ,1509.58,8,20/07/2024,Swansea,28.8,3.4
+531,CUST-0349,Webcam,ELECTRONICS,$1306.39,6,11-04-2024,Oxford,,4.6
+594,CUST-0348,Desk Lamp,networking  ,1684.75,5,18/08/2025,Brighton,4.7,4.1
+584,CUST-0214,Drone, Audio,$2451.19,9,04-24-2025,Swansea,2.5,4.8
+897,CUST-0429,Wrist Rest,Audio,1662.18,3,10-11-2024,Manchester,26.7,2.8
+4,CUST-0206,Camera,ELECTRONICS,112.3,3,06/06/2025,Manchester,23.6,1.5
+738,CUST-0302,Scanner,peripherals  ,763.56,7,18/07/2024,Norwich,0.9,4.7
+65,CUST-0305,Desk Lamp,,"1,629.14",5,02-15-2025,Stoke,21.1,1.4
+752,CUST-0153,Wrist Rest,storage  ,335.95,4,01-12-2024,,9.9,2.9
+753,CUST-0473,SSD Drive,Electronics,1281.53,1,2025-03-22,Glasgow,22.6,
+125,CUST-0367,Microphone,ACCESSORIES,538.82,7,2025-11-24,Stoke,4.2,2.4
+667,CUST-0338,Phone Case,Gaming,1085.74,8,2025-11-09,Brighton,29.3,3.4
+467,CUST-0243,Desk Lamp,,732.28,6,03-26-2024,Birmingham,15.2,2.4
+496,CUST-0217,Scanner,,706.19,2,29/07/2024,Belfast,19.5,2.7
+746,CUST-0332,Wrist Rest,networking  ,783.93,2,06-20-2025,Plymouth,23.5,4.9

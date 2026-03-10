@@ -1,0 +1,76 @@
+name: CI - Data Wrangler & Visualizer
+
+on:
+  push:
+    branches: [ai_assisted, main]
+  pull_request:
+    branches: [ai_assisted, main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests with coverage
+        run: |
+          python -m pytest tests/ -v --tb=short --cov=utils --cov-report=term-missing
+
+      - name: Generate sample data
+        run: |
+          python utils/generate_sample_data.py
+
+      - name: Validate sample datasets
+        run: |
+          python -c "
+          import pandas as pd
+          df = pd.read_csv('sample_data/ecommerce_orders.csv')
+          assert len(df) >= 1000, f'CSV has {len(df)} rows, need >= 1000'
+          assert len(df.columns) >= 8, f'CSV has {len(df.columns)} cols, need >= 8'
+          assert df.isnull().sum().sum() > 0, 'CSV has no missing values'
+          print(f'CSV OK: {len(df)} rows, {len(df.columns)} cols')
+
+          df2 = pd.read_excel('sample_data/weather_stations.xlsx')
+          assert len(df2) >= 1000, f'XLSX has {len(df2)} rows, need >= 1000'
+          assert len(df2.columns) >= 8, f'XLSX has {len(df2.columns)} cols, need >= 8'
+          assert df2.isnull().sum().sum() > 0, 'XLSX has no missing values'
+          print(f'XLSX OK: {len(df2)} rows, {len(df2.columns)} cols')
+          "
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install flake8
+
+      - name: Lint with flake8
+        run: |
+          flake8 utils/ tests/ pages/ app.py --max-line-length=120 --statistics --count
