@@ -1,4 +1,4 @@
-# AI-Assisted Data Wrangler & Visualizer
+# AI-Assisted Data Wrangler & Visualizer 
 
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.32+-FF4B4B?style=flat&logo=streamlit)
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python)
@@ -116,8 +116,8 @@ Astrolabe/
 
 ## 👥 Authors
 
-- Student 1
-- Student 2
+- Megach-FFs
+- Tako030303
 
 ## 📄 License
 
