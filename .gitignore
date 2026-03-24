@@ -1,0 +1,53 @@
+# General
+cw_files/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+
+# Virtual Environment
+venv/
+env/
+.venv/
+.env/
+
+# Vim
+*.swp
+*.swo
+*.un~
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Streamlit
+.streamlit/secrets.toml
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# Distribution
+*.tar.gz
+*.zip
+
+# Documents
+demo_video_script.md
+team_reflection_report.md
