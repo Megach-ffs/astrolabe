@@ -15,7 +15,7 @@ from utils.transform_log import TransformLog
 # ──────────────────────────────────────────────
 sl.set_page_config(
     page_title="Data Wrangler & Visualizer",
-    page_icon="🔬",
+    page_icon=":material/biotech:",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -58,9 +58,6 @@ pg = sl.navigation([home_page, upload_page, cleaning_page, viz_page, chat_page, 
 # Sidebar — Runs on EVERY page automatically
 # ──────────────────────────────────────────────
 with sl.sidebar:
-    sl.markdown("## :material/biotech: Data Wrangler")
-    sl.markdown("---")
-
     # Session info
     if sl.session_state.df_working is not None:
         df = sl.session_state.df_working

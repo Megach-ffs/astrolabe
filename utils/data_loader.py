@@ -123,4 +123,4 @@ def load_google_sheet(sheet_url: str) -> pd.DataFrame:
     if not records:
         raise ValueError("The Google Sheet appears to be empty.")
 
-    return pd.DataFrame(records)
+    return pd.DataFrame(records).replace("", pd.NA)

@@ -50,6 +50,10 @@ all_cols = df.columns.tolist()
 
 sl.markdown(f"Working with **{len(df):,}** rows × **{len(df.columns)}** columns")
 
+# ── Toast Dispatcher (show stored messages after rerun) ──
+if "_toast_msg" in sl.session_state:
+    sl.success(sl.session_state.pop("_toast_msg"))
+
 
 def _apply_ai_suggestion(dataframe, suggestion):
     """Map an AI suggestion dict to our existing cleaning functions."""
@@ -289,7 +293,7 @@ with sl.expander(":material/warning: 4.1 — Missing Values", expanded=False):
             c1, c2 = sl.columns(2)
             c1.metric("Before", f"{before_nulls} nulls, {before_rows} rows")
             c2.metric("After", f"{after_nulls} nulls, {len(new_df)} rows")
-            sl.success(":material/check_circle: Applied!")
+            sl.session_state["_toast_msg"] = ":material/check_circle: Applied!"
             sl.rerun()
 
 
@@ -328,7 +332,7 @@ with sl.expander(":material/refresh: 4.2 — Duplicates", expanded=False):
                 df,
             )
             sl.session_state.df_working = new_df
-            sl.success(f":material/check_circle: Removed {before - len(new_df)} duplicate rows.")
+            sl.session_state["_toast_msg"] = f":material/check_circle: Removed {before - len(new_df)} duplicate rows."
             sl.rerun()
 
 
@@ -347,7 +351,7 @@ with sl.expander(":material/cached: 4.3 — Data Types & Parsing", expanded=Fals
     col_to_convert = sl.selectbox("Column to convert", all_cols, key="dt_col")
     target_type = sl.selectbox(
         "Target type",
-        ["numeric", "numeric (dirty)", "datetime", "categorical"],
+        ["numeric", "numeric (dirty)", "datetime", "datetime (mixed)", "categorical"],
         key="dt_target",
     )
 
@@ -369,6 +373,10 @@ with sl.expander(":material/cached: 4.3 — Data Types & Parsing", expanded=Fals
                 new_df = cleaning.convert_to_datetime(
                     df, col_to_convert, fmt=dt_fmt or None
                 )
+            elif target_type == "datetime (mixed)":
+                new_df = cleaning.convert_to_datetime_mixed(
+                    df, col_to_convert
+                )
             else:
                 new_df = cleaning.convert_to_categorical(df, col_to_convert)
 
@@ -379,10 +387,7 @@ with sl.expander(":material/cached: 4.3 — Data Types & Parsing", expanded=Fals
                 df,
             )
             sl.session_state.df_working = new_df
-            sl.success(
-                f":material/check_circle: Converted `{col_to_convert}` to {target_type}. "
-                f"New type: `{new_df[col_to_convert].dtype}`"
-            )
+            sl.session_state["_toast_msg"] = f":material/check_circle: Converted `{col_to_convert}` to {target_type}. \nNew type: `{new_df[col_to_convert].dtype}`"
             sl.rerun()
         except Exception as e:
             sl.error(f":material/error: Conversion failed: {e}")
@@ -430,7 +435,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
                 df,
             )
             sl.session_state.df_working = new_df
-            sl.success(":material/check_circle: Applied!")
+            sl.session_state["_toast_msg"] = ":material/check_circle: Applied!"
             sl.rerun()
 
     # Tab 2: Mapping
@@ -475,7 +480,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
                         df,
                     )
                     sl.session_state.df_working = new_df
-                    sl.success(":material/check_circle: Applied!")
+                    sl.session_state["_toast_msg"] = ":material/check_circle: Applied!"
                     sl.rerun()
                 else:
                     sl.info("No changes detected in mapping.")
@@ -518,7 +523,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
                         df,
                     )
                     sl.session_state.df_working = new_df
-                    sl.success(":material/check_circle: Applied!")
+                    sl.session_state["_toast_msg"] = ":material/check_circle: Applied!"
                     sl.rerun()
             else:
                 sl.success("No rare categories at this threshold.")
@@ -553,10 +558,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
                         df,
                     )
                     sl.session_state.df_working = new_df
-                    sl.success(
-                        f":material/check_circle: Encoded {len(ohe_cols)} columns → "
-                        f"{len(new_df.columns)} total columns"
-                    )
+                    sl.session_state["_toast_msg"] = f":material/check_circle: Encoded {len(ohe_cols)} columns → \n{len(new_df.columns)} total columns"
                     sl.rerun()
         else:
             sl.info("No categorical columns found.")
@@ -618,16 +620,22 @@ with sl.expander(":material/square_foot: 4.5 — Numeric Cleaning (Outliers)", e
                         new_df = cleaning.cap_outliers(
                             df, out_col, stats["lower"], stats["upper"]
                         )
+                        sl.session_state["_toast_msg"] = f":material/check_circle: {action} applied to `{out_col}` capping values at the thresholds {stats['upper']} and {stats['lower']}."
                     else:
                         lower = stats["mean"] - z_thresh * stats["std"]
                         upper = stats["mean"] + z_thresh * stats["std"]
                         new_df = cleaning.cap_outliers(
                             df, out_col, lower, upper
                         )
+                        sl.session_state["_toast_msg"] = f":material/check_circle: {action} applied to `{out_col}` capping values at the thresholds {upper} and {lower}."
+                    
                 else:
                     new_df = cleaning.remove_outlier_rows(
                         df, out_col, stats["mask"]
                     )
+                    sl.session_state["_toast_msg"] = f":material/check_circle: {action} applied to `{out_col}` on `{stats['count']}` rows."
+                sl.session_state.df_working = new_df
+
 
                 TransformLog.add_step(
                     "outlier_treatment",
@@ -636,9 +644,9 @@ with sl.expander(":material/square_foot: 4.5 — Numeric Cleaning (Outliers)", e
                     [out_col],
                     df,
                 )
-                sl.session_state.df_working = new_df
-                sl.success(f":material/check_circle: {action} applied to `{out_col}`.")
+                
                 sl.rerun()
+                
     else:
         sl.info("No numeric columns found.")
 
@@ -685,7 +693,7 @@ with sl.expander(":material/blur_linear: 4.6 — Normalization / Scaling", expan
                     df,
                 )
                 sl.session_state.df_working = preview
-                sl.success(":material/check_circle: Scaling applied!")
+                sl.session_state["_toast_msg"] = ":material/check_circle: Scaling applied!"
                 sl.rerun()
     else:
         sl.info("No numeric columns found.")
@@ -714,7 +722,7 @@ with sl.expander(":material/build: 4.7 — Column Operations", expanded=False):
                 df,
             )
             sl.session_state.df_working = new_df
-            sl.success(f":material/check_circle: Renamed `{rename_col}` → `{new_name}`")
+            sl.session_state["_toast_msg"] = f":material/check_circle: Renamed `{rename_col}` → `{new_name}`"
             sl.rerun()
 
     # Tab 2: Drop
@@ -731,7 +739,7 @@ with sl.expander(":material/build: 4.7 — Column Operations", expanded=False):
                 df,
             )
             sl.session_state.df_working = new_df
-            sl.success(f":material/check_circle: Dropped {len(drop_cols)} columns.")
+            sl.session_state["_toast_msg"] = f":material/check_circle: Dropped {len(drop_cols)} columns."
             sl.rerun()
 
     # Tab 3: Create New
@@ -767,7 +775,7 @@ with sl.expander(":material/build: 4.7 — Column Operations", expanded=False):
                         df,
                     )
                     sl.session_state.df_working = new_df
-                    sl.success(f":material/check_circle: Created `{formula_name}`")
+                    sl.session_state["_toast_msg"] = f":material/check_circle: Created `{formula_name}`"
                     sl.rerun()
                 except ValueError as e:
                     sl.error(f":material/error: {e}")
@@ -793,9 +801,7 @@ with sl.expander(":material/build: 4.7 — Column Operations", expanded=False):
                         df,
                     )
                     sl.session_state.df_working = new_df
-                    sl.success(
-                        f":material/check_circle: Created `{bin_col}_binned` with {n_bins} bins"
-                    )
+                    sl.session_state["_toast_msg"] = f":material/check_circle: Created `{bin_col}_binned` with {n_bins} bins"
                     sl.rerun()
                 except ValueError as e:
                     sl.error(f":material/error: {e}")
