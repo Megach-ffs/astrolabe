@@ -14,7 +14,7 @@ from utils.validation import ValidationRule, validate_rules, export_violations
 from utils import ai_assistant
 
 
-sl.title("🧹 Cleaning & Preparation Studio")
+sl.title(":material/mop: Cleaning & Preparation Studio")
 
 # ── State Persistence (Restore) ────────────────
 if "app_state_cache" not in sl.session_state:
@@ -38,7 +38,7 @@ for k, v in sl.session_state["app_state_cache"].items():
 
 # ── Guard: need data loaded ──────────────────
 if sl.session_state.get("df_working") is None:
-    sl.warning("⚠️ No dataset loaded. Go to **Upload & Overview** to upload a file first.")
+    sl.warning(":material/warning: No dataset loaded. Go to **Upload & Overview** to upload a file first.")
     sl.stop()
 
 df = sl.session_state.df_working
@@ -49,6 +49,10 @@ categorical_cols = df.select_dtypes(include=["object", "category"]).columns.toli
 all_cols = df.columns.tolist()
 
 sl.markdown(f"Working with **{len(df):,}** rows × **{len(df.columns)}** columns")
+
+# ── Toast Dispatcher (show stored messages after rerun) ──
+if "_toast_msg" in sl.session_state:
+    sl.success(sl.session_state.pop("_toast_msg"))
 
 
 def _apply_ai_suggestion(dataframe, suggestion):
@@ -149,8 +153,8 @@ def _apply_ai_suggestion(dataframe, suggestion):
 # ═══════════════════════════════════════════════
 if sl.session_state.get("ai_enabled"):
     if ai_assistant.is_available():
-        with sl.expander("🤖 AI Cleaning Assistant", expanded=True):
-            sl.caption("⚠️ AI suggestions may be imperfect. Always review before applying.")
+        with sl.expander(":material/robot: AI Cleaning Assistant", expanded=True):
+            sl.caption(":material/warning: AI suggestions may be imperfect. Always review before applying.")
 
             if "ai_clean_initial_prompt" in sl.session_state:
                 sl.session_state["ai_clean_prompt"] = sl.session_state.pop("ai_clean_initial_prompt")
@@ -163,24 +167,24 @@ if sl.session_state.get("ai_enabled"):
 
             c1, c2, _ = sl.columns([1, 1, 3])
             with c1:
-                if user_prompt and sl.button("🤖 Get Suggestions", key="ai_clean_btn", use_container_width=True):
-                    with sl.status("🤖 Analyzing your data...", expanded=True) as status:
+                if user_prompt and sl.button(":material/robot: Get Suggestions", key="ai_clean_btn", use_container_width=True):
+                    with sl.status(":material/robot: Analyzing your data...", expanded=True) as status:
                         sl.write("Sending data profile to Gemini...")
                         suggestions = ai_assistant.get_cleaning_suggestions(df, user_prompt)
                         
                         if isinstance(suggestions, dict) and "error" in suggestions:
-                            status.update(label="❌ Failed", state="error")
-                            sl.error(f"❌ AI Error: {suggestions['error']}")
+                            status.update(label=":material/error: Failed", state="error")
+                            sl.error(f":material/error: AI Error: {suggestions['error']}")
                         elif suggestions:
                             sl.session_state["ai_suggestions"] = suggestions
-                            status.update(label="✅ Suggestions ready!", state="complete")
+                            status.update(label=":material/check_circle: Suggestions ready!", state="complete")
                         else:
-                            status.update(label="❌ Failed", state="error")
+                            status.update(label=":material/error: Failed", state="error")
                             sl.warning("AI assistant is not available or returned no suggestions.")
 
             with c2:
                 if sl.session_state.get("ai_suggestions"):
-                    if sl.button("🗑️ Clear", key="clear_ai_sug", use_container_width=True):
+                    if sl.button(":material/delete: Clear", key="clear_ai_sug", use_container_width=True):
                         del sl.session_state["ai_suggestions"]
                         sl.rerun()
 
@@ -196,7 +200,7 @@ if sl.session_state.get("ai_enabled"):
                         sl.code(str(sug["params"]), language="json")
 
                         act1, act2, _ = sl.columns([1, 1, 3])
-                        if act1.button("✅ Apply", key=f"ai_apply_{i}"):
+                        if act1.button(":material/check_circle: Apply", key=f"ai_apply_{i}"):
                             try:
                                 new_df = _apply_ai_suggestion(df, sug)
                                 if new_df is not None:
@@ -207,17 +211,17 @@ if sl.session_state.get("ai_enabled"):
                                         df,
                                     )
                                     sl.session_state.df_working = new_df
-                                    sl.success(f"✅ Applied: {sug['description']}")
+                                    sl.success(f":material/check_circle: Applied: {sug['description']}")
                                     sl.session_state.ai_suggestions.pop(i)
                                     sl.rerun()
                             except Exception as e:
-                                sl.error(f"❌ Failed: {e}")
-                        if act2.button("❌ Skip", key=f"ai_skip_{i}"):
+                                sl.error(f":material/error: Failed: {e}")
+                        if act2.button(":material/error: Skip", key=f"ai_skip_{i}"):
                             sl.session_state.ai_suggestions.pop(i)
                             sl.rerun()
     else:
         sl.markdown("---")
-        sl.warning("⚠️ **AI Assistant Unavailable**")
+        sl.warning(":material/warning: **AI Assistant Unavailable**")
         sl.info("The Gemini API is not configured or is currently unresponsive. Please check your API key in `.streamlit/secrets.toml` or verify your quota.")
 
 sl.markdown("---")
@@ -226,13 +230,13 @@ sl.markdown("---")
 # ═══════════════════════════════════════════════
 # 4.1 Missing Values (10 pts)
 # ═══════════════════════════════════════════════
-with sl.expander("⚠️ 4.1 — Missing Values", expanded=False):
+with sl.expander(":material/warning: 4.1 — Missing Values", expanded=False):
     # Summary
     missing = df.isnull().sum()
     missing_cols = missing[missing > 0]
 
     if missing_cols.empty:
-        sl.success("✅ No missing values in the dataset!")
+        sl.success(":material/check_circle: No missing values in the dataset!")
     else:
         missing_info = pd.DataFrame({
             "Column": missing_cols.index,
@@ -289,14 +293,14 @@ with sl.expander("⚠️ 4.1 — Missing Values", expanded=False):
             c1, c2 = sl.columns(2)
             c1.metric("Before", f"{before_nulls} nulls, {before_rows} rows")
             c2.metric("After", f"{after_nulls} nulls, {len(new_df)} rows")
-            sl.success("✅ Applied!")
+            sl.session_state["_toast_msg"] = ":material/check_circle: Applied!"
             sl.rerun()
 
 
 # ═══════════════════════════════════════════════
 # 4.2 Duplicates
 # ═══════════════════════════════════════════════
-with sl.expander("🔁 4.2 — Duplicates", expanded=False):
+with sl.expander(":material/refresh: 4.2 — Duplicates", expanded=False):
     dup_mode = sl.radio(
         "Check for", ["Full-row duplicates", "Duplicates by subset"],
         horizontal=True, key="dup_mode",
@@ -328,14 +332,14 @@ with sl.expander("🔁 4.2 — Duplicates", expanded=False):
                 df,
             )
             sl.session_state.df_working = new_df
-            sl.success(f"✅ Removed {before - len(new_df)} duplicate rows.")
+            sl.session_state["_toast_msg"] = f":material/check_circle: Removed {before - len(new_df)} duplicate rows."
             sl.rerun()
 
 
 # ═══════════════════════════════════════════════
 # 4.3 Data Types & Parsing
 # ═══════════════════════════════════════════════
-with sl.expander("🔄 4.3 — Data Types & Parsing", expanded=False):
+with sl.expander(":material/cached: 4.3 — Data Types & Parsing", expanded=False):
     # Show current types
     dtype_info = pd.DataFrame({
         "Column": all_cols,
@@ -347,7 +351,7 @@ with sl.expander("🔄 4.3 — Data Types & Parsing", expanded=False):
     col_to_convert = sl.selectbox("Column to convert", all_cols, key="dt_col")
     target_type = sl.selectbox(
         "Target type",
-        ["numeric", "numeric (dirty)", "datetime", "categorical"],
+        ["numeric", "numeric (dirty)", "datetime", "datetime (mixed)", "categorical"],
         key="dt_target",
     )
 
@@ -369,6 +373,10 @@ with sl.expander("🔄 4.3 — Data Types & Parsing", expanded=False):
                 new_df = cleaning.convert_to_datetime(
                     df, col_to_convert, fmt=dt_fmt or None
                 )
+            elif target_type == "datetime (mixed)":
+                new_df = cleaning.convert_to_datetime_mixed(
+                    df, col_to_convert
+                )
             else:
                 new_df = cleaning.convert_to_categorical(df, col_to_convert)
 
@@ -379,19 +387,16 @@ with sl.expander("🔄 4.3 — Data Types & Parsing", expanded=False):
                 df,
             )
             sl.session_state.df_working = new_df
-            sl.success(
-                f"✅ Converted `{col_to_convert}` to {target_type}. "
-                f"New type: `{new_df[col_to_convert].dtype}`"
-            )
+            sl.session_state["_toast_msg"] = f":material/check_circle: Converted `{col_to_convert}` to {target_type}. \nNew type: `{new_df[col_to_convert].dtype}`"
             sl.rerun()
         except Exception as e:
-            sl.error(f"❌ Conversion failed: {e}")
+            sl.error(f":material/error: Conversion failed: {e}")
 
 
 # ═══════════════════════════════════════════════
 # 4.4 Categorical Data Tools (10 pts)
 # ═══════════════════════════════════════════════
-with sl.expander("🏷️ 4.4 — Categorical Data Tools", expanded=False):
+with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=False):
     cat_tab1, cat_tab2, cat_tab3, cat_tab4 = sl.tabs(
         ["Standardize", "Mapping", "Rare Grouping", "One-Hot Encoding"]
     )
@@ -430,7 +435,7 @@ with sl.expander("🏷️ 4.4 — Categorical Data Tools", expanded=False):
                 df,
             )
             sl.session_state.df_working = new_df
-            sl.success("✅ Applied!")
+            sl.session_state["_toast_msg"] = ":material/check_circle: Applied!"
             sl.rerun()
 
     # Tab 2: Mapping
@@ -475,7 +480,7 @@ with sl.expander("🏷️ 4.4 — Categorical Data Tools", expanded=False):
                         df,
                     )
                     sl.session_state.df_working = new_df
-                    sl.success("✅ Applied!")
+                    sl.session_state["_toast_msg"] = ":material/check_circle: Applied!"
                     sl.rerun()
                 else:
                     sl.info("No changes detected in mapping.")
@@ -518,7 +523,7 @@ with sl.expander("🏷️ 4.4 — Categorical Data Tools", expanded=False):
                         df,
                     )
                     sl.session_state.df_working = new_df
-                    sl.success("✅ Applied!")
+                    sl.session_state["_toast_msg"] = ":material/check_circle: Applied!"
                     sl.rerun()
             else:
                 sl.success("No rare categories at this threshold.")
@@ -553,10 +558,7 @@ with sl.expander("🏷️ 4.4 — Categorical Data Tools", expanded=False):
                         df,
                     )
                     sl.session_state.df_working = new_df
-                    sl.success(
-                        f"✅ Encoded {len(ohe_cols)} columns → "
-                        f"{len(new_df.columns)} total columns"
-                    )
+                    sl.session_state["_toast_msg"] = f":material/check_circle: Encoded {len(ohe_cols)} columns → \n{len(new_df.columns)} total columns"
                     sl.rerun()
         else:
             sl.info("No categorical columns found.")
@@ -565,7 +567,7 @@ with sl.expander("🏷️ 4.4 — Categorical Data Tools", expanded=False):
 # ═══════════════════════════════════════════════
 # 4.5 Numeric Cleaning — Outliers (10 pts)
 # ═══════════════════════════════════════════════
-with sl.expander("📐 4.5 — Numeric Cleaning (Outliers)", expanded=False):
+with sl.expander(":material/square_foot: 4.5 — Numeric Cleaning (Outliers)", expanded=False):
     if numeric_cols:
         out_col = sl.selectbox(
             "Column", numeric_cols, key="out_col"
@@ -618,16 +620,22 @@ with sl.expander("📐 4.5 — Numeric Cleaning (Outliers)", expanded=False):
                         new_df = cleaning.cap_outliers(
                             df, out_col, stats["lower"], stats["upper"]
                         )
+                        sl.session_state["_toast_msg"] = f":material/check_circle: {action} applied to `{out_col}` capping values at the thresholds {stats['upper']} and {stats['lower']}."
                     else:
                         lower = stats["mean"] - z_thresh * stats["std"]
                         upper = stats["mean"] + z_thresh * stats["std"]
                         new_df = cleaning.cap_outliers(
                             df, out_col, lower, upper
                         )
+                        sl.session_state["_toast_msg"] = f":material/check_circle: {action} applied to `{out_col}` capping values at the thresholds {upper} and {lower}."
+                    
                 else:
                     new_df = cleaning.remove_outlier_rows(
                         df, out_col, stats["mask"]
                     )
+                    sl.session_state["_toast_msg"] = f":material/check_circle: {action} applied to `{out_col}` on `{stats['count']}` rows."
+                sl.session_state.df_working = new_df
+
 
                 TransformLog.add_step(
                     "outlier_treatment",
@@ -636,9 +644,9 @@ with sl.expander("📐 4.5 — Numeric Cleaning (Outliers)", expanded=False):
                     [out_col],
                     df,
                 )
-                sl.session_state.df_working = new_df
-                sl.success(f"✅ {action} applied to `{out_col}`.")
+                
                 sl.rerun()
+                
     else:
         sl.info("No numeric columns found.")
 
@@ -646,7 +654,7 @@ with sl.expander("📐 4.5 — Numeric Cleaning (Outliers)", expanded=False):
 # ═══════════════════════════════════════════════
 # 4.6 Normalization / Scaling (10 pts)
 # ═══════════════════════════════════════════════
-with sl.expander("⚖️ 4.6 — Normalization / Scaling", expanded=False):
+with sl.expander(":material/blur_linear: 4.6 — Normalization / Scaling", expanded=False):
     if numeric_cols:
         scale_cols = sl.multiselect(
             "Columns to scale", numeric_cols, key="scale_cols"
@@ -685,7 +693,7 @@ with sl.expander("⚖️ 4.6 — Normalization / Scaling", expanded=False):
                     df,
                 )
                 sl.session_state.df_working = preview
-                sl.success("✅ Scaling applied!")
+                sl.session_state["_toast_msg"] = ":material/check_circle: Scaling applied!"
                 sl.rerun()
     else:
         sl.info("No numeric columns found.")
@@ -694,7 +702,7 @@ with sl.expander("⚖️ 4.6 — Normalization / Scaling", expanded=False):
 # ═══════════════════════════════════════════════
 # 4.7 Column Operations
 # ═══════════════════════════════════════════════
-with sl.expander("🔧 4.7 — Column Operations", expanded=False):
+with sl.expander(":material/build: 4.7 — Column Operations", expanded=False):
     col_tab1, col_tab2, col_tab3 = sl.tabs(
         ["Rename", "Drop", "Create New"]
     )
@@ -714,7 +722,7 @@ with sl.expander("🔧 4.7 — Column Operations", expanded=False):
                 df,
             )
             sl.session_state.df_working = new_df
-            sl.success(f"✅ Renamed `{rename_col}` → `{new_name}`")
+            sl.session_state["_toast_msg"] = f":material/check_circle: Renamed `{rename_col}` → `{new_name}`"
             sl.rerun()
 
     # Tab 2: Drop
@@ -731,7 +739,7 @@ with sl.expander("🔧 4.7 — Column Operations", expanded=False):
                 df,
             )
             sl.session_state.df_working = new_df
-            sl.success(f"✅ Dropped {len(drop_cols)} columns.")
+            sl.session_state["_toast_msg"] = f":material/check_circle: Dropped {len(drop_cols)} columns."
             sl.rerun()
 
     # Tab 3: Create New
@@ -767,10 +775,10 @@ with sl.expander("🔧 4.7 — Column Operations", expanded=False):
                         df,
                     )
                     sl.session_state.df_working = new_df
-                    sl.success(f"✅ Created `{formula_name}`")
+                    sl.session_state["_toast_msg"] = f":material/check_circle: Created `{formula_name}`"
                     sl.rerun()
                 except ValueError as e:
-                    sl.error(f"❌ {e}")
+                    sl.error(f":material/error: {e}")
         else:
             bin_col = sl.selectbox(
                 "Column to bin", numeric_cols, key="bin_col"
@@ -793,18 +801,16 @@ with sl.expander("🔧 4.7 — Column Operations", expanded=False):
                         df,
                     )
                     sl.session_state.df_working = new_df
-                    sl.success(
-                        f"✅ Created `{bin_col}_binned` with {n_bins} bins"
-                    )
+                    sl.session_state["_toast_msg"] = f":material/check_circle: Created `{bin_col}_binned` with {n_bins} bins"
                     sl.rerun()
                 except ValueError as e:
-                    sl.error(f"❌ {e}")
+                    sl.error(f":material/error: {e}")
 
 
 # ═══════════════════════════════════════════════
 # 4.8 Data Validation Rules
 # ═══════════════════════════════════════════════
-with sl.expander("✅ 4.8 — Data Validation Rules", expanded=False):
+with sl.expander(":material/rule: 4.8 — Data Validation Rules", expanded=False):
     sl.markdown("Define rules and check your dataset for violations.")
 
     # Rule builder
@@ -856,9 +862,9 @@ with sl.expander("✅ 4.8 — Data Validation Rules", expanded=False):
         if sl.button("Run Validation", key="val_run"):
             violations = validate_rules(df, rules)
             if violations.empty:
-                sl.success("✅ No violations found!")
+                sl.success(":material/check_circle: No violations found!")
             else:
-                sl.warning(f"⚠️ {len(violations)} violation(s) found:")
+                sl.warning(f":material/warning: {len(violations)} violation(s) found:")
                 sl.dataframe(
                     violations, use_container_width=True, hide_index=True
                 )
@@ -876,7 +882,7 @@ with sl.expander("✅ 4.8 — Data Validation Rules", expanded=False):
 # Transformation Log Display
 # ═══════════════════════════════════════════════
 sl.markdown("---")
-sl.subheader("📝 Transformation Log")
+sl.subheader(":material/description: Transformation Log")
 
 log = TransformLog.get_log()
 if log:
@@ -889,14 +895,14 @@ if log:
 
     undo_col, reset_col, _ = sl.columns([1, 1, 3])
     with undo_col:
-        if sl.button("↩️ Undo Last", key="log_undo", use_container_width=True):
+        if sl.button(":material/undo: Undo Last", key="log_undo", use_container_width=True):
             restored = TransformLog.undo_last()
             if restored is not None:
                 sl.session_state.df_working = restored
                 sl.rerun()
     with reset_col:
         if sl.button(
-            "🔄 Reset All", key="log_reset", use_container_width=True
+            ":material/refresh: Reset All", key="log_reset", use_container_width=True
         ):
             if sl.session_state.df_original is not None:
                 sl.session_state.df_working = TransformLog.reset_all(

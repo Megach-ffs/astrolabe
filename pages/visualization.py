@@ -17,7 +17,7 @@ from utils.chart_builder import (
 from utils import ai_assistant
 
 
-sl.title("📊 Visualization Builder")
+sl.title(":material/bar_chart: Visualization Builder")
 
 # ── State Persistence (Restore) ────────────────
 if "app_state_cache" not in sl.session_state:
@@ -30,7 +30,7 @@ for k, v in sl.session_state["app_state_cache"].items():
 
 # ── Guard ─────────────────────────────────────
 if sl.session_state.get("df_working") is None:
-    sl.warning("⚠️ No dataset loaded. Go to **Upload & Overview** first.")
+    sl.warning(":material/warning: No dataset loaded. Go to **Upload & Overview** first.")
     sl.stop()
 
 df = sl.session_state.df_working
@@ -44,28 +44,28 @@ all_cols = df.columns.tolist()
 # ═══════════════════════════════════════════════
 if sl.session_state.get("ai_enabled"):
     if ai_assistant.is_available():
-        with sl.expander("🤖 AI-Recommended Charts", expanded=False):
-            sl.caption("⚠️ AI suggestions may be imperfect. Review before using.")
+        with sl.expander(":material/robot: AI-Recommended Charts", expanded=False):
+            sl.caption(":material/warning: AI suggestions may be imperfect. Review before using.")
             c1, c2, _ = sl.columns([1, 1, 3])
             with c1:
-                if sl.button("🤖 Get Chart Suggestions", key="ai_chart_btn", use_container_width=True):
-                    with sl.status("🤖 Analyzing your data...", expanded=True) as status:
+                if sl.button(":material/robot: Get Chart Suggestions", key="ai_chart_btn", use_container_width=True):
+                    with sl.status(":material/robot: Analyzing your data...", expanded=True) as status:
                         sl.write("Finding interesting patterns...")
                         suggestions = ai_assistant.get_chart_suggestions(df)
                         
                         if isinstance(suggestions, dict) and "error" in suggestions:
-                            status.update(label="❌ Failed", state="error")
-                            sl.error(f"❌ AI Error: {suggestions['error']}")
+                            status.update(label=":material/error: Failed", state="error")
+                            sl.error(f":material/error: AI Error: {suggestions['error']}")
                         elif suggestions:
                             sl.session_state["ai_chart_suggestions"] = suggestions
-                            status.update(label="✅ Suggestions ready!", state="complete")
+                            status.update(label=":material/check_circle: Suggestions ready!", state="complete")
                         else:
-                            status.update(label="❌ Failed", state="error")
+                            status.update(label=":material/error: Failed", state="error")
                             sl.warning("AI assistant is not available or returned no suggestions.")
 
             with c2:
                 if sl.session_state.get("ai_chart_suggestions"):
-                    if sl.button("🗑️ Clear", key="clear_ai_charts", use_container_width=True):
+                    if sl.button(":material/delete: Clear", key="clear_ai_charts", use_container_width=True):
                         del sl.session_state["ai_chart_suggestions"]
                         sl.rerun()
 
@@ -81,10 +81,10 @@ if sl.session_state.get("ai_enabled"):
                         col1, col2 = sl.columns([3, 1])
                         with col1:
                             emoji = {
-                                "Histogram": "📊", "Box Plot": "📦",
-                                "Scatter Plot": "🔵", "Line Chart": "📈",
-                                "Bar Chart": "📊", "Heatmap": "🌡️",
-                            }.get(sug["chart_type"], "📊")
+                                "Histogram": ":material/bar_chart_4_bars:", "Box Plot": ":material/line_start:",
+                                "Scatter Plot": ":material/scatter_plot:", "Line Chart": ":material/stacked_line_chart:",
+                                "Bar Chart": ":material/bar_chart:", "Heatmap": ":material/key_visualizer:",
+                            }.get(sug["chart_type"], ":material/add_chart:")
 
                             cols_text = sug["x_column"]
                             if sug.get("y_column"):
@@ -139,7 +139,7 @@ if sl.session_state.get("ai_enabled"):
                                 sl.rerun()
     else:
         sl.markdown("---")
-        sl.warning("⚠️ **AI Assistant Unavailable**")
+        sl.warning(":material/warning: **AI Assistant Unavailable**")
         sl.info("The Gemini API is not configured or is currently unresponsive. Please check your API key in `.streamlit/secrets.toml` or verify your quota.")
 
 CHART_TYPES = [
@@ -158,7 +158,7 @@ CHART_TYPES = [
 config_col, chart_col = sl.columns([1, 3])
 
 with config_col:
-    sl.subheader("⚙️ Settings")
+    sl.subheader(":material/settings: Settings")
 
     chart_type = sl.selectbox("Chart Type", CHART_TYPES, key="viz_type")
 
@@ -236,7 +236,7 @@ with config_col:
 
     # ── Filters ───────────────────────────────
     sl.markdown("---")
-    sl.subheader("🔍 Filters")
+    sl.subheader(":material/search: Filters")
 
     filters = {}
     with sl.expander("Category Filters", expanded=False):
@@ -269,7 +269,7 @@ with chart_col:
     plot_df = filter_dataframe(df, filters) if filters else df
 
     if len(plot_df) == 0:
-        sl.warning("⚠️ No data left after filtering. Adjust your filters.")
+        sl.warning(":material/warning: No data left after filtering. Adjust your filters.")
         sl.stop()
 
     sl.caption(f"Plotting {len(plot_df):,} rows (filtered from {len(df):,})")
@@ -337,7 +337,7 @@ with chart_col:
                 # Download PNG
                 png_bytes = fig_to_png_bytes(fig)
                 sl.download_button(
-                    "📥 Download Chart (PNG)",
+                    ":material/download: Download Chart (PNG)",
                     data=png_bytes,
                     file_name=f"{chart_type.lower().replace(' ', '_')}.png",
                     mime="image/png",
@@ -347,7 +347,7 @@ with chart_col:
                 plt.close(fig)
 
     except Exception as e:
-        sl.error(f"❌ Could not render chart: {e}")
+        sl.error(f":material/error: Could not render chart: {e}")
 
 # ── State Persistence (Save) ───────────────────
 for k in sl.session_state.keys():

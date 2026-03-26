@@ -17,14 +17,14 @@ from utils.transform_log import TransformLog
 from utils import ai_assistant
 
 
-sl.title("📤 Upload & Overview")
+sl.title(":material/upload: Upload & Overview")
 sl.markdown("Upload your dataset to get started. The app will automatically profile your data.")
 
 
 # ──────────────────────────────────────────────
 # File Upload Section
 # ──────────────────────────────────────────────
-upload_tab, sheets_tab = sl.tabs(["📁 File Upload", "📊 Google Sheets"])
+upload_tab, sheets_tab = sl.tabs([":material/create_new_folder: File Upload", ":material/folder_open: Google Sheets"])
 
 with upload_tab:
     uploaded_file = sl.file_uploader(
@@ -43,11 +43,11 @@ with upload_tab:
                 sl.session_state.file_name = uploaded_file.name
                 # Reset transform log for new file
                 TransformLog.reset_all(df)
-                sl.success(f"✅ Loaded **{uploaded_file.name}** — {len(df):,} rows × {len(df.columns)} columns")
+                sl.success(f":material/check_circle: Loaded **{uploaded_file.name}** — {len(df):,} rows × {len(df.columns)} columns")
             except ValueError as e:
-                sl.error(f"❌ {e}")
+                sl.error(f":material/error: {e}")
             except Exception as e:
-                sl.error(f"❌ Failed to load file: {e}")
+                sl.error(f":material/error: Failed to load file: {e}")
 
 with sheets_tab:
     sl.markdown("Connect to a Google Sheet (requires service account credentials in `.streamlit/secrets.toml`).")
@@ -55,18 +55,18 @@ with sheets_tab:
         "Google Sheet URL",
         placeholder="https://docs.google.com/spreadsheets/d/...",
     )
-    if sl.button("🔗 Load from Google Sheets", disabled=not sheet_url):
+    if sl.button(":material/folder_open: Load from Google Sheets", disabled=not sheet_url):
         try:
             df = load_google_sheet(sheet_url)
             sl.session_state.df_original = df.copy()
             sl.session_state.df_working = df.copy()
             sl.session_state.file_name = "Google Sheet"
             TransformLog.reset_all(df)
-            sl.success(f"✅ Loaded Google Sheet — {len(df):,} rows × {len(df.columns)} columns")
+            sl.success(f":material/check_circle: Loaded Google Sheet — {len(df):,} rows × {len(df.columns)} columns")
         except ValueError as e:
-            sl.error(f"❌ {e}")
+            sl.error(f":material/error: {e}")
         except Exception as e:
-            sl.error(f"❌ Failed to load Google Sheet: {e}")
+            sl.error(f":material/error: Failed to load Google Sheet: {e}")
 
 
 # ──────────────────────────────────────────────
@@ -79,7 +79,7 @@ if sl.session_state.df_working is not None:
     sl.markdown("---")
 
     # ── Metric Cards ──────────────────────────
-    sl.subheader("📊 Dataset Overview")
+    sl.subheader(":material/analytics: Dataset Overview")
     col1, col2, col3, col4 = sl.columns(4)
 
     total_missing = int(df.isnull().sum().sum())
@@ -103,7 +103,7 @@ if sl.session_state.df_working is not None:
     sl.markdown("---")
 
     # ── Column Info Table ─────────────────────
-    sl.subheader("📋 Column Information")
+    sl.subheader(":material/info: Column Information")
     col_df = pd.DataFrame(profile["columns"])
     col_df.columns = ["Name", "Type", "Non-Null", "Null Count", "Null %", "Unique"]
 
@@ -124,7 +124,7 @@ if sl.session_state.df_working is not None:
     sl.markdown("---")
 
     # ── Summary Statistics ────────────────────
-    sl.subheader("📈 Summary Statistics")
+    sl.subheader(":material/table_chart: Summary Statistics")
     stat_tab1, stat_tab2 = sl.tabs(["Numeric", "Categorical"])
 
     with stat_tab1:
@@ -148,7 +148,7 @@ if sl.session_state.df_working is not None:
     sl.markdown("---")
 
     # ── Missing Values Visualization ──────────
-    sl.subheader("⚠️ Missing Values")
+    sl.subheader(":material/warning: Missing Values")
 
     missing_df = profile["missing"]
     if not missing_df.empty:
@@ -205,19 +205,19 @@ if sl.session_state.df_working is not None:
         plt.close(fig)
 
         # Missing values table
-        with sl.expander("📊 Missing Values Details"):
+        with sl.expander(":material/analytics: Missing Values Details"):
             sl.dataframe(
                 missing_df,
                 use_container_width=True,
                 hide_index=True,
             )
     else:
-        sl.success("✅ No missing values found in the dataset!")
+        sl.success(":material/check_circle: No missing values found in the dataset!")
 
     sl.markdown("---")
 
     # ── Data Preview ──────────────────────────
-    sl.subheader("👁️ Data Preview")
+    sl.subheader(":material/visibility: Data Preview")
 
     preview_col1, preview_col2 = sl.columns([1, 3])
     with preview_col1:
@@ -233,7 +233,7 @@ if sl.session_state.df_working is not None:
     if sl.session_state.get("ai_enabled"):
         if ai_assistant.is_available():
             sl.markdown("---")
-            sl.subheader("🤖 AI Data Dictionary")
+            sl.subheader(":material/robot: AI Data Dictionary")
             sl.caption("Generate a data dictionary summarizing your columns, inferred types, and potential issues.")
             
             c1, c2, _ = sl.columns([1, 1, 3])
@@ -244,14 +244,14 @@ if sl.session_state.df_working is not None:
                         dictionary_markdown = ai_assistant.generate_data_dictionary(df)
                         if dictionary_markdown and not dictionary_markdown.startswith("Error"):
                             sl.session_state.ai_data_dict = dictionary_markdown
-                            status.update(label="✅ Data Dictionary Generated!", state="complete")
+                            status.update(label=":material/check_circle: Data Dictionary Generated!", state="complete")
                         else:
-                            status.update(label="❌ Failed", state="error")
-                            sl.error(f"❌ {dictionary_markdown}")
+                            status.update(label=":material/error: Failed", state="error")
+                            sl.error(f":material/error: {dictionary_markdown}")
             
             with c2:
                 if sl.session_state.get("ai_data_dict"):
-                    if sl.button("🗑️ Clear", key="clear_ai_dict", use_container_width=True):
+                    if sl.button(":material/delete: Clear", key="clear_ai_dict", use_container_width=True):
                         del sl.session_state["ai_data_dict"]
                         sl.rerun()
 
@@ -263,31 +263,31 @@ if sl.session_state.df_working is not None:
                 act1, act2, act3, _ = sl.columns([2, 2, 2, 2])
                 with act1:
                     sl.download_button(
-                        "📥 Download (MD)",
+                        ":material/download: Download (MD)",
                         data=sl.session_state.ai_data_dict.encode("utf-8"),
                         file_name="data_dictionary.md",
                         mime="text/markdown",
                         use_container_width=True,
                     )
                 with act2:
-                    if sl.button("💬 Discuss in AI Chat", use_container_width=True):
+                    if sl.button(":material/chat: Discuss in AI Chat", use_container_width=True):
                         sl.session_state.ai_chat_initial_prompt = "I just generated a Data Dictionary. Can you help me analyze these findings and suggest next steps?"
                         sl.switch_page("pages/ai_chat.py")
                 with act3:
-                    if sl.button("🧹 Clean Data", use_container_width=True):
+                    if sl.button(":material/cleaning_services: Clean Data", use_container_width=True):
                         sl.session_state.ai_clean_initial_prompt = "Based on the Data Dictionary, fix the most critical data quality issues automatically."
                         sl.switch_page("pages/cleaning_studio.py")
         else:
             sl.markdown("---")
-            sl.warning("⚠️ **AI Assistant Unavailable**")
+            sl.warning(":material/error: **AI Assistant Unavailable**")
             sl.info("The Gemini API is not configured or is currently unresponsive. Please check your API key in `.streamlit/secrets.toml` or verify your quota.")
 
 else:
     # No data loaded — show instructions
     sl.markdown("---")
-    sl.info("👆 Upload a file above or connect to Google Sheets to get started.")
+    sl.info(":material/arrow_upward: Upload a file above or connect to Google Sheets to get started.")
 
-    with sl.expander("📝 Supported Formats"):
+    with sl.expander(":material/description: Supported Formats"):
         sl.markdown(
             """
             | Format | Extension | Notes |
@@ -299,7 +299,7 @@ else:
             """
         )
 
-    with sl.expander("📊 Sample Datasets"):
+    with sl.expander(":material/dataset: Sample Datasets"):
         sl.markdown(
             """
             Two sample datasets are included in the `sample_data/` directory:

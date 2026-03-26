@@ -146,6 +146,19 @@ def convert_to_datetime(df, column, fmt=None):
     return df
 
 
+def convert_to_datetime_mixed(df, column):
+    """
+    Convert a column to datetime, mixed multiple formats.
+
+    Args:
+        df: Input DataFrame.
+        column: Column name.
+    """
+    df = df.copy()
+    df[column] = pd.to_datetime(df[column], format="mixed", errors="coerce")
+    return df
+
+
 def convert_to_categorical(df, column):
     """Convert a column to categorical type."""
     df = df.copy()
