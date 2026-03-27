@@ -1,10 +1,3 @@
-"""
-Page C — Visualization Builder
-
-Build dynamic charts from your cleaned dataset.
-Choose chart type, columns, filters, and rendering engine.
-"""
-
 import streamlit as sl
 
 from utils.chart_builder import (
@@ -19,16 +12,15 @@ from utils import ai_assistant
 
 sl.title(":material/bar_chart: Visualization Builder")
 
-# ── State Persistence (Restore) ────────────────
+#State holding
 if "app_state_cache" not in sl.session_state:
     sl.session_state["app_state_cache"] = {}
 for k, v in sl.session_state["app_state_cache"].items():
     if k.startswith(("viz_", "filt_")) and k not in sl.session_state:
         if k != "viz_download":  # Download buttons cannot be assigned via session_state
             sl.session_state[k] = v
-# ─────────────────────────────────────────────
 
-# ── Guard ─────────────────────────────────────
+# if not loaded
 if sl.session_state.get("df_working") is None:
     sl.warning(":material/warning: No dataset loaded. Go to **Upload & Overview** first.")
     sl.stop()
@@ -39,9 +31,7 @@ categorical_cols = df.select_dtypes(include=["object", "category"]).columns.toli
 all_cols = df.columns.tolist()
 
 
-# ═══════════════════════════════════════════════
-# 🤖 AI Chart Suggestions (Bonus)
-# ═══════════════════════════════════════════════
+#AI Chart Suggestions 
 if sl.session_state.get("ai_enabled"):
     if ai_assistant.is_available():
         with sl.expander(":material/robot: AI-Recommended Charts", expanded=False):
@@ -95,13 +85,13 @@ if sl.session_state.get("ai_enabled"):
                             
                         with col2:
                             if sl.button("Use This Chart →", key=f"use_chart_{i}", use_container_width=True):
-                                # Determine matching dropdown type
+                                # Determining matching dropdown
                                 match_type = next((t for t in CHART_TYPES_LIST if t.startswith(sug["chart_type"].split()[0])), CHART_TYPES_LIST[0])
                                 
                                 # Set state to bind to widgets
                                 sl.session_state["viz_type"] = match_type
                                 
-                                # Safe extraction logic picking numeric/categorical independently
+                                # extraction logic for picking numeric/categorical independently
                                 x_c = sug.get("x_column")
                                 y_c = sug.get("y_column")
                                 color_c = sug.get("color_column")
@@ -110,7 +100,7 @@ if sl.session_state.get("ai_enabled"):
                                 sug_num_cols = [c for c in sug_cols if c in numeric_cols]
                                 sug_cat_cols = [c for c in sug_cols if c in categorical_cols]
 
-                                # Validation Logic dependent on chart type keys
+                                # Validation logic on chart types
                                 if match_type == "Histogram":
                                     if sug_num_cols: sl.session_state["viz_x"] = sug_num_cols[0]
                                     elif x_c in all_cols: sl.session_state["viz_x"] = x_c
@@ -152,9 +142,7 @@ CHART_TYPES = [
 ]
 
 
-# ═══════════════════════════════════════════════
 # Config Panel
-# ═══════════════════════════════════════════════
 config_col, chart_col = sl.columns([1, 3])
 
 with config_col:
@@ -167,7 +155,7 @@ with config_col:
 
     sl.markdown("---")
 
-    # ── Column selectors (dynamic per chart type) ─
+    # Column selectors (dynamic per chart type) 
     x_col = None
     y_col = None
     color_col = None
@@ -234,7 +222,7 @@ with config_col:
             numeric_cols, key="viz_heat_cols",
         )
 
-    # ── Filters ───────────────────────────────
+    # Filters 
     sl.markdown("---")
     sl.subheader(":material/search: Filters")
 
@@ -261,11 +249,9 @@ with config_col:
                 if lo > col_min or hi < col_max:
                     filters[col] = (lo, hi)
 
-# ═══════════════════════════════════════════════
-# Build and Render Chart
-# ═══════════════════════════════════════════════
+# Building and rendering the chart
 with chart_col:
-    # Apply filters
+    # applying filters
     plot_df = filter_dataframe(df, filters) if filters else df
 
     if len(plot_df) == 0:
@@ -327,7 +313,7 @@ with chart_col:
                     plot_df, heatmap_cols if heatmap_cols else None
                 )
 
-        # ── Render ─────────────────────────────
+        # Rendering the chart
         if fig is not None:
             if use_plotly:
                 sl.plotly_chart(fig, use_container_width=True)
@@ -349,8 +335,7 @@ with chart_col:
     except Exception as e:
         sl.error(f":material/error: Could not render chart: {e}")
 
-# ── State Persistence (Save) ───────────────────
+# State holding
 for k in sl.session_state.keys():
     if k.startswith(("viz_", "filt_")):
         sl.session_state["app_state_cache"][k] = sl.session_state[k]
-# ─────────────────────────────────────────────

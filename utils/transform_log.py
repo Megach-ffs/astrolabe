@@ -1,8 +1,5 @@
 """
-Transformation Log Manager.
-
-Tracks all cleaning/transformation operations applied to the dataset,
-enabling undo, reset, and recipe export functionality.
+Transformation log manager functions
 """
 
 import streamlit as sl
@@ -10,14 +7,13 @@ from datetime import datetime
 
 
 class TransformLog:
-    """Manages transformation steps in st.session_state."""
 
     SESSION_KEY = "transform_log"
     SNAPSHOTS_KEY = "df_snapshots"
 
     @staticmethod
     def init_session():
-        """Initialize transform_log in session_state if not present."""
+        #initializing transform_log in session_state if not present
         if TransformLog.SESSION_KEY not in sl.session_state:
             sl.session_state[TransformLog.SESSION_KEY] = []
         if TransformLog.SNAPSHOTS_KEY not in sl.session_state:
@@ -51,12 +47,6 @@ class TransformLog:
 
     @staticmethod
     def undo_last():
-        """
-        Undo the last transformation by restoring the previous snapshot.
-
-        Returns:
-            The restored DataFrame, or None if nothing to undo.
-        """
         TransformLog.init_session()
 
         log = sl.session_state[TransformLog.SESSION_KEY]
@@ -74,28 +64,17 @@ class TransformLog:
 
     @staticmethod
     def reset_all(df_original):
-        """
-        Reset df_working to df_original and clear the log.
-
-        Args:
-            df_original: The original uploaded DataFrame.
-
-        Returns:
-            A fresh copy of df_original.
-        """
         sl.session_state[TransformLog.SESSION_KEY] = []
         sl.session_state[TransformLog.SNAPSHOTS_KEY] = []
         return df_original.copy()
 
     @staticmethod
     def get_log() -> list:
-        """Return the current transformation log."""
         TransformLog.init_session()
         return sl.session_state[TransformLog.SESSION_KEY]
 
     @staticmethod
     def get_log_summary() -> str:
-        """Return a human-readable summary of all steps."""
         log = TransformLog.get_log()
         if not log:
             return "No transformations applied yet."
@@ -111,5 +90,5 @@ class TransformLog:
 
     @staticmethod
     def to_dict() -> list:
-        """Export the log as a list of dicts (for JSON recipe)."""
+        #export the log as a list of dicts (for JSON recipe)
         return TransformLog.get_log()

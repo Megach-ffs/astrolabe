@@ -1,8 +1,5 @@
 """
-Export utility functions.
-
-Pure functions for exporting datasets, reports, and recipes.
-No Streamlit imports.
+export functions
 """
 
 import json
@@ -11,12 +8,10 @@ from datetime import datetime
 
 
 def to_csv_bytes(df):
-    """Convert DataFrame to CSV bytes for download."""
     return df.to_csv(index=False).encode("utf-8")
 
 
 def to_excel_bytes(df):
-    """Convert DataFrame to Excel bytes for download."""
     buf = io.BytesIO()
     df.to_excel(buf, index=False, engine="openpyxl")
     buf.seek(0)
@@ -24,17 +19,6 @@ def to_excel_bytes(df):
 
 
 def generate_report(log, df_original, df_working):
-    """
-    Generate a transformation report.
-
-    Args:
-        log: List of step dicts from TransformLog.get_log().
-        df_original: Original DataFrame before transforms.
-        df_working: Current working DataFrame.
-
-    Returns:
-        dict with report data.
-    """
     report = {
         "generated_at": datetime.now().isoformat(),
         "total_steps": len(log),
@@ -64,15 +48,6 @@ def generate_report(log, df_original, df_working):
 
 
 def report_to_markdown(report):
-    """
-    Convert a report dict to a Markdown string.
-
-    Args:
-        report: Dict from generate_report().
-
-    Returns:
-        str (Markdown formatted).
-    """
     lines = [
         "# Transformation Report",
         "",
@@ -107,19 +82,10 @@ def report_to_markdown(report):
 
 
 def report_to_json_bytes(report):
-    """Serialize report dict to formatted JSON bytes."""
     return json.dumps(report, indent=2, default=str).encode("utf-8")
 
 
 def generate_json_recipe(log):
-    """
-    Generate a JSON recipe from the transform log.
-
-    The recipe can be replayed to reproduce the same transformations.
-
-    Returns:
-        bytes (JSON encoded).
-    """
     recipe = {
         "version": "1.0",
         "generated_at": datetime.now().isoformat(),
@@ -137,18 +103,6 @@ def generate_json_recipe(log):
 
 
 def generate_python_script(log, file_name="data.csv"):
-    """
-    Generate a Python script that replays the transformation pipeline.
-
-    Bonus feature (+3 pts).
-
-    Args:
-        log: List of step dicts.
-        file_name: Original file name for the load statement.
-
-    Returns:
-        str (Python script content).
-    """
     lines = [
         '"""',
         "Auto-generated transformation pipeline script.",
@@ -310,15 +264,6 @@ def generate_python_script(log, file_name="data.csv"):
 
 
 def report_to_docx_bytes(report):
-    """
-    Convert a report dict to a DOCX bytes buffer.
-    
-    Args:
-        report: Dict from generate_report().
-        
-    Returns:
-        bytes: DOCX file bytes.
-    """
     from docx import Document
     
     doc = Document()

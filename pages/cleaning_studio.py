@@ -1,10 +1,3 @@
-"""
-Page B — Cleaning & Preparation Studio
-
-Interactive data cleaning page with 8 feature sections.
-Every operation: preview → configure → apply → log → confirm.
-"""
-
 import streamlit as sl
 import pandas as pd
 
@@ -16,7 +9,7 @@ from utils import ai_assistant
 
 sl.title(":material/mop: Cleaning & Preparation Studio")
 
-# ── State Persistence (Restore) ────────────────
+# state holding
 if "app_state_cache" not in sl.session_state:
     sl.session_state["app_state_cache"] = {}
     
@@ -34,23 +27,22 @@ for k, v in sl.session_state["app_state_cache"].items():
         
         if not (is_btn or is_dynamic_btn or is_special):
             sl.session_state[k] = v
-# ─────────────────────────────────────────────
 
-# ── Guard: need data loaded ──────────────────
+# if not loaded
 if sl.session_state.get("df_working") is None:
     sl.warning(":material/warning: No dataset loaded. Go to **Upload & Overview** to upload a file first.")
     sl.stop()
 
 df = sl.session_state.df_working
 
-# Helper columns lists
+# columns lists
 numeric_cols = df.select_dtypes(include="number").columns.tolist()
 categorical_cols = df.select_dtypes(include=["object", "category"]).columns.tolist()
 all_cols = df.columns.tolist()
 
 sl.markdown(f"Working with **{len(df):,}** rows × **{len(df.columns)}** columns")
 
-# ── Toast Dispatcher (show stored messages after rerun) ──
+# toast dispatcher
 if "_toast_msg" in sl.session_state:
     sl.success(sl.session_state.pop("_toast_msg"))
 
@@ -148,9 +140,7 @@ def _apply_ai_suggestion(dataframe, suggestion):
         raise ValueError(f"Unknown operation: {op}")
 
 
-# ═══════════════════════════════════════════════
-# 🤖 AI Cleaning Assistant (Bonus +12)
-# ═══════════════════════════════════════════════
+# AI Cleaning Assistant
 if sl.session_state.get("ai_enabled"):
     if ai_assistant.is_available():
         with sl.expander(":material/robot: AI Cleaning Assistant", expanded=True):
@@ -188,7 +178,7 @@ if sl.session_state.get("ai_enabled"):
                         del sl.session_state["ai_suggestions"]
                         sl.rerun()
 
-            # Display suggestions as cards
+            # displaying as cards
             if sl.session_state.get("ai_suggestions"):
                 for i, sug in enumerate(sl.session_state.ai_suggestions):
                     with sl.container(border=True):
@@ -227,9 +217,7 @@ if sl.session_state.get("ai_enabled"):
 sl.markdown("---")
 
 
-# ═══════════════════════════════════════════════
-# 4.1 Missing Values (10 pts)
-# ═══════════════════════════════════════════════
+# 4.1 Missing Values
 with sl.expander(":material/warning: 4.1 — Missing Values", expanded=False):
     # Summary
     missing = df.isnull().sum()
@@ -245,7 +233,7 @@ with sl.expander(":material/warning: 4.1 — Missing Values", expanded=False):
         })
         sl.dataframe(missing_info, use_container_width=True, hide_index=True)
 
-        # Controls
+        #controls
         cols_to_fix = sl.multiselect(
             "Select columns to fix",
             missing_cols.index.tolist(),
@@ -297,9 +285,7 @@ with sl.expander(":material/warning: 4.1 — Missing Values", expanded=False):
             sl.rerun()
 
 
-# ═══════════════════════════════════════════════
-# 4.2 Duplicates
-# ═══════════════════════════════════════════════
+# 4.2Duplicates
 with sl.expander(":material/refresh: 4.2 — Duplicates", expanded=False):
     dup_mode = sl.radio(
         "Check for", ["Full-row duplicates", "Duplicates by subset"],
@@ -336,9 +322,7 @@ with sl.expander(":material/refresh: 4.2 — Duplicates", expanded=False):
             sl.rerun()
 
 
-# ═══════════════════════════════════════════════
-# 4.3 Data Types & Parsing
-# ═══════════════════════════════════════════════
+# 4.3 data Types & Parsing
 with sl.expander(":material/cached: 4.3 — Data Types & Parsing", expanded=False):
     # Show current types
     dtype_info = pd.DataFrame({
@@ -393,15 +377,13 @@ with sl.expander(":material/cached: 4.3 — Data Types & Parsing", expanded=Fals
             sl.error(f":material/error: Conversion failed: {e}")
 
 
-# ═══════════════════════════════════════════════
-# 4.4 Categorical Data Tools (10 pts)
-# ═══════════════════════════════════════════════
+#4.4 Categorical Data Tools
 with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=False):
     cat_tab1, cat_tab2, cat_tab3, cat_tab4 = sl.tabs(
         ["Standardize", "Mapping", "Rare Grouping", "One-Hot Encoding"]
     )
 
-    # Tab 1: Standardize
+    # Tab 1:standardize
     with cat_tab1:
         std_cols = sl.multiselect(
             "Columns to standardize", categorical_cols, key="std_cols"
@@ -438,7 +420,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
             sl.session_state["_toast_msg"] = ":material/check_circle: Applied!"
             sl.rerun()
 
-    # Tab 2: Mapping
+    # Tab 2:mapping
     with cat_tab2:
         if categorical_cols:
             map_col = sl.selectbox(
@@ -487,7 +469,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
         else:
             sl.info("No categorical columns found.")
 
-    # Tab 3: Rare Category Grouping
+    #Tab 3: rare grouping
     with cat_tab3:
         if categorical_cols:
             rare_col = sl.selectbox(
@@ -530,7 +512,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
         else:
             sl.info("No categorical columns found.")
 
-    # Tab 4: One-Hot Encoding
+    # Tab 4: one-hot encoding
     with cat_tab4:
         if categorical_cols:
             ohe_cols = sl.multiselect(
@@ -564,9 +546,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
             sl.info("No categorical columns found.")
 
 
-# ═══════════════════════════════════════════════
-# 4.5 Numeric Cleaning — Outliers (10 pts)
-# ═══════════════════════════════════════════════
+# 4.5 numeric cleaning — outliers
 with sl.expander(":material/square_foot: 4.5 — Numeric Cleaning (Outliers)", expanded=False):
     if numeric_cols:
         out_col = sl.selectbox(
@@ -651,9 +631,7 @@ with sl.expander(":material/square_foot: 4.5 — Numeric Cleaning (Outliers)", e
         sl.info("No numeric columns found.")
 
 
-# ═══════════════════════════════════════════════
-# 4.6 Normalization / Scaling (10 pts)
-# ═══════════════════════════════════════════════
+# 4.6 normalization / scaling
 with sl.expander(":material/blur_linear: 4.6 — Normalization / Scaling", expanded=False):
     if numeric_cols:
         scale_cols = sl.multiselect(
@@ -665,12 +643,12 @@ with sl.expander(":material/blur_linear: 4.6 — Normalization / Scaling", expan
         )
 
         if scale_cols:
-            # Show before stats
+            # show before stats
             before_stats = df[scale_cols].describe().round(3)
             sl.markdown("**Before:**")
             sl.dataframe(before_stats, use_container_width=True)
 
-            # Preview
+            # preview
             if "Min-Max" in scale_method:
                 preview = cleaning.min_max_scale(df, scale_cols)
             else:
@@ -699,9 +677,7 @@ with sl.expander(":material/blur_linear: 4.6 — Normalization / Scaling", expan
         sl.info("No numeric columns found.")
 
 
-# ═══════════════════════════════════════════════
-# 4.7 Column Operations
-# ═══════════════════════════════════════════════
+#4.7 Column operations
 with sl.expander(":material/build: 4.7 — Column Operations", expanded=False):
     col_tab1, col_tab2, col_tab3 = sl.tabs(
         ["Rename", "Drop", "Create New"]
@@ -807,13 +783,11 @@ with sl.expander(":material/build: 4.7 — Column Operations", expanded=False):
                     sl.error(f":material/error: {e}")
 
 
-# ═══════════════════════════════════════════════
-# 4.8 Data Validation Rules
-# ═══════════════════════════════════════════════
+# 4.8 Data validation rules
 with sl.expander(":material/rule: 4.8 — Data Validation Rules", expanded=False):
     sl.markdown("Define rules and check your dataset for violations.")
 
-    # Rule builder
+    # rule builder
     val_col = sl.selectbox("Column", all_cols, key="val_col")
     val_type = sl.selectbox(
         "Rule type",
@@ -838,7 +812,7 @@ with sl.expander(":material/rule: 4.8 — Data Validation Rules", expanded=False
                 "values": [v.strip() for v in allowed_str.split(",")]
             }
 
-    # Store rules in session
+    # store rules in session
     if "validation_rules" not in sl.session_state:
         sl.session_state.validation_rules = []
 
@@ -878,9 +852,7 @@ with sl.expander(":material/rule: 4.8 — Data Validation Rules", expanded=False
                 )
 
 
-# ═══════════════════════════════════════════════
-# Transformation Log Display
-# ═══════════════════════════════════════════════
+# transformation log display
 sl.markdown("---")
 sl.subheader(":material/description: Transformation Log")
 
@@ -912,7 +884,7 @@ if log:
 else:
     sl.info("No transformations applied yet.")
 
-# ── State Persistence (Save) ───────────────────
+# State persistance
 for k in sl.session_state.keys():
     if k.startswith(_SAVE_PREFIXES):
         is_btn = k.endswith(("_apply", "_btn", "_add", "_clear", "_run"))
@@ -921,4 +893,4 @@ for k in sl.session_state.keys():
         
         if not (is_btn or is_dynamic_btn or is_special):
             sl.session_state["app_state_cache"][k] = sl.session_state[k]
-# ─────────────────────────────────────────────
+

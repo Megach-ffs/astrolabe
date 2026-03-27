@@ -1,8 +1,6 @@
 """
-Data Loader utilities.
-
-Handles file upload parsing for CSV, Excel, JSON, and Google Sheets.
-All loading functions use @st.cache_data for performance.
+functions for the upload_overview page
+loading data from csv, excel, json and google sheets
 """
 
 import streamlit as sl
@@ -13,45 +11,29 @@ from io import BytesIO
 
 @sl.cache_data
 def load_csv(file_bytes: bytes, filename: str) -> pd.DataFrame:
-    """Load a CSV file from uploaded bytes."""
     return pd.read_csv(BytesIO(file_bytes))
 
 
 @sl.cache_data
 def load_excel(file_bytes: bytes, filename: str) -> pd.DataFrame:
-    """Load an Excel (.xlsx) file from uploaded bytes."""
     return pd.read_excel(BytesIO(file_bytes), engine="openpyxl")
 
 
 @sl.cache_data
 def load_json(file_bytes: bytes, filename: str) -> pd.DataFrame:
-    """Load a JSON file from uploaded bytes."""
     data = json.loads(file_bytes.decode("utf-8"))
-    if isinstance(data, list):
+    if isinstance(data, list): # handles json [{}, {}, {}] (array of objects)
         return pd.DataFrame(data)
     elif isinstance(data, dict):
-        # Try common JSON structures
-        if any(isinstance(v, list) for v in data.values()):
+        if any(isinstance(v, list) for v in data.values()): # handles json {"key": [{}, {}, {}]} (arrays inside params)
             return pd.DataFrame(data)
         else:
-            return pd.DataFrame([data])
+            return pd.DataFrame([data]) # handles json {"key": "value"} (one element)
     else:
         raise ValueError("Unsupported JSON structure. Expected a list or dict.")
 
 
 def load_uploaded_file(uploaded_file) -> pd.DataFrame:
-    """
-    Parse an uploaded file based on its extension.
-
-    Args:
-        uploaded_file: Streamlit UploadedFile object.
-
-    Returns:
-        pd.DataFrame
-
-    Raises:
-        ValueError: If file format is unsupported.
-    """
     if uploaded_file is None:
         raise ValueError("No file uploaded.")
 
@@ -72,20 +54,8 @@ def load_uploaded_file(uploaded_file) -> pd.DataFrame:
 
 
 def load_google_sheet(sheet_url: str) -> pd.DataFrame:
-    """
-    Load data from a Google Sheets URL via gspread.
-
-    Requires GCP service account credentials in sl.secrets["gcp_service_account"].
-
-    Args:
-        sheet_url: Full URL of the Google Sheet.
-
-    Returns:
-        pd.DataFrame
-
-    Raises:
-        ValueError: If the sheet cannot be accessed or parsed.
-    """
+    #Requires GCP service account credentials in sl.secrets["gcp_service_account"].
+    #handles ONLY the first worksheet of a google sheets document
     try:
         import gspread
         from google.oauth2.service_account import Credentials
@@ -123,4 +93,4 @@ def load_google_sheet(sheet_url: str) -> pd.DataFrame:
     if not records:
         raise ValueError("The Google Sheet appears to be empty.")
 
-    return pd.DataFrame(records).replace("", pd.NA)
+    return pd.DataFrame(records).replace("", pd.NA) #empty cells are not handled as NA, so .replace() is called

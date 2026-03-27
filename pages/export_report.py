@@ -1,9 +1,3 @@
-"""
-Page D — Export & Report
-
-Export cleaned data, transformation reports, and reproducible recipes.
-"""
-
 import streamlit as sl
 
 from utils.transform_log import TransformLog
@@ -16,7 +10,7 @@ from utils.export import (
 
 sl.title(":material/export_notes: Export & Report")
 
-# ── Guard ─────────────────────────────────────
+# if not loaded
 if sl.session_state.get("df_working") is None:
     sl.warning(":material/warning: No dataset loaded. Go to **Upload & Overview** first.")
     sl.stop()
@@ -27,9 +21,9 @@ log = TransformLog.get_log()
 file_name = sl.session_state.get("file_name", "data.csv")
 
 
-# ═══════════════════════════════════════════════
+# ──────────────────────────────────────────────
 # 1. Export Cleaned Dataset
-# ═══════════════════════════════════════════════
+# ──────────────────────────────────────────────
 sl.subheader(":material/download: Export Cleaned Dataset")
 sl.markdown(f"**Current dataset:** {len(df):,} rows × {len(df.columns)} columns")
 
@@ -63,32 +57,32 @@ with dl_col2:
     except Exception as e:
         sl.error(f"Failed to generate Excel: {e}")
 
-# Preview
+#preview
 with sl.expander(":material/visibility: Dataset Preview", expanded=False):
     sl.dataframe(df.head(20), use_container_width=True)
 
 sl.markdown("---")
 
 
-# ═══════════════════════════════════════════════
+# ──────────────────────────────────────────────
 # 2. Transformation Report
-# ═══════════════════════════════════════════════
+#──────────────────────────────────────────────
 sl.subheader(":material/edit_square: Transformation Report")
 
 report = generate_report(log, df_original, df)
 
-# Summary metrics
+# summary metrics
 mc1, mc2, mc3 = sl.columns(3)
 mc1.metric("Total Steps", report["total_steps"])
 mc2.metric("Before", f"{report['before']['rows']:,} × {report['before']['columns']}")
 mc3.metric("After", f"{report['after']['rows']:,} × {report['after']['columns']}")
 
-# Markdown preview
+#markdown preview
 md_report = report_to_markdown(report)
 with sl.expander(":material/description: Report Preview", expanded=True):
     sl.markdown(md_report)
 
-# Download report
+# download report
 rpt_col1, rpt_col2, rpt_col3 = sl.columns(3)
 with rpt_col1:
     json_report = report_to_json_bytes(report)
@@ -129,15 +123,15 @@ with rpt_col3:
 sl.markdown("---")
 
 
-# ═══════════════════════════════════════════════
+# ──────────────────────────────────────────────
 # 3. Reproducible Recipe
-# ═══════════════════════════════════════════════
+# ──────────────────────────────────────────────
 sl.subheader(":material/refresh: Reproducible Recipe")
 
 if log:
     recipe_col1, recipe_col2, _ = sl.columns([1, 1, 2])
 
-    # JSON recipe
+    # json recipe
     with recipe_col1:
         try:
             recipe_bytes = generate_json_recipe(log)
@@ -152,7 +146,7 @@ if log:
         except Exception as e:
             sl.error(f"Failed to generate Recipe: {e}")
 
-    # Python script (bonus +3)
+    # python recipe
     with recipe_col2:
         try:
             script = generate_python_script(log, file_name)
@@ -167,20 +161,20 @@ if log:
         except Exception as e:
             sl.error(f"Failed to generate Script: {e}")
 
-    # Script preview
+    # python preview
     with sl.expander(":material/code: Python Script Preview", expanded=False):
         sl.code(script, language="python")
 
-    # Recipe preview
+    # recipe preview
     with sl.expander(":material/file_json: JSON Recipe Preview", expanded=False):
         sl.code(recipe_bytes.decode("utf-8"), language="json")
 else:
     sl.info("No transformations applied yet. Apply some cleaning steps first to generate a recipe.")
 
 
-# ═══════════════════════════════════════════════
+# ──────────────────────────────────────────────
 # 4. Full Transformation Log
-# ═══════════════════════════════════════════════
+# ──────────────────────────────────────────────
 sl.markdown("---")
 sl.subheader(":material/description: Transformation Log")
 

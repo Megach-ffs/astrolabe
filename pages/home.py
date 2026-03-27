@@ -1,11 +1,4 @@
-"""
-Home — Landing Page
-
-Welcome page with feature overview and quick-start guide.
-"""
-
 import streamlit as sl
-
 
 sl.title(":material/science: AI-Assisted Data Wrangler & Visualizer")
 sl.markdown(
@@ -18,7 +11,7 @@ sl.markdown(
 
 sl.markdown("---")
 
-# Feature cards
+# feature cards
 col1, col2, col3, col4 = sl.columns(4)
 
 with col1:
@@ -51,7 +44,7 @@ with col4:
 
 sl.markdown("---")
 
-# Quick start guide
+# start guide
 with sl.expander(":material/rocket_launch: Quick Start Guide", expanded=True):
     sl.markdown(
         """
@@ -67,7 +60,7 @@ with sl.expander(":material/rocket_launch: Quick Start Guide", expanded=True):
         """
     )
 
-# Dataset status
+#status
 if sl.session_state.df_working is not None:
     sl.success(
         f":material/check_circle: Dataset loaded: **{sl.session_state.file_name}** — "

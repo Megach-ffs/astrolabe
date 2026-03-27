@@ -1,8 +1,6 @@
 """
-Data Profiler utilities.
-
-Generates summary statistics, missing value reports, and duplicate analysis
-for uploaded datasets.
+data summary utilities
+generates summary statistics, missing value reports, and duplicate analysis for uploaded datasets.
 """
 
 import pandas as pd
@@ -11,10 +9,6 @@ import streamlit as sl
 
 @sl.cache_data
 def get_basic_stats(df_bytes: bytes) -> dict:
-    """
-    Compute basic profiling stats for a DataFrame.
-    Accepts serialized bytes for caching compatibility.
-    """
     import pickle
     df = pickle.loads(df_bytes)
     return _compute_stats(df)
@@ -23,9 +17,7 @@ def get_basic_stats(df_bytes: bytes) -> dict:
 @sl.cache_data
 def profile_dataframe(df: pd.DataFrame) -> dict:
     """
-    Generate a comprehensive profile of the DataFrame.
-
-    Returns a dict with keys:
+    returns a dict with keys:
         - shape: (rows, cols)
         - columns: list of column info dicts
         - dtypes: dtype per column
@@ -51,7 +43,7 @@ def _compute_stats(df: pd.DataFrame) -> dict:
             "unique_count": int(df[col].nunique()),
         })
 
-    # Missing values summary
+    # missing values summary
     missing = df.isnull().sum()
     missing_info = pd.DataFrame({
         "Column": missing.index,
@@ -60,15 +52,15 @@ def _compute_stats(df: pd.DataFrame) -> dict:
     })
     missing_info = missing_info[missing_info["Missing Count"] > 0]
 
-    # Numeric summary
+    # numeric summary
     numeric_cols = df.select_dtypes(include="number")
     numeric_summary = numeric_cols.describe().T if not numeric_cols.empty else pd.DataFrame()
 
-    # Categorical summary
+    #categorical summary
     cat_cols = df.select_dtypes(include=["object", "category"])
     cat_summary = cat_cols.describe().T if not cat_cols.empty else pd.DataFrame()
 
-    # Duplicates
+    #duplicates
     dup_count = int(df.duplicated().sum())
 
     return {
