@@ -188,14 +188,16 @@ def standardize_case(df, columns, case="lower"):
             df[col] = df[col].astype(str).str.upper()
         elif case == "title":
             df[col] = df[col].astype(str).str.title()
+        df[col] = df[col].replace(['', 'nan', 'None', 'null'], np.nan)
     return df
 
 
 def trim_whitespace(df, columns):
     """Trim leading/trailing whitespace from string columns."""
     df = df.copy()
-    for col in columns:
+    for col in columns: 
         df[col] = df[col].astype(str).str.strip()
+        df[col] = df[col].replace(['', 'nan', 'None', 'null'], np.nan)
     return df
 
 
