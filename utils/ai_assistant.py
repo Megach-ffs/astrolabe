@@ -1,20 +1,9 @@
-"""
-AI Assistant module — Gemini-powered data analysis helper.
-
-Uses the google-genai SDK with structured JSON output for reliable responses.
-All functions gracefully handle missing API keys or errors.
-"""
-
 import json
 import streamlit as sl
 
 from pydantic import BaseModel, Field
 from typing import List, Optional
 
-
-# ──────────────────────────────────────────────
-# Pydantic schemas for structured output
-# ──────────────────────────────────────────────
 
 class CleaningSuggestion(BaseModel):
     """A single cleaning operation suggestion."""
@@ -43,9 +32,7 @@ class ChartSuggestionList(BaseModel):
     suggestions: List[ChartSuggestion]
 
 
-# ──────────────────────────────────────────────
-# Client management
-# ──────────────────────────────────────────────
+# Client manager
 
 _client = None
 MODEL = "gemini-2.5-flash"
@@ -76,9 +63,7 @@ def is_available():
     return _get_client() is not None
 
 
-# ──────────────────────────────────────────────
 # Data context builder
-# ──────────────────────────────────────────────
 
 def _build_data_context(df, max_sample_rows=5):
     """
@@ -99,7 +84,7 @@ def _build_data_context(df, max_sample_rows=5):
 
         line = f"  - {col} (dtype={dtype}, nulls={null_count} [{null_pct}], unique={unique})"
 
-        # Add sample values for context
+        # adding sample values
         if df[col].dtype == "object" or str(df[col].dtype) == "category":
             top_vals = df[col].dropna().value_counts().head(5).index.tolist()
             line += f" top_values={top_vals}"
@@ -117,9 +102,7 @@ def _build_data_context(df, max_sample_rows=5):
     return "\n".join(lines)
 
 
-# ──────────────────────────────────────────────
 # System prompts
-# ──────────────────────────────────────────────
 
 CLEANING_SYSTEM_PROMPT = """You are a data cleaning assistant embedded in a Streamlit application.
 
@@ -180,21 +163,10 @@ Format the output as a Markdown table with columns:
 Be concise. If no issues, write "None"."""
 
 
-# ──────────────────────────────────────────────
-# Feature 1: Natural Language Cleaning Suggestions
-# ──────────────────────────────────────────────
+# natural language cleaning
 
 def get_cleaning_suggestions(df, user_prompt):
-    """
-    Get cleaning operation suggestions from Gemini based on user's natural language request.
 
-    Args:
-        df: Current DataFrame.
-        user_prompt: User's natural language description of what they want to do.
-
-    Returns:
-        list of CleaningSuggestion dicts, or None if unavailable.
-    """
     client = _get_client()
     if client is None:
         return None
@@ -224,9 +196,7 @@ Suggest cleaning operations to fulfill this request."""
         return {"error": str(e)}
 
 
-# ──────────────────────────────────────────────
-# Feature 2: Chart Suggestions
-# ──────────────────────────────────────────────
+# chart suggestions
 
 def get_chart_suggestions(df):
     """
@@ -262,9 +232,7 @@ Suggest 3 insightful charts for this dataset."""
         return {"error": str(e)}
 
 
-# ──────────────────────────────────────────────
-# Feature 3: Data Dictionary Generator
-# ──────────────────────────────────────────────
+# data dictionary generator
 
 def generate_data_dictionary(df):
     """
@@ -297,9 +265,7 @@ Generate a data dictionary as a Markdown table."""
         return f"Error generating data dictionary: {e}"
 
 
-# ──────────────────────────────────────────────
-# Feature 4: General Chat (streaming)
-# ──────────────────────────────────────────────
+# general cha
 
 def chat_stream(df, messages):
     """
@@ -331,7 +297,7 @@ You can help with:
 
 Keep responses concise and actionable. Use markdown formatting."""
 
-    # Build contents for multi-turn conversation
+    # Build contents for multi-turn convo
     contents = []
     for msg in messages:
         contents.append({

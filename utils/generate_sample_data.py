@@ -1,10 +1,3 @@
-"""
-Sample Data Generator.
-
-Generates two sample datasets with intentional data quality issues
-for testing the Data Wrangler & Visualizer application.
-"""
-
 import pandas as pd
 import numpy as np
 import os
@@ -12,7 +5,6 @@ from datetime import datetime, timedelta
 
 
 def generate_ecommerce_orders(output_path: str, n_rows: int = 1500):
-    """Generate an e-commerce orders dataset with data quality issues."""
     np.random.seed(42)
 
     products = [
@@ -33,7 +25,7 @@ def generate_ecommerce_orders(output_path: str, n_rows: int = 1500):
         "Networking", "Audio", "Office", "Gaming",
     ]
 
-    # Create intentionally messy categories (mixed case, trailing spaces)
+
     categories_messy = (
         categories_clean
         + [c.upper() for c in categories_clean[:3]]
@@ -49,8 +41,6 @@ def generate_ecommerce_orders(output_path: str, n_rows: int = 1500):
         "Plymouth", "Exeter", "Norwich", "Aberdeen", "Dundee",
         "Swansea", "Coventry", "Derby", "Stoke", "Reading",
     ]
-
-    # Generate base data
     data = {
         "order_id": range(1, n_rows + 1),
         "customer_id": [f"CUST-{np.random.randint(100, 500):04d}" for _ in range(n_rows)],
@@ -71,9 +61,7 @@ def generate_ecommerce_orders(output_path: str, n_rows: int = 1500):
 
     df = pd.DataFrame(data)
 
-    # --- Inject data quality issues ---
 
-    # 1. Make price column "dirty" — add currency symbols and commas to some
     dirty_price_idx = np.random.choice(n_rows, size=int(n_rows * 0.15), replace=False)
     for idx in dirty_price_idx[:len(dirty_price_idx) // 2]:
         df.at[idx, "price"] = f"${df.at[idx, 'price']}"
@@ -81,17 +69,14 @@ def generate_ecommerce_orders(output_path: str, n_rows: int = 1500):
         val = float(str(df.at[idx, "price"]).replace("$", ""))
         df.at[idx, "price"] = f"{val:,.2f}"
 
-    # 2. Inject missing values (~8%)
     for col in ["discount_pct", "rating", "shipping_city", "category"]:
         null_idx = np.random.choice(n_rows, size=int(n_rows * 0.08), replace=False)
         df.loc[null_idx, col] = np.nan
 
-    # 3. Add duplicate rows (~3%)
     dup_idx = np.random.choice(n_rows, size=int(n_rows * 0.03), replace=False)
     duplicates = df.iloc[dup_idx].copy()
     df = pd.concat([df, duplicates], ignore_index=True)
 
-    # 4. Add outlier discounts
     outlier_idx = np.random.choice(len(df), size=15, replace=False)
     df.loc[outlier_idx, "discount_pct"] = np.random.choice([95, 99, 100, -5, -10], 15)
 
@@ -120,7 +105,7 @@ def generate_weather_stations(output_path: str, n_rows: int = 1200):
 
     regions = ["North", "South", "East", "West", "Central", "Coastal"]
     statuses = ["Active", "Inactive", "Maintenance"]
-    status_weights = [0.75, 0.15, 0.10]  # Maintenance is rare
+    status_weights = [0.75, 0.15, 0.10]
 
     data = {
         "station_id": np.random.choice(stations, n_rows),
@@ -140,22 +125,16 @@ def generate_weather_stations(output_path: str, n_rows: int = 1200):
 
     df = pd.DataFrame(data)
 
-    # --- Inject data quality issues ---
-
-    # 1. Sentinel outliers (999 for temperature)
     outlier_idx = np.random.choice(n_rows, size=20, replace=False)
     df.loc[outlier_idx, "temperature_c"] = 999.0
 
-    # 2. Missing values (~7%)
     for col in ["temperature_c", "humidity_pct", "precipitation_mm", "status"]:
         null_idx = np.random.choice(n_rows, size=int(n_rows * 0.07), replace=False)
         df.loc[null_idx, col] = np.nan
 
-    # 3. Blank strings instead of NaN for status
     blank_idx = np.random.choice(n_rows, size=int(n_rows * 0.03), replace=False)
     df.loc[blank_idx, "status"] = ""
 
-    # 4. Negative wind speeds (invalid)
     neg_idx = np.random.choice(n_rows, size=10, replace=False)
     df.loc[neg_idx, "wind_speed_kmh"] = -abs(df.loc[neg_idx, "wind_speed_kmh"])
 
@@ -165,7 +144,6 @@ def generate_weather_stations(output_path: str, n_rows: int = 1200):
 
 
 if __name__ == "__main__":
-    # Determine output directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_dir = os.path.dirname(script_dir)
     sample_dir = os.path.join(project_dir, "sample_data")

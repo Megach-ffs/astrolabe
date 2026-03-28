@@ -1,17 +1,12 @@
-"""
-Page E — AI Chat & Code Snippets
-
-A dedicated conversational interface for data analysis questions,
-code snippet generation, and troubleshooting. Uses Gemini with streaming.
-"""
-
 import streamlit as sl
 from utils import ai_assistant
 
 
-sl.title(":material/chat: AI Chat & Code Snippets")
 
-# ── Guard ─────────────────────────────────────
+
+
+sl.title(":material/chat: AI Chat & Code Snippets")
+# no AI view
 if not sl.session_state.get("ai_enabled"):
     sl.warning(":material/warning: AI Assistant is not enabled.")
     sl.info("To use this feature, toggle the AI Assistant in the sidebar.")
@@ -36,37 +31,37 @@ else:
 
 sl.markdown("---")
 
-# Initialize chat history
+# saving chat history
 if "ai_chat_messages" not in sl.session_state:
     sl.session_state.ai_chat_messages = []
 
-# Display chat messages from history on app rerun
+# displaying chat messages from history on app rerun
 for message in sl.session_state.ai_chat_messages:
     with sl.chat_message(message["role"]):
         sl.markdown(message["content"])
 
-# React to user input or default prompt
+# user prompt input
 initial_prompt = None
 if "ai_chat_initial_prompt" in sl.session_state:
     initial_prompt = sl.session_state.pop("ai_chat_initial_prompt")
 
 if prompt := sl.chat_input("Ask a question or request a pandas snippet...") or initial_prompt:
-    # Use real prompt if typed, otherwise fallback to the initial auto prompt
+    # if typed use prompt, otherwise use initial
     active_prompt = prompt if isinstance(prompt, str) and prompt else initial_prompt
     
-    # Display user message in chat message container
+    # displaying user prompt
     with sl.chat_message("user"):
         sl.markdown(active_prompt)
     sl.session_state.ai_chat_messages.append({"role": "user", "content": active_prompt})
 
-    # Output AI response
+    # output
     with sl.chat_message("assistant"):
         stream = ai_assistant.chat_stream(df, sl.session_state.ai_chat_messages)
         response = sl.write_stream(stream)
     
     sl.session_state.ai_chat_messages.append({"role": "assistant", "content": response})
 
-    # Clear chat button
+    # clear button
     c1, c2 = sl.columns([1, 10])
     with c1:
         if sl.button(":material/delete: Clear Chat", key="clear_chat"):

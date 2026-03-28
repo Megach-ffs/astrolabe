@@ -1,17 +1,8 @@
-"""
-Chart builder utility functions.
-
-Pure functions that create matplotlib or Plotly figures.
-No Streamlit imports — all rendering logic is separated for testability.
-"""
-
 import matplotlib.pyplot as plt
 import matplotlib
 
-# Use non-interactive backend for safety
 matplotlib.use("Agg")
 
-# Dark theme settings for all matplotlib charts
 DARK_BG = "#0E1117"
 DARK_FG = "#FAFAFA"
 DARK_GRID = "#333333"
@@ -23,7 +14,6 @@ COLORS = [
 
 
 def _apply_dark_theme(fig, ax):
-    """Apply dark theme to a matplotlib figure."""
     fig.patch.set_facecolor(DARK_BG)
     ax.set_facecolor(DARK_BG)
     ax.tick_params(colors=DARK_FG)
@@ -34,23 +24,9 @@ def _apply_dark_theme(fig, ax):
         spine.set_color(DARK_GRID)
 
 
-# ──────────────────────────────────────────────
-# Filtering Helper
-# ──────────────────────────────────────────────
+# filtering 
 
 def filter_dataframe(df, filters):
-    """
-    Filter a DataFrame based on a dict of filters.
-
-    Args:
-        df: Input DataFrame.
-        filters: Dict where key is column name and value is:
-            - list: keep only rows where column value is in the list
-            - tuple of (min, max): keep rows in range (numeric)
-
-    Returns:
-        Filtered DataFrame.
-    """
     result = df.copy()
     for col, condition in filters.items():
         if col not in result.columns:
@@ -65,23 +41,10 @@ def filter_dataframe(df, filters):
     return result
 
 
-# ──────────────────────────────────────────────
-# Matplotlib Chart Builders
-# ──────────────────────────────────────────────
+# matplotlib charts
 
 def build_histogram(df, column, bins=30, color_col=None):
-    """
-    Build a histogram.
 
-    Args:
-        df: Input DataFrame.
-        column: Column to plot.
-        bins: Number of bins.
-        color_col: Optional column for grouped histograms.
-
-    Returns:
-        matplotlib Figure.
-    """
     fig, ax = plt.subplots(figsize=(10, 5))
     _apply_dark_theme(fig, ax)
 
@@ -105,16 +68,6 @@ def build_histogram(df, column, bins=30, color_col=None):
 
 
 def build_box_plot(df, column, group_col=None):
-    """
-    Build a box plot.
-
-    Args:
-        column: Numeric column.
-        group_col: Optional categorical column for grouped boxes.
-
-    Returns:
-        matplotlib Figure.
-    """
     fig, ax = plt.subplots(figsize=(10, 5))
     _apply_dark_theme(fig, ax)
 
@@ -149,12 +102,6 @@ def build_box_plot(df, column, group_col=None):
 
 
 def build_scatter(df, x_col, y_col, color_col=None):
-    """
-    Build a scatter plot.
-
-    Returns:
-        matplotlib Figure.
-    """
     fig, ax = plt.subplots(figsize=(10, 6))
     _apply_dark_theme(fig, ax)
 
@@ -178,12 +125,6 @@ def build_scatter(df, x_col, y_col, color_col=None):
 
 
 def build_line_chart(df, x_col, y_col, color_col=None):
-    """
-    Build a line chart (time series style).
-
-    Returns:
-        matplotlib Figure.
-    """
     fig, ax = plt.subplots(figsize=(10, 5))
     _apply_dark_theme(fig, ax)
 
@@ -211,16 +152,6 @@ def build_line_chart(df, x_col, y_col, color_col=None):
 
 def build_bar_chart(df, x_col, y_col, agg="mean", color_col=None,
                     top_n=None):
-    """
-    Build a grouped/aggregated bar chart.
-
-    Args:
-        agg: One of 'sum', 'mean', 'count', 'median'.
-        top_n: If set, show only top N categories by the aggregated value.
-
-    Returns:
-        matplotlib Figure.
-    """
     fig, ax = plt.subplots(figsize=(10, 6))
     _apply_dark_theme(fig, ax)
 
@@ -254,15 +185,6 @@ def build_bar_chart(df, x_col, y_col, agg="mean", color_col=None,
 
 
 def build_heatmap(df, columns=None):
-    """
-    Build a correlation heatmap for numeric columns.
-
-    Args:
-        columns: List of numeric columns. If None, uses all numeric.
-
-    Returns:
-        matplotlib Figure.
-    """
     if columns:
         numeric_df = df[columns].select_dtypes(include="number")
     else:
@@ -298,19 +220,15 @@ def build_heatmap(df, columns=None):
     return fig
 
 
-# ──────────────────────────────────────────────
-# Plotly Chart Builders (optional bonus)
-# ──────────────────────────────────────────────
+# plotly charts
 
 def _get_plotly():
-    """Lazy import plotly — returns (px, go) or raises ImportError."""
     import plotly.express as px
     import plotly.graph_objects as go
     return px, go
 
 
 def build_histogram_plotly(df, column, bins=30, color_col=None):
-    """Build a Plotly histogram."""
     px, _ = _get_plotly()
     fig = px.histogram(
         df, x=column, color=color_col, nbins=bins,
@@ -321,7 +239,6 @@ def build_histogram_plotly(df, column, bins=30, color_col=None):
 
 
 def build_box_plot_plotly(df, column, group_col=None):
-    """Build a Plotly box plot."""
     px, _ = _get_plotly()
     fig = px.box(
         df, y=column, x=group_col, color=group_col,
@@ -332,7 +249,6 @@ def build_box_plot_plotly(df, column, group_col=None):
 
 
 def build_scatter_plotly(df, x_col, y_col, color_col=None):
-    """Build a Plotly scatter plot."""
     px, _ = _get_plotly()
     fig = px.scatter(
         df, x=x_col, y=y_col, color=color_col,
@@ -343,7 +259,6 @@ def build_scatter_plotly(df, x_col, y_col, color_col=None):
 
 
 def build_line_chart_plotly(df, x_col, y_col, color_col=None):
-    """Build a Plotly line chart."""
     px, _ = _get_plotly()
     plot_df = df.sort_values(x_col)
     fig = px.line(
@@ -356,7 +271,6 @@ def build_line_chart_plotly(df, x_col, y_col, color_col=None):
 
 def build_bar_chart_plotly(df, x_col, y_col, agg="mean", color_col=None,
                            top_n=None):
-    """Build a Plotly bar chart."""
     px, _ = _get_plotly()
 
     if color_col:
@@ -383,7 +297,6 @@ def build_bar_chart_plotly(df, x_col, y_col, agg="mean", color_col=None,
 
 
 def build_heatmap_plotly(df, columns=None):
-    """Build a Plotly correlation heatmap."""
     _, go = _get_plotly()
     import plotly.express as px
 
@@ -402,12 +315,9 @@ def build_heatmap_plotly(df, columns=None):
     return fig
 
 
-# ──────────────────────────────────────────────
-# PNG Export Helper
-# ──────────────────────────────────────────────
+# png export
 
 def fig_to_png_bytes(fig):
-    """Convert a matplotlib Figure to PNG bytes for download."""
     import io
     buf = io.BytesIO()
     fig.savefig(buf, format="png", dpi=150, bbox_inches="tight",

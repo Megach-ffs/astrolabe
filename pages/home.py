@@ -1,9 +1,3 @@
-"""
-Home — Landing Page
-
-Welcome page with feature overview and quick-start guide.
-"""
-
 import streamlit as sl
 
 
@@ -51,7 +45,6 @@ with col4:
 
 sl.markdown("---")
 
-# Quick start guide
 with sl.expander(":material/rocket_launch: Quick Start Guide", expanded=True):
     sl.markdown(
         """

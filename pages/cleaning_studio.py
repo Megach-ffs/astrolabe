@@ -1,10 +1,3 @@
-"""
-Page B — Cleaning & Preparation Studio
-
-Interactive data cleaning page with 8 feature sections.
-Every operation: preview → configure → apply → log → confirm.
-"""
-
 import streamlit as sl
 import pandas as pd
 
@@ -16,7 +9,7 @@ from utils import ai_assistant
 
 sl.title(":material/mop: Cleaning & Preparation Studio")
 
-# ── State Persistence (Restore) ────────────────
+# state holding
 if "app_state_cache" not in sl.session_state:
     sl.session_state["app_state_cache"] = {}
     
@@ -34,29 +27,27 @@ for k, v in sl.session_state["app_state_cache"].items():
         
         if not (is_btn or is_dynamic_btn or is_special):
             sl.session_state[k] = v
-# ─────────────────────────────────────────────
 
-# ── Guard: need data loaded ──────────────────
+# no dataset view
 if sl.session_state.get("df_working") is None:
     sl.warning(":material/warning: No dataset loaded. Go to **Upload & Overview** to upload a file first.")
     sl.stop()
 
 df = sl.session_state.df_working
 
-# Helper columns lists
+# helper columns lists
 numeric_cols = df.select_dtypes(include="number").columns.tolist()
 categorical_cols = df.select_dtypes(include=["object", "category"]).columns.tolist()
 all_cols = df.columns.tolist()
 
 sl.markdown(f"Working with **{len(df):,}** rows × **{len(df.columns)}** columns")
 
-# ── Toast Dispatcher (show stored messages after rerun) ──
+# success messages showing
 if "_toast_msg" in sl.session_state:
     sl.success(sl.session_state.pop("_toast_msg"))
 
 
 def _apply_ai_suggestion(dataframe, suggestion):
-    """Map an AI suggestion dict to our existing cleaning functions."""
     op = suggestion["operation"]
     params = suggestion["params"]
     cols = suggestion.get("affected_columns", [])
@@ -148,9 +139,7 @@ def _apply_ai_suggestion(dataframe, suggestion):
         raise ValueError(f"Unknown operation: {op}")
 
 
-# ═══════════════════════════════════════════════
-# 🤖 AI Cleaning Assistant (Bonus +12)
-# ═══════════════════════════════════════════════
+# ai assistant view
 if sl.session_state.get("ai_enabled"):
     if ai_assistant.is_available():
         with sl.expander(":material/robot: AI Cleaning Assistant", expanded=True):
@@ -188,7 +177,7 @@ if sl.session_state.get("ai_enabled"):
                         del sl.session_state["ai_suggestions"]
                         sl.rerun()
 
-            # Display suggestions as cards
+            # cards view suggestions
             if sl.session_state.get("ai_suggestions"):
                 for i, sug in enumerate(sl.session_state.ai_suggestions):
                     with sl.container(border=True):
@@ -227,14 +216,10 @@ if sl.session_state.get("ai_enabled"):
 sl.markdown("---")
 
 
-# ═══════════════════════════════════════════════
-# 4.1 Missing Values (10 pts)
-# ═══════════════════════════════════════════════
+# 4.1 Missing Values
 with sl.expander(":material/warning: 4.1 — Missing Values", expanded=False):
-    # Summary
     missing = df.isnull().sum()
     missing_cols = missing[missing > 0]
-
     if missing_cols.empty:
         sl.success(":material/check_circle: No missing values in the dataset!")
     else:
@@ -245,7 +230,6 @@ with sl.expander(":material/warning: 4.1 — Missing Values", expanded=False):
         })
         sl.dataframe(missing_info, use_container_width=True, hide_index=True)
 
-        # Controls
         cols_to_fix = sl.multiselect(
             "Select columns to fix",
             missing_cols.index.tolist(),
@@ -258,7 +242,7 @@ with sl.expander(":material/warning: 4.1 — Missing Values", expanded=False):
              "mean", "median", "mode", "constant", "ffill", "bfill"],
             key="mv_strategy",
         )
-
+        
         constant_val = None
         threshold_val = 50.0
         if strategy == "constant":
@@ -280,7 +264,6 @@ with sl.expander(":material/warning: 4.1 — Missing Values", expanded=False):
                 new_df = cleaning.fill_missing(
                     df, cols_to_fix, strategy, constant=constant_val
                 )
-
             TransformLog.add_step(
                 "fill_missing",
                 {"strategy": strategy, "columns": cols_to_fix},
@@ -296,10 +279,7 @@ with sl.expander(":material/warning: 4.1 — Missing Values", expanded=False):
             sl.session_state["_toast_msg"] = ":material/check_circle: Applied!"
             sl.rerun()
 
-
-# ═══════════════════════════════════════════════
 # 4.2 Duplicates
-# ═══════════════════════════════════════════════
 with sl.expander(":material/refresh: 4.2 — Duplicates", expanded=False):
     dup_mode = sl.radio(
         "Check for", ["Full-row duplicates", "Duplicates by subset"],
@@ -336,11 +316,8 @@ with sl.expander(":material/refresh: 4.2 — Duplicates", expanded=False):
             sl.rerun()
 
 
-# ═══════════════════════════════════════════════
-# 4.3 Data Types & Parsing
-# ═══════════════════════════════════════════════
+# 4.3 Datatypes& parsing
 with sl.expander(":material/cached: 4.3 — Data Types & Parsing", expanded=False):
-    # Show current types
     dtype_info = pd.DataFrame({
         "Column": all_cols,
         "Current Type": [str(df[c].dtype) for c in all_cols],
@@ -393,15 +370,13 @@ with sl.expander(":material/cached: 4.3 — Data Types & Parsing", expanded=Fals
             sl.error(f":material/error: Conversion failed: {e}")
 
 
-# ═══════════════════════════════════════════════
-# 4.4 Categorical Data Tools (10 pts)
-# ═══════════════════════════════════════════════
+# 4.4 Categorical data tools
 with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=False):
     cat_tab1, cat_tab2, cat_tab3, cat_tab4 = sl.tabs(
         ["Standardize", "Mapping", "Rare Grouping", "One-Hot Encoding"]
     )
 
-    # Tab 1: Standardize
+    # standardize
     with cat_tab1:
         std_cols = sl.multiselect(
             "Columns to standardize", categorical_cols, key="std_cols"
@@ -438,7 +413,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
             sl.session_state["_toast_msg"] = ":material/check_circle: Applied!"
             sl.rerun()
 
-    # Tab 2: Mapping
+    # mapping
     with cat_tab2:
         if categorical_cols:
             map_col = sl.selectbox(
@@ -464,7 +439,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
                 mapping_dict = dict(
                     zip(edited["Original"], edited["New Value"])
                 )
-                # Only keep changed values
+                # keep changed only
                 mapping_dict = {
                     k: v for k, v in mapping_dict.items() if k != v
                 }
@@ -487,7 +462,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
         else:
             sl.info("No categorical columns found.")
 
-    # Tab 3: Rare Category Grouping
+    # rare category grouping
     with cat_tab3:
         if categorical_cols:
             rare_col = sl.selectbox(
@@ -530,7 +505,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
         else:
             sl.info("No categorical columns found.")
 
-    # Tab 4: One-Hot Encoding
+    # onehot encoding
     with cat_tab4:
         if categorical_cols:
             ohe_cols = sl.multiselect(
@@ -564,9 +539,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
             sl.info("No categorical columns found.")
 
 
-# ═══════════════════════════════════════════════
-# 4.5 Numeric Cleaning — Outliers (10 pts)
-# ═══════════════════════════════════════════════
+# 4.5 Numeric Cleaning — Outliers
 with sl.expander(":material/square_foot: 4.5 — Numeric Cleaning (Outliers)", expanded=False):
     if numeric_cols:
         out_col = sl.selectbox(
@@ -651,9 +624,7 @@ with sl.expander(":material/square_foot: 4.5 — Numeric Cleaning (Outliers)", e
         sl.info("No numeric columns found.")
 
 
-# ═══════════════════════════════════════════════
-# 4.6 Normalization / Scaling (10 pts)
-# ═══════════════════════════════════════════════
+# 4.6 Normalization - scaling
 with sl.expander(":material/blur_linear: 4.6 — Normalization / Scaling", expanded=False):
     if numeric_cols:
         scale_cols = sl.multiselect(
@@ -665,12 +636,12 @@ with sl.expander(":material/blur_linear: 4.6 — Normalization / Scaling", expan
         )
 
         if scale_cols:
-            # Show before stats
+            # before table
             before_stats = df[scale_cols].describe().round(3)
             sl.markdown("**Before:**")
             sl.dataframe(before_stats, use_container_width=True)
 
-            # Preview
+            # after table (preview)
             if "Min-Max" in scale_method:
                 preview = cleaning.min_max_scale(df, scale_cols)
             else:
@@ -699,15 +670,13 @@ with sl.expander(":material/blur_linear: 4.6 — Normalization / Scaling", expan
         sl.info("No numeric columns found.")
 
 
-# ═══════════════════════════════════════════════
-# 4.7 Column Operations
-# ═══════════════════════════════════════════════
+# 4.7 Column operations
 with sl.expander(":material/build: 4.7 — Column Operations", expanded=False):
     col_tab1, col_tab2, col_tab3 = sl.tabs(
         ["Rename", "Drop", "Create New"]
     )
 
-    # Tab 1: Rename
+    # rename
     with col_tab1:
         rename_col = sl.selectbox("Column to rename", all_cols, key="ren_col")
         new_name = sl.text_input(
@@ -725,7 +694,7 @@ with sl.expander(":material/build: 4.7 — Column Operations", expanded=False):
             sl.session_state["_toast_msg"] = f":material/check_circle: Renamed `{rename_col}` → `{new_name}`"
             sl.rerun()
 
-    # Tab 2: Drop
+    # drop
     with col_tab2:
         drop_cols = sl.multiselect(
             "Columns to drop", all_cols, key="drop_cols"
@@ -742,7 +711,7 @@ with sl.expander(":material/build: 4.7 — Column Operations", expanded=False):
             sl.session_state["_toast_msg"] = f":material/check_circle: Dropped {len(drop_cols)} columns."
             sl.rerun()
 
-    # Tab 3: Create New
+    # create new
     with col_tab3:
         create_mode = sl.radio(
             "Mode", ["Formula", "Binning"],
@@ -807,9 +776,7 @@ with sl.expander(":material/build: 4.7 — Column Operations", expanded=False):
                     sl.error(f":material/error: {e}")
 
 
-# ═══════════════════════════════════════════════
-# 4.8 Data Validation Rules
-# ═══════════════════════════════════════════════
+# 4.8 Data validation
 with sl.expander(":material/rule: 4.8 — Data Validation Rules", expanded=False):
     sl.markdown("Define rules and check your dataset for violations.")
 
@@ -838,7 +805,7 @@ with sl.expander(":material/rule: 4.8 — Data Validation Rules", expanded=False
                 "values": [v.strip() for v in allowed_str.split(",")]
             }
 
-    # Store rules in session
+    # store rules in state
     if "validation_rules" not in sl.session_state:
         sl.session_state.validation_rules = []
 
@@ -852,7 +819,7 @@ with sl.expander(":material/rule: 4.8 — Data Validation Rules", expanded=False
         sl.session_state.validation_rules = []
         sl.rerun()
 
-    # Show current rules
+    # Show current
     rules = sl.session_state.validation_rules
     if rules:
         sl.markdown(f"**{len(rules)} rule(s) defined:**")
@@ -878,9 +845,7 @@ with sl.expander(":material/rule: 4.8 — Data Validation Rules", expanded=False
                 )
 
 
-# ═══════════════════════════════════════════════
-# Transformation Log Display
-# ═══════════════════════════════════════════════
+# Transformation Log
 sl.markdown("---")
 sl.subheader(":material/description: Transformation Log")
 
@@ -912,7 +877,7 @@ if log:
 else:
     sl.info("No transformations applied yet.")
 
-# ── State Persistence (Save) ───────────────────
+# State save
 for k in sl.session_state.keys():
     if k.startswith(_SAVE_PREFIXES):
         is_btn = k.endswith(("_apply", "_btn", "_add", "_clear", "_run"))
@@ -921,4 +886,3 @@ for k in sl.session_state.keys():
         
         if not (is_btn or is_dynamic_btn or is_special):
             sl.session_state["app_state_cache"][k] = sl.session_state[k]
-# ─────────────────────────────────────────────

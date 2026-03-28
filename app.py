@@ -1,18 +1,8 @@
-"""
-AI-Assisted Data Wrangler & Visualizer
-Main application entry point.
-
-Uses sl.Page() + sl.navigation() for centralized page management.
-Sidebar and session state are defined here and apply to ALL pages.
-"""
-
 import streamlit as sl
 from utils.transform_log import TransformLog
 
 
-# ──────────────────────────────────────────────
-# Page Configuration
-# ──────────────────────────────────────────────
+# Page config
 sl.set_page_config(
     page_title="Astrolabe",
     page_icon=":material/biotech:",
@@ -21,9 +11,7 @@ sl.set_page_config(
 )
 
 
-# ──────────────────────────────────────────────
-# Session State Initialization
-# ──────────────────────────────────────────────
+# Session state init
 def init_session_state():
     """Initialize all session state keys with default values."""
     defaults = {
@@ -41,9 +29,7 @@ def init_session_state():
 init_session_state()
 
 
-# ──────────────────────────────────────────────
-# Navigation — sl.Page() API
-# ──────────────────────────────────────────────
+# Navigation
 home_page = sl.Page("pages/home.py", title="Home", icon=":material/home:", default=True)
 upload_page = sl.Page("pages/upload_overview.py", title="Upload & Overview", icon=":material/upload:")
 cleaning_page = sl.Page("pages/cleaning_studio.py", title="Cleaning Studio", icon=":material/mop:")
@@ -54,9 +40,7 @@ export_page = sl.Page("pages/export_report.py", title="Export & Report", icon=":
 pg = sl.navigation([home_page, upload_page, cleaning_page, viz_page, chat_page, export_page])
 
 
-# ──────────────────────────────────────────────
-# Sidebar — Runs on EVERY page automatically
-# ──────────────────────────────────────────────
+# Sidebar
 with sl.sidebar:
     # Session info
     if sl.session_state.df_working is not None:
@@ -82,8 +66,4 @@ with sl.sidebar:
         value=sl.session_state.get("ai_enabled", False),
     )
 
-
-# ──────────────────────────────────────────────
-# Run the selected page
-# ──────────────────────────────────────────────
 pg.run()

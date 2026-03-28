@@ -1,15 +1,7 @@
-"""
-Page A — Upload & Overview
-
-Upload a dataset (CSV, Excel, JSON, or Google Sheets) and get
-instant profiling: shape, types, missing values, duplicates,
-and summary statistics.
-"""
-
 import streamlit as sl
 import pandas as pd
 import matplotlib.pyplot as plt
-# import numpy as np  # will be used in future phases
+# import numpy as np  
 
 from utils.data_loader import load_uploaded_file, load_google_sheet
 from utils.profiler import profile_dataframe
@@ -21,9 +13,7 @@ sl.title(":material/upload: Upload & Overview")
 sl.markdown("Upload your dataset to get started. The app will automatically profile your data.")
 
 
-# ──────────────────────────────────────────────
-# File Upload Section
-# ──────────────────────────────────────────────
+# File upload
 upload_tab, sheets_tab = sl.tabs([":material/create_new_folder: File Upload", ":material/folder_open: Google Sheets"])
 
 with upload_tab:
@@ -34,14 +24,12 @@ with upload_tab:
     )
 
     if uploaded_file is not None:
-        # Only reload if it's a new file
         if sl.session_state.file_name != uploaded_file.name:
             try:
                 df = load_uploaded_file(uploaded_file)
                 sl.session_state.df_original = df.copy()
                 sl.session_state.df_working = df.copy()
                 sl.session_state.file_name = uploaded_file.name
-                # Reset transform log for new file
                 TransformLog.reset_all(df)
                 sl.success(f":material/check_circle: Loaded **{uploaded_file.name}** — {len(df):,} rows × {len(df.columns)} columns")
             except ValueError as e:
@@ -69,16 +57,14 @@ with sheets_tab:
             sl.error(f":material/error: Failed to load Google Sheet: {e}")
 
 
-# ──────────────────────────────────────────────
-# Data Profiling (only if data is loaded)
-# ──────────────────────────────────────────────
+# Data Profiling
 if sl.session_state.df_working is not None:
     df = sl.session_state.df_working
     profile = profile_dataframe(df)
 
     sl.markdown("---")
 
-    # ── Metric Cards ──────────────────────────
+    # Metric cards
     sl.subheader(":material/analytics: Dataset Overview")
     col1, col2, col3, col4 = sl.columns(4)
 
@@ -102,7 +88,7 @@ if sl.session_state.df_working is not None:
 
     sl.markdown("---")
 
-    # ── Column Info Table ─────────────────────
+    # Column info
     sl.subheader(":material/info: Column Information")
     col_df = pd.DataFrame(profile["columns"])
     col_df.columns = ["Name", "Type", "Non-Null", "Null Count", "Null %", "Unique"]
@@ -123,7 +109,7 @@ if sl.session_state.df_working is not None:
 
     sl.markdown("---")
 
-    # ── Summary Statistics ────────────────────
+    # Summary
     sl.subheader(":material/table_chart: Summary Statistics")
     stat_tab1, stat_tab2 = sl.tabs(["Numeric", "Categorical"])
 
@@ -147,17 +133,15 @@ if sl.session_state.df_working is not None:
 
     sl.markdown("---")
 
-    # ── Missing Values Visualization ──────────
+    # Missing values
     sl.subheader(":material/warning: Missing Values")
 
     missing_df = profile["missing"]
     if not missing_df.empty:
         fig, ax = plt.subplots(figsize=(10, max(3, len(missing_df) * 0.4)))
 
-        # Sort by missing percentage
         missing_sorted = missing_df.sort_values("Missing %", ascending=True)
 
-        # Color-code: green <5%, yellow 5-20%, red >20%
         colors = []
         for pct in missing_sorted["Missing %"]:
             if pct < 5:
@@ -175,7 +159,6 @@ if sl.session_state.df_working is not None:
             linewidth=0.5,
         )
 
-        # Add value labels on bars
         for bar, count, pct in zip(
             bars,
             missing_sorted["Missing Count"],
@@ -204,7 +187,6 @@ if sl.session_state.df_working is not None:
         sl.pyplot(fig)
         plt.close(fig)
 
-        # Missing values table
         with sl.expander(":material/analytics: Missing Values Details"):
             sl.dataframe(
                 missing_df,
@@ -216,7 +198,7 @@ if sl.session_state.df_working is not None:
 
     sl.markdown("---")
 
-    # ── Data Preview ──────────────────────────
+    # Data preview
     sl.subheader(":material/visibility: Data Preview")
 
     preview_col1, preview_col2 = sl.columns([1, 3])
@@ -229,7 +211,7 @@ if sl.session_state.df_working is not None:
     else:
         sl.dataframe(df.tail(n_rows), use_container_width=True)
 
-    # ── AI Data Dictionary (Bonus) ────────────
+    # AI data dictionary
     if sl.session_state.get("ai_enabled"):
         if ai_assistant.is_available():
             sl.markdown("---")
@@ -259,7 +241,6 @@ if sl.session_state.df_working is not None:
                 with sl.container(border=True):
                     sl.markdown(sl.session_state.ai_data_dict)
                 
-                # Action buttons
                 act1, act2, act3, _ = sl.columns([2, 2, 2, 2])
                 with act1:
                     sl.download_button(
