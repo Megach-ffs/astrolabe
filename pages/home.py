@@ -7,7 +7,7 @@ Welcome page with feature overview and quick-start guide.
 import streamlit as sl
 
 
-sl.title(":material/science: AI-Assisted Data Wrangler & Visualizer")
+sl.title(":material/science: Astrolabe - AI-Assisted Data Wrangler & Visualizer")
 sl.markdown(
     """
     Welcome to the **Data Wrangler & Visualizer** — your interactive data

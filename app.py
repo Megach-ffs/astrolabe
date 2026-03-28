@@ -14,7 +14,7 @@ from utils.transform_log import TransformLog
 # Page Configuration
 # ──────────────────────────────────────────────
 sl.set_page_config(
-    page_title="Data Wrangler & Visualizer",
+    page_title="Astrolabe",
     page_icon=":material/biotech:",
     layout="wide",
     initial_sidebar_state="expanded",
