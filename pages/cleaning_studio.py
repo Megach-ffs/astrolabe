@@ -506,7 +506,7 @@ with sl.expander(":material/label: 4.4 — Categorical Data Tools", expanded=Fal
                 )
                 sl.dataframe(
                     rare_cats.reset_index().rename(
-                        columns={"index": "Category", rare_col: "Frequency %"}
+                        columns={"index": "Category", rare_col: "Category"}
                     ),
                     use_container_width=True,
                     hide_index=True,
