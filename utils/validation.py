@@ -1,32 +1,13 @@
-"""
-Data Validation Rule Engine.
-
-Lets users define validation rules and checks them against the dataset,
-reporting violations in a structured format.
-"""
-
 import pandas as pd
 
 
 class ValidationRule:
-    """Single validation rule definition."""
-
     def __init__(self, rule_type, column, params=None):
-        """
-        Args:
-            rule_type: 'range', 'allowed', or 'non_null'.
-            column: Column name to validate.
-            params: Dict of rule parameters:
-                - range: {'min': float, 'max': float}
-                - allowed: {'values': list}
-                - non_null: {} (no params needed)
-        """
         self.rule_type = rule_type
         self.column = column
         self.params = params or {}
 
     def to_dict(self):
-        """Serialize the rule to a dictionary."""
         return {
             "rule_type": self.rule_type,
             "column": self.column,
@@ -38,16 +19,6 @@ class ValidationRule:
 
 
 def validate_rules(df, rules):
-    """
-    Validate a DataFrame against a list of rules.
-
-    Args:
-        df: Input DataFrame.
-        rules: List of ValidationRule objects.
-
-    Returns:
-        pd.DataFrame with columns: row_index, column, rule_type, value, detail
-    """
     violations = []
 
     for rule in rules:
@@ -115,13 +86,4 @@ def validate_rules(df, rules):
 
 
 def export_violations(violations_df):
-    """
-    Export violations DataFrame as CSV bytes for download.
-
-    Args:
-        violations_df: DataFrame from validate_rules().
-
-    Returns:
-        bytes (CSV encoded).
-    """
     return violations_df.to_csv(index=False).encode("utf-8")
