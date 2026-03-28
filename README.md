@@ -5,6 +5,9 @@
 
 An interactive Streamlit application for data preparation, cleaning, transformation, and visualization. Upload a dataset and take it through a complete data wrangling pipeline — all from a user-friendly web interface.
 
+## Uploaded app link:
+![Astrolabe](https://astrolabes.streamlit.app)
+
 ## ✨ Features
 
 - **📤 Upload & Profile** — CSV, Excel, JSON upload with instant data profiling
