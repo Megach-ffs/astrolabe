@@ -316,7 +316,7 @@ with sl.expander(":material/refresh: 4.2 — Duplicates", expanded=False):
     if not dup_df.empty:
         with sl.container():
             sl.markdown("**Sample duplicate groups:**")
-            sl.dataframe(dup_df.head(20), use_container_width=True)
+            sl.dataframe(cleaning.get_duplicates_occurence(df, subset=subset if subset else None).head(20), use_container_width=True)
 
         keep = sl.selectbox("Keep", ["first", "last"], key="dup_keep")
 

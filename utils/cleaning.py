@@ -82,8 +82,11 @@ def find_duplicates(df, subset=None):
     Returns:
         DataFrame containing only the duplicate rows.
     """
-    mask = df.duplicated(subset=subset, keep=False)
+    mask = df.duplicated(subset=subset, keep='first')
     return df[mask].copy()
+
+def get_duplicates_occurence(df, subset=None):
+    return find_duplicates(df, subset).drop_duplicates(subset=subset, keep='first')
 
 
 def remove_duplicates(df, subset=None, keep="first"):
