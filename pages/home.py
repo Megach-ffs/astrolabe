@@ -10,7 +10,7 @@ import streamlit as sl
 sl.title(":material/science: Astrolabe - AI-Assisted Data Wrangler & Visualizer")
 sl.markdown(
     """
-    Welcome to the **Data Wrangler & Visualizer** — your interactive data
+    Welcome to the **Astrolabe** — your interactive data
     preparation studio. Upload a dataset and take it through a complete
     cleaning, transformation, and visualization pipeline.
     """
